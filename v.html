@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Votação · Hélices da inovação</title>
+<style>
+html,body{margin:0;background:#14171E;color:#F3EFE3;font:500 19px/1.4 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+#aud{max-width:640px;margin:0 auto;padding:22px 16px 40px}
+h1{font:800 26px system-ui,Arial,sans-serif;color:#C99BC0;margin:0 0 4px;letter-spacing:.5px}
+.sub{font-size:14px;color:#9a948a;margin:0 0 18px}
+#aq{font:700 21px/1.3 system-ui,Arial,sans-serif;margin-bottom:16px}
+#ao button{display:block;width:100%;margin:0 0 12px;padding:16px;border-radius:14px;border:2px solid #ffffff44;background:#ffffff12;color:#fff;font:600 18px/1.3 system-ui,Arial,sans-serif;text-align:left}
+#ao button b{color:#E2C06A;margin-right:6px}
+#ao button.sel{border-color:#E2C06A;background:#E2C06A2e}
+#as{color:#93C49F;min-height:1.4em}
+</style></head><body>
+<div id="aud"><h1>VOTAÇÃO</h1><p class="sub">Seminário · Hélices da inovação · PPAC/UFC</p><div id="aq">Conectando…</div><div id="ao"></div><p id="as"></p></div>
+<script>
+const FB_DEFAULT='https://seminario-helices-cogerh-default-rtdb.firebaseio.com';
+let FB=FB_DEFAULT;try{const q=new URLSearchParams(location.search).get('fb');if(q)FB=q;}catch(e){}
+const u=p=>FB.replace(/\/+$/,'')+'/'+p+'.json';
+let uid=null;try{uid=localStorage.getItem('sem_uid');}catch(e){}
+if(!uid){uid='u'+Math.random().toString(36).slice(2,10)+Date.now().toString(36);try{localStorage.setItem('sem_uid',uid);}catch(e){}}
+let cur=null,mine=null;const $=id=>document.getElementById(id);
+function draw(){if(!cur||!cur.pid){$('aq').textContent='Conectado. A pergunta aparece quando o apresentador abrir o slide da votação.';$('ao').innerHTML='';return;}
+ $('aq').textContent=cur.q;$('ao').innerHTML=cur.opts.map((o,i)=>`<button data-k="${i}" class="${mine===i?'sel':''}"><b>${'ABCD'[i]}</b>${o}</button>`).join('');
+ $('ao').querySelectorAll('button').forEach(b=>b.onclick=async()=>{mine=+b.dataset.k;draw();
+  try{const r=await fetch(u('votes/'+uid),{method:'PATCH',body:JSON.stringify({[cur.pid]:mine})});if(!r.ok)throw 0;$('as').textContent='Voto registrado. Você pode mudar até a resposta ser revelada.';}
+  catch(e){$('as').textContent='Não foi possível registrar. Tente de novo.';}});}
+async function tick(){try{const r=await fetch(u('live/current'),{cache:'no-store'});if(!r.ok){$('aq').textContent='Não consegui ler o banco de votos (erro '+r.status+'). Avise o apresentador.';return;}
+ const v=await r.json();if(v&&v.pid&&(!cur||cur.pid!==v.pid)){mine=null;try{const m=await (await fetch(u('votes/'+uid+'/'+v.pid),{cache:'no-store'})).json();if(typeof m==='number')mine=m;}catch(e){}}
+ cur=v;draw();}catch(e){$('aq').textContent='Sem conexão. Verifique a internet e recarregue a página.';}}
+tick();setInterval(tick,2000);
+</script></body></html>

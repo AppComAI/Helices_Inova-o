@@ -447,7 +447,7 @@ kbd { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; 
 <h2 class="vq">O aquecimento global traz mais calor e secas mais longas ao Ceará. Pela hélice quíntupla, o que isso representa para a COGERH?</h2>
 <div class="vwrap">
 <div class="vgrid"><button class="vopt" data-k="0"><span class="vl">A</span><span class="vt2">Uma perda inevitável, que só cabe aceitar</span><span class="vn">0</span><span class="vb"></span></button><button class="vopt" data-k="1"><span class="vl">B</span><span class="vt2">Um problema que se resolve construindo mais açudes</span><span class="vn">0</span><span class="vb"></span></button><button class="vopt" data-k="2"><span class="vl">C</span><span class="vt2">Uma restrição que obriga a criar conhecimento novo e pode virar inovação</span><span class="vn">0</span><span class="vb"></span></button><button class="vopt" data-k="3"><span class="vl">D</span><span class="vt2">Um tema ambiental, fora da gestão da empresa</span><span class="vn">0</span><span class="vb"></span></button></div>
-<div class="vqr" id="vqr" title="Configurar votação ao vivo"><div id="vqrbox"></div><p class="vcap" id="vcap">Aponte a câmera e vote</p><p class="vtot" id="vtot">0 votos</p></div>
+<div class="vqr" id="vqr"><button class="vgear" id="vgear" title="Configurar votação ao vivo">⚙</button><div id="vqrbox"></div><p class="vcap" id="vcap">Aponte a câmera e vote</p><p class="vurl" id="vurl"></p><button class="vzoom" id="vzoom">QR CODE ZOOM</button><p class="vtot" id="vtot">0 votos</p></div>
 </div>
 <div class="vrev fragment"><b>Resposta: C.</b> Para Carayannis, Barth e Campbell (2012), o aquecimento global é desafio e, ao mesmo tempo, motor de inovação. <b>No Ceará:</b> a escassez levou o Estado a buscar água no mar. A Dessal do Ceará, com obras iniciadas em 2026, será a maior usina de dessalinização do país: 1.000 litros por segundo, cerca de 720 mil pessoas, 12% da demanda da Grande Fortaleza.</div>
 <div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>16</p></div>
@@ -914,8 +914,22 @@ kbd { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; 
 #vcfg .row2 { display:flex; gap:10px; justify-content:flex-end; margin-top:18px; }
 #vcfg button { border:1px solid #ffffff40; background:#ffffff18; color:#fff; border-radius:10px; padding:8px 14px; font:600 15px Inter,Arial,sans-serif; cursor:pointer; }
 #vcfg button.p { background:#3F6CA8; border-color:#8FB0DC; }
+
+#din-ameaca .vqr { position:relative; cursor:default; }
+#din-ameaca .vgear { position:absolute; top:6px; right:8px; border:none; background:none; font-size:22px; color:#9a9184; cursor:pointer; padding:2px 6px; }
+#din-ameaca .vgear:hover { color:#2B2E35; }
+#din-ameaca .vurl { font:600 15px Inter,Arial,sans-serif !important; color:#55524C !important; word-break:break-all; }
+#din-ameaca .vzoom { border:none; border-radius:10px; background:#7B4A70; color:#fff; font:700 18px Inter,Arial,sans-serif; letter-spacing:1px; padding:10px 16px; cursor:pointer; }
+#din-ameaca .vzoom:hover { background:#93587F; }
+#qrzoom { position:fixed; inset:0; z-index:400; background:#FBF8F1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2vh; cursor:zoom-out; }
+#qrzoom.hide { display:none; }
+#qrzoom .zbox { width:min(80vh,90vw); height:min(80vh,90vw); }
+#qrzoom .zbox svg { width:100%; height:100%; }
+#qrzoom p { margin:0; font:700 clamp(18px,3vh,34px) Inter,Arial,sans-serif; color:#2B2E35; text-align:center; }
+#qrzoom small { font:600 clamp(14px,2.2vh,24px) Inter,Arial,sans-serif; color:#7B4A70; }
 </style>
 <div id="vplayer" class="hide"><button class="vx" id="vclose">Fechar ✕ (Esc)</button><div class="vt" id="vtitle"></div><video id="vel" controls playsinline></video><div class="verr hide" id="verr"></div></div>
+<div id="qrzoom" class="hide"><div class="zbox" id="zbox"></div><p>Aponte a câmera e vote <small id="zurl"></small></p></div>
 <div id="vcfg" class="hide"><article><b style="font-size:20px">Votação ao vivo</b><br>Para receber votos pelo celular, a apresentação precisa estar publicada num endereço público (ex.: GitHub Pages) e ligada a um banco Firebase (Realtime Database). Sem isso, a contagem manual continua funcionando.
 <label>Endereço público desta apresentação</label><input id="vcfgLive" placeholder="https://usuario.github.io/seminario/">
 <label>URL do Firebase Realtime Database</label><input id="vcfgFb" placeholder="https://nome-do-projeto-default-rtdb.firebaseio.com">
@@ -3353,9 +3367,13 @@ const tot=k=>(manual[k]||0)+(live[k]||0);
 function paint(){const n=[0,1,2,3].map(tot),sum=n.reduce((a,b)=>a+b,0),mx=Math.max(1,...n);
   sec.querySelectorAll('.vopt').forEach(b=>{const k=+b.dataset.k;b.querySelector('.vn').textContent=n[k];b.querySelector('.vb').style.width=(n[k]/mx*100)+'%';});
   document.getElementById('vtot').textContent=(typeof pubErr!=='undefined'&&pubErr)?pubErr:sum+(sum===1?' voto':' votos')+(C.fb?' · ao vivo':'');}
+const FB_DEFAULT='https://seminario-helices-cogerh-default-rtdb.firebaseio.com';
+function voteUrl(){if(!C.live)return '';let base=C.live.replace(/[?#].*$/,'');if(!base.endsWith('/'))base=base.replace(/[^/]*$/,'');let u=base+'v.html';
+  if(C.fb&&C.fb.replace(/\/+$/,'')!==FB_DEFAULT)u+='?fb='+encodeURIComponent(C.fb);return u;}
+function qrSvgOf(u){const q=qrcode(0,'L');q.addData(u);q.make();return q.createSvgTag({cellSize:8,margin:2,scalable:true});}
 function drawQR(){const box=document.getElementById('vqrbox');
   if(!C.live){box.innerHTML='<div class="vempty">Clique aqui para configurar a votação pelo celular</div>';document.getElementById('vcap').textContent='Sem link: vote com a mão';return;}
-  try{const q=qrcode(0,'M');const base=C.live.replace(/#.*$/,'');q.addData(base+(C.fb?(base.includes('?')?'&':'?')+'fb='+encodeURIComponent(C.fb):'')+'#votar');q.make();box.innerHTML=q.createSvgTag({cellSize:8,margin:2,scalable:true});document.getElementById('vcap').textContent='Aponte a câmera e vote';}catch(e){box.innerHTML='<div class="vempty">Link inválido</div>';}}
+  try{const u=voteUrl();box.innerHTML=qrSvgOf(u);document.getElementById('vcap').textContent='Aponte a câmera e vote';document.getElementById('vurl').textContent=u.replace(/^https?:\/\//,'').replace(/\?.*$/,'');}catch(e){box.innerHTML='<div class="vempty">Link inválido</div>';}}
 let pubErr='';async function publish(on){if(!C.fb)return;try{const r=await fetch(fbu('live/current'),{method:'PUT',body:JSON.stringify(on?{pid:PID,q:Q,opts:OPTS,t:Date.now()}:{pid:null,t:Date.now()})});pubErr=r.ok?'':'⚠ banco recusou ('+r.status+'): confira as regras e o endereço';}catch(e){pubErr='⚠ sem conexão com o banco: confira o endereço';}paint();}
 async function pull(){if(!C.fb)return;try{const v=(await (await fetch(fbu('votes'),{cache:'no-store'})).json())||{};const c={};Object.values(v).forEach(u=>{const k=u&&u[PID];if(typeof k==='number')c[k]=(c[k]||0)+1});live=c;paint();}catch(e){}}
 function check(){const on=sec.classList.contains('on');if(on===active)return;active=on;
@@ -3364,7 +3382,14 @@ new MutationObserver(check).observe(sec,{attributes:true,attributeFilter:['class
 sec.querySelectorAll('.vopt').forEach(b=>b.addEventListener('click',e=>{e.stopPropagation();if(sec.querySelector('.vrev.visible'))return;const k=+b.dataset.k;manual[k]=Math.max(0,(manual[k]||0)+(e.shiftKey?-1:1));ls.set('manual_'+PID,manual);paint();}));
 /* configuração */
 const dlg=document.getElementById('vcfg');
-document.getElementById('vqr').addEventListener('click',e=>{e.stopPropagation();document.getElementById('vcfgLive').value=C.live;document.getElementById('vcfgFb').value=C.fb;dlg.classList.remove('hide');});
+document.getElementById('vqr').addEventListener('click',e=>e.stopPropagation());
+document.getElementById('vgear').addEventListener('click',e=>{e.stopPropagation();document.getElementById('vcfgLive').value=C.live;document.getElementById('vcfgFb').value=C.fb;dlg.classList.remove('hide');});
+const zoom=document.getElementById('qrzoom');
+function zoomOpen(){if(!C.live){document.getElementById('vgear').click();return;}const u=voteUrl();document.getElementById('zbox').innerHTML=qrSvgOf(u);document.getElementById('zurl').textContent='· '+u.replace(/^https?:\/\//,'').replace(/\?.*$/,'');zoom.classList.remove('hide');}
+function zoomClose(){zoom.classList.add('hide');}
+document.getElementById('vzoom').addEventListener('click',e=>{e.stopPropagation();zoomOpen();});
+zoom.addEventListener('click',e=>{e.stopPropagation();zoomClose();});
+document.addEventListener('keydown',e=>{if(zoom.classList.contains('hide'))return;e.stopPropagation();e.preventDefault();if(e.key==='Escape'||e.key==='Enter'||e.key===' ')zoomClose();},true);
 dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.classList.add('hide');e.stopPropagation();});
 document.getElementById('vcfgCancel').onclick=()=>dlg.classList.add('hide');
 document.getElementById('vcfgOk').onclick=()=>{C.live=document.getElementById('vcfgLive').value.trim();C.fb=document.getElementById('vcfgFb').value.trim();ls.set('vcfg',{live:C.live,fb:C.fb});dlg.classList.add('hide');drawQR();if(active){publish(true);pull();clearInterval(timer);timer=setInterval(pull,2000);}paint();};
