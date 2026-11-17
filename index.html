@@ -3334,14 +3334,14 @@ if(window.__VOTAR){
     if(!C.fb){document.getElementById('aq').textContent='Votação ao vivo indisponível. Vote levantando a mão.';return;}
     let cur=null,mine=null;
     const draw=()=>{const aq=document.getElementById('aq'),ao=document.getElementById('ao');
-      if(!cur||!cur.pid){aq.textContent='Aguardando a pergunta…';ao.innerHTML='';return;}
+      if(!cur||!cur.pid){aq.textContent='Conectado. Aguardando a pergunta: ela aparece quando o apresentador abrir o slide da votação.';ao.innerHTML='';return;}
       aq.textContent=cur.q; ao.innerHTML=cur.opts.map((o,i)=>`<button data-k="${i}" class="${mine===i?'sel':''}"><b>${'ABCD'[i]}</b> · ${o}</button>`).join('');
       ao.querySelectorAll('button').forEach(b=>b.onclick=async()=>{mine=+b.dataset.k;draw();
         try{const r=await fetch(fbu('votes/'+uid),{method:'PATCH',body:JSON.stringify({[cur.pid]:mine})});if(!r.ok)throw 0;document.getElementById('as').textContent='Voto registrado. Você pode mudar até a resposta ser revelada.';}
         catch(e){document.getElementById('as').textContent='Não foi possível registrar. Tente de novo.';}});};
-    const tick=async()=>{try{const r=await fetch(fbu('live/current'),{cache:'no-store'});const v=await r.json();
+    const tick=async()=>{try{const r=await fetch(fbu('live/current'),{cache:'no-store'});if(!r.ok){document.getElementById('aq').textContent='Não consegui ler o banco de votos (erro '+r.status+'). Avise o apresentador.';return;}const v=await r.json();
       if(v&&v.pid&&(!cur||cur.pid!==v.pid)){try{const m=await (await fetch(fbu('votes/'+uid+'/'+v.pid),{cache:'no-store'})).json();mine=(typeof m==='number')?m:null}catch(e){}}
-      cur=v;draw();}catch(e){}};
+      cur=v;draw();}catch(e){document.getElementById('aq').textContent='Sem conexão com o banco de votos. Avise o apresentador.';}};
     tick();setInterval(tick,2000);};
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run();
   return;
@@ -3352,11 +3352,11 @@ let manual=ls.get('manual_'+PID)||{}, live={}, active=false, timer=null;
 const tot=k=>(manual[k]||0)+(live[k]||0);
 function paint(){const n=[0,1,2,3].map(tot),sum=n.reduce((a,b)=>a+b,0),mx=Math.max(1,...n);
   sec.querySelectorAll('.vopt').forEach(b=>{const k=+b.dataset.k;b.querySelector('.vn').textContent=n[k];b.querySelector('.vb').style.width=(n[k]/mx*100)+'%';});
-  document.getElementById('vtot').textContent=sum+(sum===1?' voto':' votos')+(C.fb?' · ao vivo':'');}
+  document.getElementById('vtot').textContent=(typeof pubErr!=='undefined'&&pubErr)?pubErr:sum+(sum===1?' voto':' votos')+(C.fb?' · ao vivo':'');}
 function drawQR(){const box=document.getElementById('vqrbox');
   if(!C.live){box.innerHTML='<div class="vempty">Clique aqui para configurar a votação pelo celular</div>';document.getElementById('vcap').textContent='Sem link: vote com a mão';return;}
   try{const q=qrcode(0,'M');const base=C.live.replace(/#.*$/,'');q.addData(base+(C.fb?(base.includes('?')?'&':'?')+'fb='+encodeURIComponent(C.fb):'')+'#votar');q.make();box.innerHTML=q.createSvgTag({cellSize:8,margin:2,scalable:true});document.getElementById('vcap').textContent='Aponte a câmera e vote';}catch(e){box.innerHTML='<div class="vempty">Link inválido</div>';}}
-async function publish(on){if(!C.fb)return;try{await fetch(fbu('live/current'),{method:'PUT',body:JSON.stringify(on?{pid:PID,q:Q,opts:OPTS,t:Date.now()}:{pid:null,t:Date.now()})});}catch(e){}}
+let pubErr='';async function publish(on){if(!C.fb)return;try{const r=await fetch(fbu('live/current'),{method:'PUT',body:JSON.stringify(on?{pid:PID,q:Q,opts:OPTS,t:Date.now()}:{pid:null,t:Date.now()})});pubErr=r.ok?'':'⚠ banco recusou ('+r.status+'): confira as regras e o endereço';}catch(e){pubErr='⚠ sem conexão com o banco: confira o endereço';}paint();}
 async function pull(){if(!C.fb)return;try{const v=(await (await fetch(fbu('votes'),{cache:'no-store'})).json())||{};const c={};Object.values(v).forEach(u=>{const k=u&&u[PID];if(typeof k==='number')c[k]=(c[k]||0)+1});live=c;paint();}catch(e){}}
 function check(){const on=sec.classList.contains('on');if(on===active)return;active=on;
   if(on){publish(true);pull();timer=setInterval(pull,2000);}else{clearInterval(timer);publish(false);}}
