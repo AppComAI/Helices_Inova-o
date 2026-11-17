@@ -11,6 +11,7 @@ h1{font:800 26px system-ui,Arial,sans-serif;color:#C99BC0;margin:0 0 4px;letter-
 #ao button b{color:#E2C06A;margin-right:6px}
 #ao button.sel{border-color:#E2C06A;background:#E2C06A2e}
 #as{color:#93C49F;min-height:1.4em}
+#ao button:disabled{opacity:.5}
 </style></head><body>
 <div id="aud"><h1>VOTAÇÃO</h1><p class="sub">Seminário · Hélices da inovação · PPAC/UFC</p><div id="aq">Conectando…</div><div id="ao"></div><p id="as"></p></div>
 <script>
@@ -21,12 +22,13 @@ let uid=null;try{uid=localStorage.getItem('sem_uid');}catch(e){}
 if(!uid){uid='u'+Math.random().toString(36).slice(2,10)+Date.now().toString(36);try{localStorage.setItem('sem_uid',uid);}catch(e){}}
 let cur=null,mine=null;const $=id=>document.getElementById(id);
 function draw(){if(!cur||!cur.pid){$('aq').textContent='Conectado. A pergunta aparece quando o apresentador abrir o slide da votação.';$('ao').innerHTML='';return;}
- $('aq').textContent=cur.q;$('ao').innerHTML=cur.opts.map((o,i)=>`<button data-k="${i}" class="${mine===i?'sel':''}"><b>${'ABCD'[i]}</b>${o}</button>`).join('');
+ $('aq').textContent=cur.q;$('ao').innerHTML=cur.opts.map((o,i)=>`<button data-k="${i}" ${cur.closed?'disabled':''} class="${mine===i?'sel':''}"><b>${'ABCD'[i]}</b>${o}</button>`).join('');
+ if(cur.closed){$('as').textContent='Votação encerrada. Veja o resultado na tela.';return;}
  $('ao').querySelectorAll('button').forEach(b=>b.onclick=async()=>{mine=+b.dataset.k;draw();
-  try{const r=await fetch(u('votes/'+uid),{method:'PATCH',body:JSON.stringify({[cur.pid]:mine})});if(!r.ok)throw 0;$('as').textContent='Voto registrado. Você pode mudar até a resposta ser revelada.';}
+  try{const r=await fetch(u('votes/'+uid),{method:'PATCH',body:JSON.stringify({[cur.pid]:mine})});if(!r.ok)throw 0;$('as').textContent='Voto registrado. Você pode mudar até o resultado ser revelado.';}
   catch(e){$('as').textContent='Não foi possível registrar. Tente de novo.';}});}
 async function tick(){try{const r=await fetch(u('live/current'),{cache:'no-store'});if(!r.ok){$('aq').textContent='Não consegui ler o banco de votos (erro '+r.status+'). Avise o apresentador.';return;}
- const v=await r.json();if(v&&v.pid&&(!cur||cur.pid!==v.pid)){mine=null;try{const m=await (await fetch(u('votes/'+uid+'/'+v.pid),{cache:'no-store'})).json();if(typeof m==='number')mine=m;}catch(e){}}
+ const v=await r.json();if(v&&v.pid&&(!cur||cur.pid!==v.pid)){mine=null;$('as').textContent='';try{const m=await (await fetch(u('votes/'+uid+'/'+v.pid),{cache:'no-store'})).json();if(typeof m==='number')mine=m;}catch(e){}}
  cur=v;draw();}catch(e){$('aq').textContent='Sem conexão. Verifique a internet e recarregue a página.';}}
 tick();setInterval(tick,2000);
 </script></body></html>

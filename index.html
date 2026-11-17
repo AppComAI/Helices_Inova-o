@@ -275,12 +275,18 @@ kbd { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; 
 <aside>Ler a pergunta. Apresentar a tese uma única vez. A tese será testada no fim por seis critérios.</aside>
 </section>
 
-<section id="votacao1" data-transition="fade">
-<p class="eyebrow">Antes dos conceitos</p>
-<h2>Qual é a sua opinião hoje?</h2>
-<div style="display:flex; gap:56px; align-items:stretch;"><div style="flex:1; display:flex;"><div class="interacao" style="flex:1;"><p class="eyebrow">Interação com a turma · Votação 1</p><p>Por QR code: <b class="ink">“A COGERH inova, ou apenas coordena bem?”</b></p><p>(a) inova · (b) coordena bem · (c) as duas coisas · (d) nenhuma</p><p>O resultado fica guardado e volta na conclusão, ao lado da Votação 2.</p></div></div><div class="qrcard" id="qrcard" title="Clique para definir o link da votação"><div id="qrbox"></div><p class="qrcap" id="qrcap">Aponte a câmera e vote</p></div></div>
+<section id="votacao1" class="poll" data-pid="v1" data-transition="fade">
+<div class="vled" title="Clique para iniciar / pausar (tecla T)"><svg class="vledsvg" viewBox="0 0 260 150"></svg><span class="vledlab">clique para iniciar</span></div>
+<p class="eyebrow">Antes dos conceitos · Votação 1</p>
+<h2 class="vq vq-big">A COGERH inova, ou apenas gerencia bem?</h2>
+<div class="vwrap">
+<div class="vgrid"><div class="vopt" data-k="0"><span class="vl">A</span><span class="vt2">Inova</span><span class="vn">0</span><span class="vpm"><button class="vm" title="Tirar 1 voto">−</button><button class="vp" title="Somar 1 voto">+</button></span><span class="vb"></span></div><div class="vopt" data-k="1"><span class="vl">B</span><span class="vt2">Apenas gerencia bem</span><span class="vn">0</span><span class="vpm"><button class="vm" title="Tirar 1 voto">−</button><button class="vp" title="Somar 1 voto">+</button></span><span class="vb"></span></div><div class="vopt" data-k="2"><span class="vl">C</span><span class="vt2">As duas coisas</span><span class="vn">0</span><span class="vpm"><button class="vm" title="Tirar 1 voto">−</button><button class="vp" title="Somar 1 voto">+</button></span><span class="vb"></span></div><div class="vopt" data-k="3"><span class="vl">D</span><span class="vt2">Nenhuma das duas</span><span class="vn">0</span><span class="vpm"><button class="vm" title="Tirar 1 voto">−</button><button class="vp" title="Somar 1 voto">+</button></span><span class="vb"></span></div></div>
+<div class="vqr"><button class="vgear" title="Configurar votação ao vivo">⚙</button><div class="vqrbox"></div><p class="vcap">Aponte a câmera e vote</p><p class="vurl"></p><button class="vzoom">QR CODE ZOOM</button><p class="vtot">0 votos</p></div>
+</div>
+<div class="vtools"><button class="vreset">Zerar votação</button><span class="vstat"></span></div>
+<div class="vrev fragment"><b>Resultado guardado.</b> Ele volta na conclusão, ao lado da Votação 2, com a mesma pergunta.</div>
 <div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>3</p></div>
-<aside>Abrir a votação por 40 segundos. Não comentar o resultado.</aside>
+<aside>Abrir a votação (cronômetro de 40 s: clique no painel ou tecla T). Não comentar o resultado: ele volta na conclusão.</aside>
 </section>
 
 <section id="roteiro" data-transition="fade">
@@ -442,15 +448,15 @@ kbd { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; 
 
 </section>
 
-<section id="din-ameaca" data-transition="fade">
+<section id="din-ameaca" class="poll" data-pid="q5" data-correct="2" data-transition="fade">
 <p class="eyebrow t-green">Hélice quíntupla · Interação com a turma</p>
-<div class="vled" id="vled" title="Clique para iniciar / pausar (tecla T)"><svg id="vledsvg" viewBox="0 0 260 150"></svg><span class="vledlab" id="vledlab">clique para iniciar</span></div>
+<div class="vled" title="Clique para iniciar / pausar (tecla T)"><svg class="vledsvg" viewBox="0 0 260 150"></svg><span class="vledlab">clique para iniciar</span></div>
 <h2 class="vq">O aquecimento global traz mais calor e secas mais longas ao Ceará. Pela hélice quíntupla, o que isso representa para a COGERH?</h2>
 <div class="vwrap">
 <div class="vgrid"><div class="vopt" data-k="0"><span class="vl">A</span><span class="vt2">Uma perda inevitável, que só cabe aceitar</span><span class="vn">0</span><span class="vpm"><button class="vm" title="Tirar 1 voto">−</button><button class="vp" title="Somar 1 voto">+</button></span><span class="vb"></span></div><div class="vopt" data-k="1"><span class="vl">B</span><span class="vt2">Um problema que se resolve construindo mais açudes</span><span class="vn">0</span><span class="vpm"><button class="vm" title="Tirar 1 voto">−</button><button class="vp" title="Somar 1 voto">+</button></span><span class="vb"></span></div><div class="vopt" data-k="2"><span class="vl">C</span><span class="vt2">Uma restrição que obriga a criar conhecimento novo e pode virar inovação</span><span class="vn">0</span><span class="vpm"><button class="vm" title="Tirar 1 voto">−</button><button class="vp" title="Somar 1 voto">+</button></span><span class="vb"></span></div><div class="vopt" data-k="3"><span class="vl">D</span><span class="vt2">Um tema ambiental, fora da gestão da empresa</span><span class="vn">0</span><span class="vpm"><button class="vm" title="Tirar 1 voto">−</button><button class="vp" title="Somar 1 voto">+</button></span><span class="vb"></span></div></div>
-<div class="vqr" id="vqr"><button class="vgear" id="vgear" title="Configurar votação ao vivo">⚙</button><div id="vqrbox"></div><p class="vcap" id="vcap">Aponte a câmera e vote</p><p class="vurl" id="vurl"></p><button class="vzoom" id="vzoom">QR CODE ZOOM</button><p class="vtot" id="vtot">0 votos</p></div>
+<div class="vqr"><button class="vgear" title="Configurar votação ao vivo">⚙</button><div class="vqrbox"></div><p class="vcap">Aponte a câmera e vote</p><p class="vurl"></p><button class="vzoom">QR CODE ZOOM</button><p class="vtot">0 votos</p></div>
 </div>
-<div class="vtools"><button id="vreset">Zerar votação</button><span id="vstat" class="vstat"></span></div>
+<div class="vtools"><button class="vreset">Zerar votação</button><span class="vstat"></span></div>
 <div class="vrev fragment"><b>Resposta: C.</b> Para Carayannis, Barth e Campbell (2012), o aquecimento global é desafio e, ao mesmo tempo, motor de inovação. <b>No Ceará:</b> a escassez levou o Estado a buscar água no mar. A Dessal do Ceará, com obras iniciadas em 2026, será a maior usina de dessalinização do país: 1.000 litros por segundo, cerca de 720 mil pessoas, 12% da demanda da Grande Fortaleza.</div>
 <div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>16</p></div>
 <aside>Ler a pergunta e deixar votar (QR ou mãos levantadas). Contagem manual: clique na opção (Shift+clique tira um). Avançar (→ ou espaço) revela a resposta C e o exemplo da dessalinização. Botão "Zerar" no canto do QR, com Shift+clique no QR.</aside>
@@ -675,7 +681,7 @@ kbd { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; 
 <section id="tese-final" data-transition="fade">
 <p class="eyebrow">Parte 6 · Veredito</p>
 <div class="quote"><p>Inovadora na gestão, conservadora no negócio. As portas estão abertas; falta atravessá-las.</p></div>
-<div class="interacao"><p class="eyebrow">Interação com a turma · Votação 2</p><p>Mesma pergunta: <b class="ink">“A COGERH inova, ou apenas coordena bem?”</b></p><p>Comparação com a Votação 1, lado a lado.</p></div>
+<div class="interacao"><p class="eyebrow">Interação com a turma · Votação 2</p><p>Mesma pergunta: <b class="ink">“A COGERH inova, ou apenas gerencia bem?”</b></p><p>Comparação com a Votação 1, lado a lado.</p></div>
 <div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>32</p></div>
 <aside>Se a opção ‘as duas coisas’ crescer, o argumento central se sustentou: coordenar bem atores diferentes já é inovação institucional.</aside>
 </section>
@@ -887,27 +893,27 @@ kbd { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; 
 #lei-limites .cols3 { row-gap:24px !important; }
 
 /* ---- votação ao vivo (slide 16) ---- */
-#din-ameaca h2.vq { font-size:46px; line-height:1.22; max-width:1664px; }
-#din-ameaca .vwrap { display:flex; gap:40px; align-items:stretch; }
-#din-ameaca .vgrid { flex:1; display:grid; grid-template-columns:1fr 1fr; gap:22px; }
-#din-ameaca .vopt { position:relative; overflow:hidden; display:flex; align-items:center; gap:22px; text-align:left; padding:22px 28px; min-height:120px; border:2px solid rgba(255,255,255,.16); border-radius:16px; background:rgba(22,26,36,.75); color:#F3EFE3; font:600 26px/1.3 Inter,Arial,sans-serif; cursor:pointer; transition:border-color .3s, background .3s, opacity .3s; }
-#din-ameaca .vopt:hover { border-color:rgba(201,155,192,.6); }
-#din-ameaca .vl { flex:none; width:56px; height:56px; border-radius:50%; display:grid; place-items:center; background:rgba(255,255,255,.12); font:700 28px Inter,Arial,sans-serif; }
-#din-ameaca .vt2 { flex:1; position:relative; z-index:1; }
-#din-ameaca .vn { flex:none; position:relative; z-index:1; font:700 34px Inter,Arial,sans-serif; color:#E2C06A; min-width:60px; text-align:right; }
-#din-ameaca .vb { position:absolute; left:0; bottom:0; height:8px; width:0; background:#E2C06A; transition:width .5s; }
-#din-ameaca .vqr { width:330px; flex:none; background:#FBF8F1; border-radius:16px; padding:18px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; cursor:pointer; }
-#din-ameaca #vqrbox { width:270px; height:270px; display:grid; place-items:center; }
-#din-ameaca #vqrbox svg { width:100%; height:100%; }
-#din-ameaca .vqr p { margin:0; text-align:center; }
-#din-ameaca .vcap { font:600 22px Inter,Arial,sans-serif !important; color:#2B2E35 !important; }
-#din-ameaca .vtot { font:700 22px Inter,Arial,sans-serif !important; color:#7B4A70 !important; }
-#din-ameaca .vempty { font:600 22px/1.35 Inter,Arial,sans-serif; color:#6E3F64; text-align:center; padding:12px; }
-#din-ameaca .vrev { background:rgba(77,122,89,.28); border-left:12px solid #4D7A59; padding:22px 30px; font:500 26px/1.45 Inter,Arial,sans-serif; color:#E9F3EB; }
-#din-ameaca .vrev b { color:#BFE3C8; }
-#din-ameaca:has(.vrev.visible) .vopt { opacity:.45; }
-#din-ameaca:has(.vrev.visible) .vopt[data-k="2"] { opacity:1; border-color:#93C49F; background:rgba(77,122,89,.35); }
-#din-ameaca:has(.vrev.visible) .vopt[data-k="2"] .vl { background:#4D7A59; }
+section.poll h2.vq { font-size:46px; line-height:1.22; max-width:1664px; }
+section.poll .vwrap { display:flex; gap:40px; align-items:stretch; }
+section.poll .vgrid { flex:1; display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+section.poll .vopt { position:relative; overflow:hidden; display:flex; align-items:center; gap:22px; text-align:left; padding:22px 28px; min-height:120px; border:2px solid rgba(255,255,255,.16); border-radius:16px; background:rgba(22,26,36,.75); color:#F3EFE3; font:600 26px/1.3 Inter,Arial,sans-serif; cursor:pointer; transition:border-color .3s, background .3s, opacity .3s; }
+section.poll .vopt:hover { border-color:rgba(201,155,192,.6); }
+section.poll .vl { flex:none; width:56px; height:56px; border-radius:50%; display:grid; place-items:center; background:rgba(255,255,255,.12); font:700 28px Inter,Arial,sans-serif; }
+section.poll .vt2 { flex:1; position:relative; z-index:1; }
+section.poll .vn { flex:none; position:relative; z-index:1; font:700 34px Inter,Arial,sans-serif; color:#E2C06A; min-width:60px; text-align:right; }
+section.poll .vb { position:absolute; left:0; bottom:0; height:8px; width:0; background:#E2C06A; transition:width .5s; }
+section.poll .vqr { width:330px; flex:none; background:#FBF8F1; border-radius:16px; padding:18px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px; cursor:pointer; }
+section.poll #vqrbox { width:270px; height:270px; display:grid; place-items:center; }
+section.poll #vqrbox svg { width:100%; height:100%; }
+section.poll .vqr p { margin:0; text-align:center; }
+section.poll .vcap { font:600 22px Inter,Arial,sans-serif !important; color:#2B2E35 !important; }
+section.poll .vtot { font:700 22px Inter,Arial,sans-serif !important; color:#7B4A70 !important; }
+section.poll .vempty { font:600 22px/1.35 Inter,Arial,sans-serif; color:#6E3F64; text-align:center; padding:12px; }
+section.poll .vrev { background:rgba(77,122,89,.28); border-left:12px solid #4D7A59; padding:22px 30px; font:500 26px/1.45 Inter,Arial,sans-serif; color:#E9F3EB; }
+section.poll .vrev b { color:#BFE3C8; }
+section.poll[data-correct]:has(.vrev.visible) .vopt { opacity:.45; }
+section.poll[data-correct="2"]:has(.vrev.visible) .vopt[data-k="2"] { opacity:1; border-color:#93C49F; background:rgba(77,122,89,.35); }
+section.poll[data-correct="2"]:has(.vrev.visible) .vopt[data-k="2"] .vl { background:#4D7A59; }
 #vcfg { position:fixed; inset:0; z-index:300; background:rgba(10,12,18,.8); display:grid; place-items:center; }
 #vcfg.hide { display:none; }
 #vcfg article { width:min(640px,92vw); background:#2B2E35; color:#fff; border-radius:16px; padding:26px 30px; font:500 16px/1.5 Inter,Arial,sans-serif; }
@@ -917,12 +923,12 @@ kbd { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; 
 #vcfg button { border:1px solid #ffffff40; background:#ffffff18; color:#fff; border-radius:10px; padding:8px 14px; font:600 15px Inter,Arial,sans-serif; cursor:pointer; }
 #vcfg button.p { background:#3F6CA8; border-color:#8FB0DC; }
 
-#din-ameaca .vqr { position:relative; cursor:default; }
-#din-ameaca .vgear { position:absolute; top:6px; right:8px; border:none; background:none; font-size:22px; color:#9a9184; cursor:pointer; padding:2px 6px; }
-#din-ameaca .vgear:hover { color:#2B2E35; }
-#din-ameaca .vurl { font:600 15px Inter,Arial,sans-serif !important; color:#55524C !important; word-break:break-all; }
-#din-ameaca .vzoom { border:none; border-radius:10px; background:#7B4A70; color:#fff; font:700 18px Inter,Arial,sans-serif; letter-spacing:1px; padding:10px 16px; cursor:pointer; }
-#din-ameaca .vzoom:hover { background:#93587F; }
+section.poll .vqr { position:relative; cursor:default; }
+section.poll .vgear { position:absolute; top:6px; right:8px; border:none; background:none; font-size:22px; color:#9a9184; cursor:pointer; padding:2px 6px; }
+section.poll .vgear:hover { color:#2B2E35; }
+section.poll .vurl { font:600 15px Inter,Arial,sans-serif !important; color:#55524C !important; word-break:break-all; }
+section.poll .vzoom { border:none; border-radius:10px; background:#7B4A70; color:#fff; font:700 18px Inter,Arial,sans-serif; letter-spacing:1px; padding:10px 16px; cursor:pointer; }
+section.poll .vzoom:hover { background:#93587F; }
 #qrzoom { position:fixed; inset:0; z-index:400; background:#FBF8F1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2vh; cursor:zoom-out; }
 #qrzoom.hide { display:none; }
 #qrzoom .zbox { width:min(80vh,90vw); height:min(80vh,90vw); }
@@ -930,34 +936,39 @@ kbd { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; 
 #qrzoom p { margin:0; font:700 clamp(18px,3vh,34px) Inter,Arial,sans-serif; color:#2B2E35; text-align:center; }
 #qrzoom small { font:600 clamp(14px,2.2vh,24px) Inter,Arial,sans-serif; color:#7B4A70; }
 
-#din-ameaca .vopt { cursor:default; }
-#din-ameaca .vpm { flex:none; display:flex; flex-direction:column; gap:6px; position:relative; z-index:1; }
-#din-ameaca .vpm button { width:40px; height:34px; border-radius:8px; border:1px solid rgba(255,255,255,.3); background:rgba(255,255,255,.08); color:#F3EFE3; font:700 22px/1 Inter,Arial,sans-serif; cursor:pointer; }
-#din-ameaca .vpm button:hover { background:rgba(226,192,106,.3); }
-#din-ameaca:has(.vrev.visible) .vpm { visibility:hidden; }
-#din-ameaca .vtools { display:flex; gap:12px; align-items:center; margin-top:-14px; }
-#din-ameaca .vtools button { border:1px solid rgba(255,255,255,.25); background:rgba(255,255,255,.07); color:#E9E4D8; border-radius:10px; padding:8px 14px; font:600 18px Inter,Arial,sans-serif; cursor:pointer; }
-#din-ameaca .vtools button:hover { background:rgba(255,255,255,.16); }
-#din-ameaca .vtools button.warn { background:#A3432F; border-color:#E8957F; color:#fff; }
-#din-ameaca .vtools button.on { background:#7B4A70; border-color:#C99BC0; }
-#din-ameaca .vtools button.tend { background:#A3432F; border-color:#E8957F; }
-#din-ameaca .vstat { margin-left:auto; font:600 18px Inter,Arial,sans-serif; color:#93C49F; }
-#din-ameaca .vstat.off { color:#E8957F; }
-#din-ameaca:has(.vrev.visible) .vn, #din-ameaca:has(.vrev.visible) .vb { visibility:visible !important; }
+section.poll .vopt { cursor:default; }
+section.poll .vpm { flex:none; display:flex; flex-direction:column; gap:6px; position:relative; z-index:1; }
+section.poll .vpm button { width:40px; height:34px; border-radius:8px; border:1px solid rgba(255,255,255,.3); background:rgba(255,255,255,.08); color:#F3EFE3; font:700 22px/1 Inter,Arial,sans-serif; cursor:pointer; }
+section.poll .vpm button:hover { background:rgba(226,192,106,.3); }
+section.poll:has(.vrev.visible) .vpm { visibility:hidden; }
+section.poll .vtools { display:flex; gap:12px; align-items:center; margin-top:-14px; }
+section.poll .vtools button { border:1px solid rgba(255,255,255,.25); background:rgba(255,255,255,.07); color:#E9E4D8; border-radius:10px; padding:8px 14px; font:600 18px Inter,Arial,sans-serif; cursor:pointer; }
+section.poll .vtools button:hover { background:rgba(255,255,255,.16); }
+section.poll .vtools button.warn { background:#A3432F; border-color:#E8957F; color:#fff; }
+section.poll .vtools button.on { background:#7B4A70; border-color:#C99BC0; }
+section.poll .vtools button.tend { background:#A3432F; border-color:#E8957F; }
+section.poll .vstat { margin-left:auto; font:600 18px Inter,Arial,sans-serif; color:#93C49F; }
+section.poll .vstat.off { color:#E8957F; }
+section.poll:has(.vrev.visible) .vn, section.poll:has(.vrev.visible) .vb { visibility:visible !important; }
 
-#din-ameaca { gap:26px !important; padding-top:110px !important; }
-#din-ameaca h2.vq { font-size:42px; }
-#din-ameaca .vopt { min-height:100px; padding:14px 22px; }
-#din-ameaca .vrev { font-size:23px; line-height:1.4; padding:14px 24px; }
-#din-ameaca .vtools { margin-top:-8px; }
+section.poll { gap:26px !important; padding-top:110px !important; }
+section.poll h2.vq { font-size:42px; }
+section.poll .vopt { min-height:100px; padding:14px 22px; }
+section.poll .vrev { font-size:23px; line-height:1.4; padding:14px 24px; }
+section.poll .vtools { margin-top:-8px; }
 
-#din-ameaca h2.vq { max-width:1320px; }
-#din-ameaca .vled { position:absolute; right:128px; top:96px; width:300px; height:190px; background:#0b0b0d; border:3px solid #26262b; border-radius:14px; box-shadow:0 12px 30px rgba(0,0,0,.55), inset 0 0 18px rgba(0,0,0,.9); display:flex; flex-direction:column; align-items:center; justify-content:center; cursor:pointer; z-index:3; }
-#din-ameaca .vled svg { width:250px; height:144px; }
-#din-ameaca .vledlab { position:absolute; bottom:6px; font:600 13px Inter,Arial,sans-serif; letter-spacing:1px; color:#6b6b72; text-transform:uppercase; }
-#din-ameaca .vled.run .vledlab { color:#b33; }
-#din-ameaca .vled.blink svg { animation:ledblink .5s steps(1) infinite; }
+section.poll h2.vq { max-width:1320px; }
+section.poll .vled { position:absolute; right:128px; top:96px; width:300px; height:190px; background:#0b0b0d; border:3px solid #26262b; border-radius:14px; box-shadow:0 12px 30px rgba(0,0,0,.55), inset 0 0 18px rgba(0,0,0,.9); display:flex; flex-direction:column; align-items:center; justify-content:center; cursor:pointer; z-index:3; }
+section.poll .vled svg { width:250px; height:144px; }
+section.poll .vledlab { position:absolute; bottom:6px; font:600 13px Inter,Arial,sans-serif; letter-spacing:1px; color:#6b6b72; text-transform:uppercase; }
+section.poll .vled.run .vledlab { color:#b33; }
+section.poll .vled.blink svg { animation:ledblink .5s steps(1) infinite; }
 @keyframes ledblink { 50% { opacity:.25; } }
+
+section.poll h2.vq-big { font-size:64px !important; margin-bottom:10px; }
+section.poll .vopt.win { border-color:#E2C06A; background:rgba(226,192,106,.16); }
+section.poll .vqrbox { width:270px; height:270px; display:grid; place-items:center; }
+section.poll .vqrbox svg { width:100%; height:100%; }
 </style>
 <div id="vplayer" class="hide"><button class="vx" id="vclose">Fechar ✕ (Esc)</button><div class="vt" id="vtitle"></div><video id="vel" controls playsinline></video><div class="verr hide" id="verr"></div></div>
 <div id="qrzoom" class="hide"><div class="zbox" id="zbox"></div><p>Aponte a câmera e vote <small id="zurl"></small></p></div>
@@ -3363,119 +3374,114 @@ requestAnimationFrame(frame);
 </script>
 
 <script>
-/* ===== Votação ao vivo do slide 16 (Firebase REST; contagem manual como reserva) ===== */
+/* ===== Votações ao vivo (qualquer <section class="poll">) · Firebase REST + contagem manual ===== */
 (function(){
-const PID='q5', Q='O aquecimento global traz mais calor e secas mais longas ao Ceará. Pela hélice quíntupla, o que isso representa para a COGERH?';
-const OPTS=["Uma perda inevitável, que só cabe aceitar","Um problema que se resolve construindo mais açudes","Uma restrição que obriga a criar conhecimento novo e pode virar inovação","Um tema ambiental, fora da gestão da empresa"];
 const ls={get:k=>{try{return JSON.parse(localStorage.getItem('sem_'+k))}catch(e){return null}},set:(k,v)=>{try{localStorage.setItem('sem_'+k,JSON.stringify(v))}catch(e){}}};
 const C=Object.assign({fb:'',live:''},window.SEM_CFG||{},ls.get('vcfg')||{});try{const qf=new URLSearchParams(location.search).get('fb');if(qf)C.fb=qf;}catch(e){}
 const fbu=p=>C.fb.replace(/\/+$/,'')+'/'+p+'.json';
 let uid=ls.get('uid'); if(!uid){uid='u'+Math.random().toString(36).slice(2,10)+Date.now().toString(36); ls.set('uid',uid);}
-/* ---------- página do celular dentro da apresentação (#votar), mantida por compatibilidade ---------- */
+const $=id=>document.getElementById(id);
+/* ---------- compatibilidade: votar dentro da própria apresentação (#votar) ---------- */
 if(window.__VOTAR){
   const run=()=>{document.body.innerHTML='<div id="aud"><h1>Votação</h1><div id="aq">Conectando…</div><div id="ao"></div><p id="as"></p></div>';
     const st=document.createElement('style');st.textContent='html,body{overflow:auto!important;background:#14171E;color:#F3EFE3;height:auto}#aud{max-width:640px;margin:0 auto;padding:24px 16px 40px;font:500 19px/1.4 Inter,Arial,sans-serif}#aud h1{font:700 30px Inter,Arial,sans-serif;color:#C99BC0;margin:0 0 12px}#aq{font:700 22px/1.3 Inter,Arial,sans-serif;margin-bottom:16px}#ao button{display:block;width:100%;margin:0 0 12px;padding:16px;border-radius:14px;border:2px solid #ffffff44;background:#ffffff12;color:#fff;font:600 19px/1.3 Inter,Arial,sans-serif;text-align:left}#ao button.sel{border-color:#E2C06A;background:#E2C06A33}#ao button:disabled{opacity:.5}#as{color:#93C49F}';document.head.appendChild(st);
-    if(!C.fb){document.getElementById('aq').textContent='Votação ao vivo indisponível. Vote levantando a mão.';return;}
-    let cur=null,mine=null;const $=id=>document.getElementById(id);
+    if(!C.fb){$('aq').textContent='Votação ao vivo indisponível. Vote levantando a mão.';return;}
+    let cur=null,mine=null;
     const draw=()=>{if(!cur||!cur.pid){$('aq').textContent='Conectado. A pergunta aparece quando o apresentador abrir o slide da votação.';$('ao').innerHTML='';return;}
-      $('aq').textContent=cur.q+(cur.closed?' (votação encerrada)':'');$('ao').innerHTML=cur.opts.map((o,i)=>`<button data-k="${i}" ${cur.closed?'disabled':''} class="${mine===i?'sel':''}"><b>${'ABCD'[i]}</b> · ${o}</button>`).join('');
-      if(cur.closed){$('as').textContent='Votação encerrada. Veja a resposta na tela.';return;}
+      $('aq').textContent=cur.q;$('ao').innerHTML=cur.opts.map((o,i)=>`<button data-k="${i}" ${cur.closed?'disabled':''} class="${mine===i?'sel':''}"><b>${'ABCD'[i]}</b> · ${o}</button>`).join('');
+      if(cur.closed){$('as').textContent='Votação encerrada. Veja o resultado na tela.';return;}
       $('ao').querySelectorAll('button').forEach(b=>b.onclick=async()=>{mine=+b.dataset.k;draw();
-        try{const r=await fetch(fbu('votes/'+uid),{method:'PATCH',body:JSON.stringify({[cur.pid]:mine})});if(!r.ok)throw 0;$('as').textContent='Voto registrado. Você pode mudar até a resposta ser revelada.';}
+        try{const r=await fetch(fbu('votes/'+uid),{method:'PATCH',body:JSON.stringify({[cur.pid]:mine})});if(!r.ok)throw 0;$('as').textContent='Voto registrado. Você pode mudar até o resultado ser revelado.';}
         catch(e){$('as').textContent='Não foi possível registrar. Tente de novo.';}});};
     const tick=async()=>{try{const r=await fetch(fbu('live/current'),{cache:'no-store'});if(!r.ok){$('aq').textContent='Não consegui ler o banco de votos (erro '+r.status+').';return;}const v=await r.json();
-      if(v&&v.pid&&(!cur||cur.pid!==v.pid)){mine=null;try{const m=await (await fetch(fbu('votes/'+uid+'/'+v.pid),{cache:'no-store'})).json();if(typeof m==='number')mine=m;}catch(e){}}
+      if(v&&v.pid&&(!cur||cur.pid!==v.pid)){mine=null;$('as').textContent='';try{const m=await (await fetch(fbu('votes/'+uid+'/'+v.pid),{cache:'no-store'})).json();if(typeof m==='number')mine=m;}catch(e){}}
       cur=v;draw();}catch(e){$('aq').textContent='Sem conexão com o banco de votos.';}};
     tick();setInterval(tick,2000);};
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run();
   return;
 }
 /* ---------- apresentador ---------- */
-const sec=document.getElementById('din-ameaca'); if(!sec)return;
-const $=id=>document.getElementById(id);
-let manual=ls.get('manual_'+PID)||{}, live={}, active=false, timer=null, online=null, closed=false, pubErr='';
-const tot=k=>(manual[k]||0)+(live[k]||0);
-const revealed=()=>!!sec.querySelector('.vrev.visible');
-function status(){const el=$('vstat');if(!el)return;el.classList.remove('off');
-  if(!C.fb){el.textContent='Modo manual · use + e −';return;}
-  if(pubErr){el.textContent=pubErr;el.classList.add('off');return;}
-  if(online===false){el.textContent='○ Sem conexão · conte com + e −';el.classList.add('off');return;}
-  el.textContent=closed?'● Votação encerrada':'● Ao vivo pelo celular';}
-function paint(){const n=[0,1,2,3].map(tot),sum=n.reduce((a,b)=>a+b,0),mx=Math.max(1,...n),rv=revealed();
-  sec.querySelectorAll('.vopt').forEach(b=>{const k=+b.dataset.k;b.querySelector('.vn').textContent=rv&&sum?(n[k]+' · '+Math.round(n[k]/sum*100)+'%'):n[k];b.querySelector('.vb').style.width=(n[k]/mx*100)+'%';});
-  $('vtot').textContent=sum+(sum===1?' voto':' votos');status();}
+const POLLS=[...document.querySelectorAll('section.poll')]; if(!POLLS.length)return;
 const FB_DEFAULT='https://seminario-helices-cogerh-default-rtdb.firebaseio.com';
 function voteUrl(){if(!C.live)return '';let base=C.live.replace(/[?#].*$/,'');if(!base.endsWith('/'))base=base.replace(/[^/]*$/,'');let u=base+'v.html';
   if(C.fb&&C.fb.replace(/\/+$/,'')!==FB_DEFAULT)u+='?fb='+encodeURIComponent(C.fb);return u;}
 function qrSvgOf(u){const q=qrcode(0,'L');q.addData(u);q.make();return q.createSvgTag({cellSize:8,margin:2,scalable:true});}
-function drawQR(){const box=$('vqrbox');
-  if(!C.live){box.innerHTML='<div class="vempty">Sem votação pelo celular. Configure no ⚙ ou conte com + e −</div>';$('vcap').textContent='';$('vurl').textContent='';return;}
-  try{const u=voteUrl();box.innerHTML=qrSvgOf(u);$('vcap').textContent='Aponte a câmera e vote';$('vurl').textContent=u.replace(/^https?:\/\//,'').replace(/\?.*$/,'');}catch(e){box.innerHTML='<div class="vempty">Link inválido</div>';}}
-async function publish(on){if(!C.fb)return;try{const r=await fetch(fbu('live/current'),{method:'PUT',body:JSON.stringify(on?{pid:PID,q:Q,opts:OPTS,closed:closed,t:Date.now()}:{pid:null,t:Date.now()})});pubErr=r.ok?'':'⚠ Banco recusou ('+r.status+') · confira regras e endereço';online=r.ok?true:online;}catch(e){online=false;pubErr='';}paint();}
-async function pull(){if(!C.fb)return;try{const r=await fetch(fbu('votes'),{cache:'no-store'});if(!r.ok)throw 0;const v=(await r.json())||{};const c={};Object.values(v).forEach(u=>{const k=u&&u[PID];if(typeof k==='number')c[k]=(c[k]||0)+1});live=c;
-  if(online===false){online=true;publish(true);} online=true;}catch(e){online=false;}paint();}
-function check(){const on=sec.classList.contains('on');if(on===active)return;active=on;
-  if(on){closed=revealed();publish(true);pull();timer=setInterval(pull,2000);}else{clearInterval(timer);publish(false);}}
-new MutationObserver(check).observe(sec,{attributes:true,attributeFilter:['class']});
-/* revelar = encerrar a votação nos celulares; voltar = reabrir */
-const rv=sec.querySelector('.vrev');
-new MutationObserver(()=>{const c=revealed();if(c!==closed){closed=c;if(active)publish(true);}paint();}).observe(rv,{attributes:true,attributeFilter:['class']});
-/* contagem manual: + e − em cada opção, ou teclas A–D (Shift = −1) */
-function bump(k,d){if(revealed())return;manual[k]=Math.max(0,(manual[k]||0)+d);
-  if(d<0&&(manual[k]||0)===0&&(live[k]||0)>0){/* não tira votos do celular pelo −; só a contagem manual */}
-  ls.set('manual_'+PID,manual);paint();}
-sec.querySelectorAll('.vopt').forEach(o=>{const k=+o.dataset.k;o.addEventListener('click',e=>e.stopPropagation());
-  o.querySelector('.vp').addEventListener('click',e=>{e.stopPropagation();bump(k,1);});
-  o.querySelector('.vm').addEventListener('click',e=>{e.stopPropagation();bump(k,-1);});});
-document.addEventListener('keydown',e=>{if(!active||e.ctrlKey||e.metaKey||e.altKey)return;if(!$('vcfg').classList.contains('hide')||!$('qrzoom').classList.contains('hide'))return;
-  const i='abcd'.indexOf(e.key.toLowerCase());if(i<0||e.key.length!==1)return;e.preventDefault();e.stopPropagation();bump(i,e.shiftKey?-1:1);},true);
-/* zerar (confirmação em 2 cliques) */
-async function zero(){if(typeof tReset==='function')tReset();manual={};ls.set('manual_'+PID,{});live={};closed=false;
-  if(C.fb){try{const v=(await (await fetch(fbu('votes'),{cache:'no-store'})).json())||{};await Promise.all(Object.keys(v).filter(u=>v[u]&&PID in v[u]).map(u=>fetch(fbu('votes/'+u+'/'+PID),{method:'DELETE'})));}catch(e){}
-    if(active)publish(true);}
-  paint();}
-let zt=null;const zb=$('vreset');
-zb.addEventListener('click',e=>{e.stopPropagation();if(zb.classList.contains('warn')){clearTimeout(zt);zb.classList.remove('warn');zb.textContent='Zerar votação';zero();return;}
-  zb.classList.add('warn');zb.textContent='Confirmar? clique de novo';zt=setTimeout(()=>{zb.classList.remove('warn');zb.textContent='Zerar votação';},3000);});
-/* contagem sempre visível; limpa estado antigo de 'ocultar parcial' */
-try{localStorage.removeItem('sem_hide_'+PID);}catch(e){}sec.classList.remove('vhid');
-
-/* ---------- cronômetro regressivo 40 s (display de 7 segmentos) ---------- */
-const TMAX=40; let tleft=TMAX, trun=null;
+let online=null,pubErr='',pullTimer=null,activeP=null;
 const SEG={0:'abcdef',1:'bc',2:'abged',3:'abgcd',4:'fgbc',5:'afgcd',6:'afgedc',7:'abc',8:'abcdefg',9:'abcdfg'};
 function digitSvg(n,x){const on=SEG[n],P={a:[[18,6],[82,6],[72,16],[28,16]],b:[[86,10],[86,68],[76,62],[76,20]],c:[[86,78],[86,136],[76,126],[76,84]],d:[[18,140],[82,140],[72,130],[28,130]],e:[[14,78],[14,136],[24,126],[24,84]],f:[[14,10],[14,68],[24,62],[24,20]],g:[[20,73],[30,66],[70,66],[80,73],[70,80],[30,80]]};
-  return Object.keys(P).map(k=>{const pts=P[k].map(([px,py])=>[px+x-((py-73)*0.12),py].join(',')).join(' ');const lit=on.includes(k);
-    return `<polygon points="${pts}" fill="${lit?'#ff2b1c':'#2a0c0a'}" ${lit?'filter="url(#glow)"':''}/>`;}).join('');}
-function drawLed(){const v=Math.max(0,tleft),d1=Math.floor(v/10),d2=v%10;
-  $('vledsvg').innerHTML='<defs><filter id="glow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>'+digitSvg(d1,22)+digitSvg(d2,128)+`<circle cx="236" cy="134" r="7" fill="${trun?'#ff2b1c':'#2a0c0a'}" ${trun?'filter="url(#glow)"':''}/>`;
-  const led=$('vled');led.classList.toggle('run',!!trun);led.classList.toggle('blink',!!trun&&tleft<=10);
-  $('vledlab').textContent=revealed()?'resposta revelada':trun?'votação em andamento':(tleft===TMAX?'clique para iniciar':'pausado · clique para seguir');}
-function tStop(){if(trun){clearInterval(trun);trun=null;}drawLed();}
-function tStart(){if(trun||revealed())return;if(tleft<=0)tleft=TMAX;trun=setInterval(()=>{tleft--;if(tleft<=0){tleft=0;tStop();if(!revealed())rv.classList.add('visible');}drawLed();},1000);drawLed();}
-function tReset(){tStop();tleft=TMAX;drawLed();}
-$('vled').addEventListener('click',e=>{e.stopPropagation();trun?tStop():tStart();});
-document.addEventListener('keydown',e=>{if(!active||e.key.toLowerCase()!=='t'||e.ctrlKey||e.metaKey)return;if(!$('vcfg').classList.contains('hide')||!$('qrzoom').classList.contains('hide'))return;e.preventDefault();e.stopPropagation();trun?tStop():tStart();},true);
-new MutationObserver(()=>{if(!sec.classList.contains('on'))tStop();}).observe(sec,{attributes:true,attributeFilter:['class']});
-new MutationObserver(()=>{if(revealed()){tStop();}else if(tleft===0){tleft=TMAX;}drawLed();}).observe(rv,{attributes:true,attributeFilter:['class']});
-drawLed();
-sec.querySelector('.vtools').addEventListener('click',e=>e.stopPropagation());
-/* configuração e zoom */
+  return Object.keys(P).map(k=>{const pts=P[k].map(([px,py])=>[px+x-((py-73)*0.12),py].join(',')).join(' ');const lit=on.includes(k);return `<polygon points="${pts}" fill="${lit?'#ff2b1c':'#2a0c0a'}" ${lit?'filter="url(#ledglow)"':''}/>`;}).join('');}
+const TMAX=40;
+const P=POLLS.map(sec=>{const p={sec,pid:sec.dataset.pid,correct:sec.dataset.correct!==undefined?+sec.dataset.correct:null,
+  q:(sec.querySelector('h2.vq')||{}).textContent||'',opts:[...sec.querySelectorAll('.vopt .vt2')].map(e=>e.textContent),
+  manual:ls.get('manual_'+sec.dataset.pid)||{},live:{},closed:false,tleft:TMAX,trun:null,rv:sec.querySelector('.vrev'),q$:c=>sec.querySelector(c)};
+  p.revealed=()=>!!(p.rv&&p.rv.classList.contains('visible'));return p;});
+const tot=(p,k)=>(p.manual[k]||0)+(p.live[k]||0);
+function status(p){const el=p.q$('.vstat');if(!el)return;el.classList.remove('off');
+  if(!C.fb){el.textContent='Modo manual · use + e −';return;}
+  if(pubErr){el.textContent=pubErr;el.classList.add('off');return;}
+  if(online===false){el.textContent='○ Sem conexão · conte com + e −';el.classList.add('off');return;}
+  el.textContent=p.closed?'● Votação encerrada':'● Ao vivo pelo celular';}
+function paint(p){const n=[0,1,2,3].map(k=>tot(p,k)),sum=n.reduce((a,b)=>a+b,0),mx=Math.max(1,...n),rv=p.revealed();
+  p.sec.querySelectorAll('.vopt').forEach(b=>{const k=+b.dataset.k;b.querySelector('.vn').textContent=rv&&sum?(n[k]+' · '+Math.round(n[k]/sum*100)+'%'):n[k];b.querySelector('.vb').style.width=(n[k]/mx*100)+'%';
+    b.classList.toggle('win',rv&&p.correct===null&&sum>0&&n[k]===Math.max(...n));});
+  p.q$('.vtot').textContent=sum+(sum===1?' voto':' votos');status(p);}
+function drawQR(p){const box=p.q$('.vqrbox');
+  if(!C.live){box.innerHTML='<div class="vempty">Sem votação pelo celular. Configure no ⚙ ou conte com + e −</div>';p.q$('.vcap').textContent='';p.q$('.vurl').textContent='';return;}
+  try{const u=voteUrl();box.innerHTML=qrSvgOf(u);p.q$('.vcap').textContent='Aponte a câmera e vote';p.q$('.vurl').textContent=u.replace(/^https?:\/\//,'').replace(/\?.*$/,'');}catch(e){box.innerHTML='<div class="vempty">Link inválido</div>';}}
+function drawLed(p){const v=Math.max(0,p.tleft),d1=Math.floor(v/10),d2=v%10;
+  p.q$('.vledsvg').innerHTML='<defs><filter id="ledglow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>'+digitSvg(d1,22)+digitSvg(d2,128)+`<circle cx="236" cy="134" r="7" fill="${p.trun?'#ff2b1c':'#2a0c0a'}" ${p.trun?'filter="url(#ledglow)"':''}/>`;
+  const led=p.q$('.vled');led.classList.toggle('run',!!p.trun);led.classList.toggle('blink',!!p.trun&&p.tleft<=10);
+  p.q$('.vledlab').textContent=p.revealed()?(p.correct===null?'resultado revelado':'resposta revelada'):p.trun?'votação em andamento':(p.tleft===TMAX?'clique para iniciar':'pausado · clique para seguir');}
+function tStop(p){if(p.trun){clearInterval(p.trun);p.trun=null;}drawLed(p);}
+function tStart(p){if(p.trun||p.revealed())return;if(p.tleft<=0)p.tleft=TMAX;p.trun=setInterval(()=>{p.tleft--;if(p.tleft<=0){p.tleft=0;tStop(p);if(!p.revealed()&&p.rv)p.rv.classList.add('visible');}drawLed(p);},1000);drawLed(p);}
+function tReset(p){tStop(p);p.tleft=TMAX;drawLed(p);}
+async function publish(p){if(!C.fb)return;try{const r=await fetch(fbu('live/current'),{method:'PUT',body:JSON.stringify(p?{pid:p.pid,q:p.q,opts:p.opts,closed:p.closed,t:Date.now()}:{pid:null,t:Date.now()})});pubErr=r.ok?'':'⚠ Banco recusou ('+r.status+') · confira regras e endereço';if(r.ok)online=true;}catch(e){online=false;pubErr='';}P.forEach(paint);}
+async function pull(){const p=activeP;if(!C.fb||!p)return;try{const r=await fetch(fbu('votes'),{cache:'no-store'});if(!r.ok)throw 0;const v=(await r.json())||{};const c={};Object.values(v).forEach(u=>{const k=u&&u[p.pid];if(typeof k==='number')c[k]=(c[k]||0)+1});p.live=c;
+  if(online===false){online=true;publish(p);} online=true;}catch(e){online=false;}paint(p);}
+/* qual votação está na tela (decidido depois de cada troca de slide, sem corrida) */
+let sync=null;
+function syncActive(){clearTimeout(sync);sync=setTimeout(()=>{const now=P.find(p=>p.sec.classList.contains('on'))||null;
+  P.forEach(p=>{if(p!==now)tStop(p);});
+  if(now===activeP)return;activeP=now;clearInterval(pullTimer);
+  if(now){now.closed=now.revealed();publish(now);pull();pullTimer=setInterval(pull,2000);}else publish(null);},30);}
+P.forEach(p=>{
+  new MutationObserver(syncActive).observe(p.sec,{attributes:true,attributeFilter:['class']});
+  if(p.rv)new MutationObserver(()=>{const c=p.revealed();if(c)tStop(p);else if(p.tleft===0)p.tleft=TMAX;if(c!==p.closed){p.closed=c;if(activeP===p)publish(p);}paint(p);drawLed(p);}).observe(p.rv,{attributes:true,attributeFilter:['class']});
+  const bump=(k,d)=>{if(p.revealed())return;p.manual[k]=Math.max(0,(p.manual[k]||0)+d);ls.set('manual_'+p.pid,p.manual);paint(p);};
+  p.bump=bump;
+  p.sec.querySelectorAll('.vopt').forEach(o=>{const k=+o.dataset.k;o.addEventListener('click',e=>e.stopPropagation());
+    o.querySelector('.vp').addEventListener('click',e=>{e.stopPropagation();bump(k,1);});o.querySelector('.vm').addEventListener('click',e=>{e.stopPropagation();bump(k,-1);});});
+  const zb=p.q$('.vreset');let zt=null;
+  zb.addEventListener('click',async e=>{e.stopPropagation();if(!zb.classList.contains('warn')){zb.classList.add('warn');zb.textContent='Confirmar? clique de novo';zt=setTimeout(()=>{zb.classList.remove('warn');zb.textContent='Zerar votação';},3000);return;}
+    clearTimeout(zt);zb.classList.remove('warn');zb.textContent='Zerar votação';tReset(p);p.manual={};ls.set('manual_'+p.pid,{});p.live={};p.closed=false;
+    if(C.fb){try{const v=(await (await fetch(fbu('votes'),{cache:'no-store'})).json())||{};await Promise.all(Object.keys(v).filter(u=>v[u]&&p.pid in v[u]).map(u=>fetch(fbu('votes/'+u+'/'+p.pid),{method:'DELETE'})));}catch(e){}if(activeP===p)publish(p);}
+    paint(p);});
+  p.q$('.vtools').addEventListener('click',e=>e.stopPropagation());
+  p.q$('.vqr').addEventListener('click',e=>e.stopPropagation());
+  p.q$('.vgear').addEventListener('click',e=>{e.stopPropagation();$('vcfgLive').value=C.live;$('vcfgFb').value=C.fb;$('vcfg').classList.remove('hide');});
+  p.q$('.vzoom').addEventListener('click',e=>{e.stopPropagation();zoomOpen();});
+  p.q$('.vled').addEventListener('click',e=>{e.stopPropagation();p.trun?tStop(p):tStart(p);});
+  try{localStorage.removeItem('sem_hide_'+p.pid);}catch(e){}
+  drawQR(p);paint(p);drawLed(p);});
+/* teclado: A–D somam (Shift tira), T inicia/pausa, só no slide de votação ativo */
+document.addEventListener('keydown',e=>{const p=activeP;if(!p||e.ctrlKey||e.metaKey||e.altKey||e.key.length!==1)return;
+  if(!$('vcfg').classList.contains('hide')||!$('qrzoom').classList.contains('hide'))return;
+  const lk=e.key.toLowerCase(),i='abcd'.indexOf(lk);
+  if(i>=0){e.preventDefault();e.stopPropagation();p.bump(i,e.shiftKey?-1:1);}else if(lk==='t'){e.preventDefault();e.stopPropagation();p.trun?tStop(p):tStart(p);}},true);
+/* configuração (uma vez vale para todas as votações) */
 const dlg=$('vcfg');
-$('vqr').addEventListener('click',e=>e.stopPropagation());
-$('vgear').addEventListener('click',e=>{e.stopPropagation();$('vcfgLive').value=C.live;$('vcfgFb').value=C.fb;dlg.classList.remove('hide');});
 dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.classList.add('hide');e.stopPropagation();});
 $('vcfgCancel').onclick=()=>dlg.classList.add('hide');
-$('vcfgOk').onclick=()=>{C.live=$('vcfgLive').value.trim();C.fb=$('vcfgFb').value.trim();ls.set('vcfg',{live:C.live,fb:C.fb});dlg.classList.add('hide');online=null;pubErr='';drawQR();if(active){publish(true);pull();clearInterval(timer);timer=setInterval(pull,2000);}paint();};
-$('vcfgZero').onclick=()=>{zero();};
+$('vcfgOk').onclick=()=>{C.live=$('vcfgLive').value.trim();C.fb=$('vcfgFb').value.trim();ls.set('vcfg',{live:C.live,fb:C.fb});dlg.classList.add('hide');online=null;pubErr='';P.forEach(drawQR);if(activeP){publish(activeP);pull();clearInterval(pullTimer);pullTimer=setInterval(pull,2000);}P.forEach(paint);};
+$('vcfgZero').onclick=()=>{if(activeP){const zb=activeP.q$('.vreset');zb.classList.add('warn');zb.click();}};
 dlg.addEventListener('keydown',e=>e.stopPropagation(),true);
 document.addEventListener('keydown',e=>{if(!dlg.classList.contains('hide'))e.stopPropagation();},true);
+/* zoom do QR */
 const zoom=$('qrzoom');
-function zoomOpen(){if(!C.live){$('vgear').click();return;}const u=voteUrl();$('zbox').innerHTML=qrSvgOf(u);$('zurl').textContent='· '+u.replace(/^https?:\/\//,'').replace(/\?.*$/,'');zoom.classList.remove('hide');}
-function zoomClose(){zoom.classList.add('hide');}
-$('vzoom').addEventListener('click',e=>{e.stopPropagation();zoomOpen();});
-zoom.addEventListener('click',e=>{e.stopPropagation();zoomClose();});
-document.addEventListener('keydown',e=>{if(zoom.classList.contains('hide'))return;e.stopPropagation();e.preventDefault();if(e.key==='Escape'||e.key==='Enter'||e.key===' ')zoomClose();},true);
-drawQR();paint();check();
+function zoomOpen(){if(!C.live){dlg.classList.remove('hide');$('vcfgLive').value=C.live;$('vcfgFb').value=C.fb;return;}const u=voteUrl();$('zbox').innerHTML=qrSvgOf(u);$('zurl').textContent='· '+u.replace(/^https?:\/\//,'').replace(/\?.*$/,'');zoom.classList.remove('hide');}
+zoom.addEventListener('click',e=>{e.stopPropagation();zoom.classList.add('hide');});
+document.addEventListener('keydown',e=>{if(zoom.classList.contains('hide'))return;e.stopPropagation();e.preventDefault();if(e.key==='Escape'||e.key==='Enter'||e.key===' ')zoom.classList.add('hide');},true);
+syncActive();
 })();
 </script>
 </body></html>
