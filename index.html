@@ -446,9 +446,10 @@ kbd { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; 
 <p class="eyebrow t-green">Hélice quíntupla · Interação com a turma</p>
 <h2 class="vq">O aquecimento global traz mais calor e secas mais longas ao Ceará. Pela hélice quíntupla, o que isso representa para a COGERH?</h2>
 <div class="vwrap">
-<div class="vgrid"><button class="vopt" data-k="0"><span class="vl">A</span><span class="vt2">Uma perda inevitável, que só cabe aceitar</span><span class="vn">0</span><span class="vb"></span></button><button class="vopt" data-k="1"><span class="vl">B</span><span class="vt2">Um problema que se resolve construindo mais açudes</span><span class="vn">0</span><span class="vb"></span></button><button class="vopt" data-k="2"><span class="vl">C</span><span class="vt2">Uma restrição que obriga a criar conhecimento novo e pode virar inovação</span><span class="vn">0</span><span class="vb"></span></button><button class="vopt" data-k="3"><span class="vl">D</span><span class="vt2">Um tema ambiental, fora da gestão da empresa</span><span class="vn">0</span><span class="vb"></span></button></div>
+<div class="vgrid"><div class="vopt" data-k="0"><span class="vl">A</span><span class="vt2">Uma perda inevitável, que só cabe aceitar</span><span class="vn">0</span><span class="vpm"><button class="vm" title="Tirar 1 voto">−</button><button class="vp" title="Somar 1 voto">+</button></span><span class="vb"></span></div><div class="vopt" data-k="1"><span class="vl">B</span><span class="vt2">Um problema que se resolve construindo mais açudes</span><span class="vn">0</span><span class="vpm"><button class="vm" title="Tirar 1 voto">−</button><button class="vp" title="Somar 1 voto">+</button></span><span class="vb"></span></div><div class="vopt" data-k="2"><span class="vl">C</span><span class="vt2">Uma restrição que obriga a criar conhecimento novo e pode virar inovação</span><span class="vn">0</span><span class="vpm"><button class="vm" title="Tirar 1 voto">−</button><button class="vp" title="Somar 1 voto">+</button></span><span class="vb"></span></div><div class="vopt" data-k="3"><span class="vl">D</span><span class="vt2">Um tema ambiental, fora da gestão da empresa</span><span class="vn">0</span><span class="vpm"><button class="vm" title="Tirar 1 voto">−</button><button class="vp" title="Somar 1 voto">+</button></span><span class="vb"></span></div></div>
 <div class="vqr" id="vqr"><button class="vgear" id="vgear" title="Configurar votação ao vivo">⚙</button><div id="vqrbox"></div><p class="vcap" id="vcap">Aponte a câmera e vote</p><p class="vurl" id="vurl"></p><button class="vzoom" id="vzoom">QR CODE ZOOM</button><p class="vtot" id="vtot">0 votos</p></div>
 </div>
+<div class="vtools"><button id="vtimer">⏱ 60 s</button><button id="vreset">Zerar votação</button><span id="vstat" class="vstat"></span></div>
 <div class="vrev fragment"><b>Resposta: C.</b> Para Carayannis, Barth e Campbell (2012), o aquecimento global é desafio e, ao mesmo tempo, motor de inovação. <b>No Ceará:</b> a escassez levou o Estado a buscar água no mar. A Dessal do Ceará, com obras iniciadas em 2026, será a maior usina de dessalinização do país: 1.000 litros por segundo, cerca de 720 mil pessoas, 12% da demanda da Grande Fortaleza.</div>
 <div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>16</p></div>
 <aside>Ler a pergunta e deixar votar (QR ou mãos levantadas). Contagem manual: clique na opção (Shift+clique tira um). Avançar (→ ou espaço) revela a resposta C e o exemplo da dessalinização. Botão "Zerar" no canto do QR, com Shift+clique no QR.</aside>
@@ -927,6 +928,27 @@ kbd { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; 
 #qrzoom .zbox svg { width:100%; height:100%; }
 #qrzoom p { margin:0; font:700 clamp(18px,3vh,34px) Inter,Arial,sans-serif; color:#2B2E35; text-align:center; }
 #qrzoom small { font:600 clamp(14px,2.2vh,24px) Inter,Arial,sans-serif; color:#7B4A70; }
+
+#din-ameaca .vopt { cursor:default; }
+#din-ameaca .vpm { flex:none; display:flex; flex-direction:column; gap:6px; position:relative; z-index:1; }
+#din-ameaca .vpm button { width:40px; height:34px; border-radius:8px; border:1px solid rgba(255,255,255,.3); background:rgba(255,255,255,.08); color:#F3EFE3; font:700 22px/1 Inter,Arial,sans-serif; cursor:pointer; }
+#din-ameaca .vpm button:hover { background:rgba(226,192,106,.3); }
+#din-ameaca:has(.vrev.visible) .vpm { visibility:hidden; }
+#din-ameaca .vtools { display:flex; gap:12px; align-items:center; margin-top:-14px; }
+#din-ameaca .vtools button { border:1px solid rgba(255,255,255,.25); background:rgba(255,255,255,.07); color:#E9E4D8; border-radius:10px; padding:8px 14px; font:600 18px Inter,Arial,sans-serif; cursor:pointer; }
+#din-ameaca .vtools button:hover { background:rgba(255,255,255,.16); }
+#din-ameaca .vtools button.warn { background:#A3432F; border-color:#E8957F; color:#fff; }
+#din-ameaca .vtools button.on { background:#7B4A70; border-color:#C99BC0; }
+#din-ameaca .vtools button.tend { background:#A3432F; border-color:#E8957F; }
+#din-ameaca .vstat { margin-left:auto; font:600 18px Inter,Arial,sans-serif; color:#93C49F; }
+#din-ameaca .vstat.off { color:#E8957F; }
+#din-ameaca:has(.vrev.visible) .vn, #din-ameaca:has(.vrev.visible) .vb { visibility:visible !important; }
+
+#din-ameaca { gap:26px !important; padding-top:110px !important; }
+#din-ameaca h2.vq { font-size:42px; }
+#din-ameaca .vopt { min-height:100px; padding:14px 22px; }
+#din-ameaca .vrev { font-size:23px; line-height:1.4; padding:14px 24px; }
+#din-ameaca .vtools { margin-top:-8px; }
 </style>
 <div id="vplayer" class="hide"><button class="vx" id="vclose">Fechar ✕ (Esc)</button><div class="vt" id="vtitle"></div><video id="vel" controls playsinline></video><div class="verr hide" id="verr"></div></div>
 <div id="qrzoom" class="hide"><div class="zbox" id="zbox"></div><p>Aponte a câmera e vote <small id="zurl"></small></p></div>
@@ -3332,71 +3354,103 @@ requestAnimationFrame(frame);
 </script>
 
 <script>
-/* ===== Votação ao vivo do slide 16 (Firebase REST; fallback manual) ===== */
+/* ===== Votação ao vivo do slide 16 (Firebase REST; contagem manual como reserva) ===== */
 (function(){
 const PID='q5', Q='O aquecimento global traz mais calor e secas mais longas ao Ceará. Pela hélice quíntupla, o que isso representa para a COGERH?';
-const OPTS=["Uma perda inevitável, que só cabe aceitar", "Um problema que se resolve construindo mais açudes", "Uma restrição que obriga a criar conhecimento novo e pode virar inovação", "Um tema ambiental, fora da gestão da empresa"];
+const OPTS=["Uma perda inevitável, que só cabe aceitar","Um problema que se resolve construindo mais açudes","Uma restrição que obriga a criar conhecimento novo e pode virar inovação","Um tema ambiental, fora da gestão da empresa"];
 const ls={get:k=>{try{return JSON.parse(localStorage.getItem('sem_'+k))}catch(e){return null}},set:(k,v)=>{try{localStorage.setItem('sem_'+k,JSON.stringify(v))}catch(e){}}};
 const C=Object.assign({fb:'',live:''},window.SEM_CFG||{},ls.get('vcfg')||{});try{const qf=new URLSearchParams(location.search).get('fb');if(qf)C.fb=qf;}catch(e){}
 const fbu=p=>C.fb.replace(/\/+$/,'')+'/'+p+'.json';
 let uid=ls.get('uid'); if(!uid){uid='u'+Math.random().toString(36).slice(2,10)+Date.now().toString(36); ls.set('uid',uid);}
-/* ---------- página do celular (#votar) ---------- */
+/* ---------- página do celular dentro da apresentação (#votar), mantida por compatibilidade ---------- */
 if(window.__VOTAR){
-  document.addEventListener('DOMContentLoaded',()=>{});
-  const run=()=>{document.body.innerHTML='<div id="aud"><h1>Votação</h1><div id="aq">Aguardando a pergunta…</div><div id="ao"></div><p id="as"></p></div>';
-    const st=document.createElement('style');st.textContent='html,body{overflow:auto!important;background:#14171E;color:#F3EFE3;height:auto}#aud{max-width:640px;margin:0 auto;padding:24px 16px 40px;font:500 19px/1.4 Inter,Arial,sans-serif}#aud h1{font:700 30px Inter,Arial,sans-serif;color:#C99BC0;margin:0 0 12px}#aq{font:700 22px/1.3 Inter,Arial,sans-serif;margin-bottom:16px}#ao button{display:block;width:100%;margin:0 0 12px;padding:16px;border-radius:14px;border:2px solid #ffffff44;background:#ffffff12;color:#fff;font:600 19px/1.3 Inter,Arial,sans-serif;text-align:left}#ao button.sel{border-color:#E2C06A;background:#E2C06A33}#as{color:#93C49F}';document.head.appendChild(st);
+  const run=()=>{document.body.innerHTML='<div id="aud"><h1>Votação</h1><div id="aq">Conectando…</div><div id="ao"></div><p id="as"></p></div>';
+    const st=document.createElement('style');st.textContent='html,body{overflow:auto!important;background:#14171E;color:#F3EFE3;height:auto}#aud{max-width:640px;margin:0 auto;padding:24px 16px 40px;font:500 19px/1.4 Inter,Arial,sans-serif}#aud h1{font:700 30px Inter,Arial,sans-serif;color:#C99BC0;margin:0 0 12px}#aq{font:700 22px/1.3 Inter,Arial,sans-serif;margin-bottom:16px}#ao button{display:block;width:100%;margin:0 0 12px;padding:16px;border-radius:14px;border:2px solid #ffffff44;background:#ffffff12;color:#fff;font:600 19px/1.3 Inter,Arial,sans-serif;text-align:left}#ao button.sel{border-color:#E2C06A;background:#E2C06A33}#ao button:disabled{opacity:.5}#as{color:#93C49F}';document.head.appendChild(st);
     if(!C.fb){document.getElementById('aq').textContent='Votação ao vivo indisponível. Vote levantando a mão.';return;}
-    let cur=null,mine=null;
-    const draw=()=>{const aq=document.getElementById('aq'),ao=document.getElementById('ao');
-      if(!cur||!cur.pid){aq.textContent='Conectado. Aguardando a pergunta: ela aparece quando o apresentador abrir o slide da votação.';ao.innerHTML='';return;}
-      aq.textContent=cur.q; ao.innerHTML=cur.opts.map((o,i)=>`<button data-k="${i}" class="${mine===i?'sel':''}"><b>${'ABCD'[i]}</b> · ${o}</button>`).join('');
-      ao.querySelectorAll('button').forEach(b=>b.onclick=async()=>{mine=+b.dataset.k;draw();
-        try{const r=await fetch(fbu('votes/'+uid),{method:'PATCH',body:JSON.stringify({[cur.pid]:mine})});if(!r.ok)throw 0;document.getElementById('as').textContent='Voto registrado. Você pode mudar até a resposta ser revelada.';}
-        catch(e){document.getElementById('as').textContent='Não foi possível registrar. Tente de novo.';}});};
-    const tick=async()=>{try{const r=await fetch(fbu('live/current'),{cache:'no-store'});if(!r.ok){document.getElementById('aq').textContent='Não consegui ler o banco de votos (erro '+r.status+'). Avise o apresentador.';return;}const v=await r.json();
-      if(v&&v.pid&&(!cur||cur.pid!==v.pid)){try{const m=await (await fetch(fbu('votes/'+uid+'/'+v.pid),{cache:'no-store'})).json();mine=(typeof m==='number')?m:null}catch(e){}}
-      cur=v;draw();}catch(e){document.getElementById('aq').textContent='Sem conexão com o banco de votos. Avise o apresentador.';}};
+    let cur=null,mine=null;const $=id=>document.getElementById(id);
+    const draw=()=>{if(!cur||!cur.pid){$('aq').textContent='Conectado. A pergunta aparece quando o apresentador abrir o slide da votação.';$('ao').innerHTML='';return;}
+      $('aq').textContent=cur.q+(cur.closed?' (votação encerrada)':'');$('ao').innerHTML=cur.opts.map((o,i)=>`<button data-k="${i}" ${cur.closed?'disabled':''} class="${mine===i?'sel':''}"><b>${'ABCD'[i]}</b> · ${o}</button>`).join('');
+      if(cur.closed){$('as').textContent='Votação encerrada. Veja a resposta na tela.';return;}
+      $('ao').querySelectorAll('button').forEach(b=>b.onclick=async()=>{mine=+b.dataset.k;draw();
+        try{const r=await fetch(fbu('votes/'+uid),{method:'PATCH',body:JSON.stringify({[cur.pid]:mine})});if(!r.ok)throw 0;$('as').textContent='Voto registrado. Você pode mudar até a resposta ser revelada.';}
+        catch(e){$('as').textContent='Não foi possível registrar. Tente de novo.';}});};
+    const tick=async()=>{try{const r=await fetch(fbu('live/current'),{cache:'no-store'});if(!r.ok){$('aq').textContent='Não consegui ler o banco de votos (erro '+r.status+').';return;}const v=await r.json();
+      if(v&&v.pid&&(!cur||cur.pid!==v.pid)){mine=null;try{const m=await (await fetch(fbu('votes/'+uid+'/'+v.pid),{cache:'no-store'})).json();if(typeof m==='number')mine=m;}catch(e){}}
+      cur=v;draw();}catch(e){$('aq').textContent='Sem conexão com o banco de votos.';}};
     tick();setInterval(tick,2000);};
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run();
   return;
 }
 /* ---------- apresentador ---------- */
 const sec=document.getElementById('din-ameaca'); if(!sec)return;
-let manual=ls.get('manual_'+PID)||{}, live={}, active=false, timer=null;
+const $=id=>document.getElementById(id);
+let manual=ls.get('manual_'+PID)||{}, live={}, active=false, timer=null, online=null, closed=false, pubErr='';
 const tot=k=>(manual[k]||0)+(live[k]||0);
-function paint(){const n=[0,1,2,3].map(tot),sum=n.reduce((a,b)=>a+b,0),mx=Math.max(1,...n);
-  sec.querySelectorAll('.vopt').forEach(b=>{const k=+b.dataset.k;b.querySelector('.vn').textContent=n[k];b.querySelector('.vb').style.width=(n[k]/mx*100)+'%';});
-  document.getElementById('vtot').textContent=(typeof pubErr!=='undefined'&&pubErr)?pubErr:sum+(sum===1?' voto':' votos')+(C.fb?' · ao vivo':'');}
+const revealed=()=>!!sec.querySelector('.vrev.visible');
+function status(){const el=$('vstat');if(!el)return;el.classList.remove('off');
+  if(!C.fb){el.textContent='Modo manual · use + e −';return;}
+  if(pubErr){el.textContent=pubErr;el.classList.add('off');return;}
+  if(online===false){el.textContent='○ Sem conexão · conte com + e −';el.classList.add('off');return;}
+  el.textContent=closed?'● Votação encerrada':'● Ao vivo pelo celular';}
+function paint(){const n=[0,1,2,3].map(tot),sum=n.reduce((a,b)=>a+b,0),mx=Math.max(1,...n),rv=revealed();
+  sec.querySelectorAll('.vopt').forEach(b=>{const k=+b.dataset.k;b.querySelector('.vn').textContent=rv&&sum?(n[k]+' · '+Math.round(n[k]/sum*100)+'%'):n[k];b.querySelector('.vb').style.width=(n[k]/mx*100)+'%';});
+  $('vtot').textContent=sum+(sum===1?' voto':' votos');status();}
 const FB_DEFAULT='https://seminario-helices-cogerh-default-rtdb.firebaseio.com';
 function voteUrl(){if(!C.live)return '';let base=C.live.replace(/[?#].*$/,'');if(!base.endsWith('/'))base=base.replace(/[^/]*$/,'');let u=base+'v.html';
   if(C.fb&&C.fb.replace(/\/+$/,'')!==FB_DEFAULT)u+='?fb='+encodeURIComponent(C.fb);return u;}
 function qrSvgOf(u){const q=qrcode(0,'L');q.addData(u);q.make();return q.createSvgTag({cellSize:8,margin:2,scalable:true});}
-function drawQR(){const box=document.getElementById('vqrbox');
-  if(!C.live){box.innerHTML='<div class="vempty">Clique aqui para configurar a votação pelo celular</div>';document.getElementById('vcap').textContent='Sem link: vote com a mão';return;}
-  try{const u=voteUrl();box.innerHTML=qrSvgOf(u);document.getElementById('vcap').textContent='Aponte a câmera e vote';document.getElementById('vurl').textContent=u.replace(/^https?:\/\//,'').replace(/\?.*$/,'');}catch(e){box.innerHTML='<div class="vempty">Link inválido</div>';}}
-let pubErr='';async function publish(on){if(!C.fb)return;try{const r=await fetch(fbu('live/current'),{method:'PUT',body:JSON.stringify(on?{pid:PID,q:Q,opts:OPTS,t:Date.now()}:{pid:null,t:Date.now()})});pubErr=r.ok?'':'⚠ banco recusou ('+r.status+'): confira as regras e o endereço';}catch(e){pubErr='⚠ sem conexão com o banco: confira o endereço';}paint();}
-async function pull(){if(!C.fb)return;try{const v=(await (await fetch(fbu('votes'),{cache:'no-store'})).json())||{};const c={};Object.values(v).forEach(u=>{const k=u&&u[PID];if(typeof k==='number')c[k]=(c[k]||0)+1});live=c;paint();}catch(e){}}
+function drawQR(){const box=$('vqrbox');
+  if(!C.live){box.innerHTML='<div class="vempty">Sem votação pelo celular. Configure no ⚙ ou conte com + e −</div>';$('vcap').textContent='';$('vurl').textContent='';return;}
+  try{const u=voteUrl();box.innerHTML=qrSvgOf(u);$('vcap').textContent='Aponte a câmera e vote';$('vurl').textContent=u.replace(/^https?:\/\//,'').replace(/\?.*$/,'');}catch(e){box.innerHTML='<div class="vempty">Link inválido</div>';}}
+async function publish(on){if(!C.fb)return;try{const r=await fetch(fbu('live/current'),{method:'PUT',body:JSON.stringify(on?{pid:PID,q:Q,opts:OPTS,closed:closed,t:Date.now()}:{pid:null,t:Date.now()})});pubErr=r.ok?'':'⚠ Banco recusou ('+r.status+') · confira regras e endereço';online=r.ok?true:online;}catch(e){online=false;pubErr='';}paint();}
+async function pull(){if(!C.fb)return;try{const r=await fetch(fbu('votes'),{cache:'no-store'});if(!r.ok)throw 0;const v=(await r.json())||{};const c={};Object.values(v).forEach(u=>{const k=u&&u[PID];if(typeof k==='number')c[k]=(c[k]||0)+1});live=c;
+  if(online===false){online=true;publish(true);} online=true;}catch(e){online=false;}paint();}
 function check(){const on=sec.classList.contains('on');if(on===active)return;active=on;
-  if(on){publish(true);pull();timer=setInterval(pull,2000);}else{clearInterval(timer);publish(false);}}
+  if(on){closed=revealed();publish(true);pull();timer=setInterval(pull,2000);}else{clearInterval(timer);publish(false);}}
 new MutationObserver(check).observe(sec,{attributes:true,attributeFilter:['class']});
-sec.querySelectorAll('.vopt').forEach(b=>b.addEventListener('click',e=>{e.stopPropagation();if(sec.querySelector('.vrev.visible'))return;const k=+b.dataset.k;manual[k]=Math.max(0,(manual[k]||0)+(e.shiftKey?-1:1));ls.set('manual_'+PID,manual);paint();}));
-/* configuração */
-const dlg=document.getElementById('vcfg');
-document.getElementById('vqr').addEventListener('click',e=>e.stopPropagation());
-document.getElementById('vgear').addEventListener('click',e=>{e.stopPropagation();document.getElementById('vcfgLive').value=C.live;document.getElementById('vcfgFb').value=C.fb;dlg.classList.remove('hide');});
-const zoom=document.getElementById('qrzoom');
-function zoomOpen(){if(!C.live){document.getElementById('vgear').click();return;}const u=voteUrl();document.getElementById('zbox').innerHTML=qrSvgOf(u);document.getElementById('zurl').textContent='· '+u.replace(/^https?:\/\//,'').replace(/\?.*$/,'');zoom.classList.remove('hide');}
-function zoomClose(){zoom.classList.add('hide');}
-document.getElementById('vzoom').addEventListener('click',e=>{e.stopPropagation();zoomOpen();});
-zoom.addEventListener('click',e=>{e.stopPropagation();zoomClose();});
-document.addEventListener('keydown',e=>{if(zoom.classList.contains('hide'))return;e.stopPropagation();e.preventDefault();if(e.key==='Escape'||e.key==='Enter'||e.key===' ')zoomClose();},true);
+/* revelar = encerrar a votação nos celulares; voltar = reabrir */
+const rv=sec.querySelector('.vrev');
+new MutationObserver(()=>{const c=revealed();if(c!==closed){closed=c;if(active)publish(true);}paint();}).observe(rv,{attributes:true,attributeFilter:['class']});
+/* contagem manual: + e − em cada opção, ou teclas A–D (Shift = −1) */
+function bump(k,d){if(revealed())return;manual[k]=Math.max(0,(manual[k]||0)+d);
+  if(d<0&&(manual[k]||0)===0&&(live[k]||0)>0){/* não tira votos do celular pelo −; só a contagem manual */}
+  ls.set('manual_'+PID,manual);paint();}
+sec.querySelectorAll('.vopt').forEach(o=>{const k=+o.dataset.k;o.addEventListener('click',e=>e.stopPropagation());
+  o.querySelector('.vp').addEventListener('click',e=>{e.stopPropagation();bump(k,1);});
+  o.querySelector('.vm').addEventListener('click',e=>{e.stopPropagation();bump(k,-1);});});
+document.addEventListener('keydown',e=>{if(!active||e.ctrlKey||e.metaKey||e.altKey)return;if(!$('vcfg').classList.contains('hide')||!$('qrzoom').classList.contains('hide'))return;
+  const i='abcd'.indexOf(e.key.toLowerCase());if(i<0||e.key.length!==1)return;e.preventDefault();e.stopPropagation();bump(i,e.shiftKey?-1:1);},true);
+/* zerar (confirmação em 2 cliques) */
+async function zero(){manual={};ls.set('manual_'+PID,{});live={};closed=false;
+  if(C.fb){try{const v=(await (await fetch(fbu('votes'),{cache:'no-store'})).json())||{};await Promise.all(Object.keys(v).filter(u=>v[u]&&PID in v[u]).map(u=>fetch(fbu('votes/'+u+'/'+PID),{method:'DELETE'})));}catch(e){}
+    if(active)publish(true);}
+  paint();}
+let zt=null;const zb=$('vreset');
+zb.addEventListener('click',e=>{e.stopPropagation();if(zb.classList.contains('warn')){clearTimeout(zt);zb.classList.remove('warn');zb.textContent='Zerar votação';zero();return;}
+  zb.classList.add('warn');zb.textContent='Confirmar? clique de novo';zt=setTimeout(()=>{zb.classList.remove('warn');zb.textContent='Zerar votação';},3000);});
+/* contagem sempre visível; limpa estado antigo de 'ocultar parcial' */
+try{localStorage.removeItem('sem_hide_'+PID);}catch(e){}sec.classList.remove('vhid');
+/* cronômetro de 60 s */
+const tb=$('vtimer');let tt=null,left=0;
+tb.addEventListener('click',e=>{e.stopPropagation();if(tt){clearInterval(tt);tt=null;tb.classList.remove('on','tend');tb.textContent='⏱ 60 s';return;}
+  left=60;tb.classList.add('on');tb.textContent='⏱ '+left+' s';tt=setInterval(()=>{left--;if(left<=0){clearInterval(tt);tt=null;tb.classList.remove('on');tb.classList.add('tend');tb.textContent='⏱ Tempo!';setTimeout(()=>{tb.classList.remove('tend');tb.textContent='⏱ 60 s';},4000);return;}tb.textContent='⏱ '+left+' s';},1000);});
+sec.querySelector('.vtools').addEventListener('click',e=>e.stopPropagation());
+/* configuração e zoom */
+const dlg=$('vcfg');
+$('vqr').addEventListener('click',e=>e.stopPropagation());
+$('vgear').addEventListener('click',e=>{e.stopPropagation();$('vcfgLive').value=C.live;$('vcfgFb').value=C.fb;dlg.classList.remove('hide');});
 dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.classList.add('hide');e.stopPropagation();});
-document.getElementById('vcfgCancel').onclick=()=>dlg.classList.add('hide');
-document.getElementById('vcfgOk').onclick=()=>{C.live=document.getElementById('vcfgLive').value.trim();C.fb=document.getElementById('vcfgFb').value.trim();ls.set('vcfg',{live:C.live,fb:C.fb});dlg.classList.add('hide');drawQR();if(active){publish(true);pull();clearInterval(timer);timer=setInterval(pull,2000);}paint();};
-document.getElementById('vcfgZero').onclick=async()=>{manual={};ls.set('manual_'+PID,{});live={};paint();
-  if(C.fb){try{const v=(await (await fetch(fbu('votes'),{cache:'no-store'})).json())||{};await Promise.all(Object.keys(v).filter(u=>v[u]&&PID in v[u]).map(u=>fetch(fbu('votes/'+u+'/'+PID),{method:'DELETE'})));}catch(e){}}};
+$('vcfgCancel').onclick=()=>dlg.classList.add('hide');
+$('vcfgOk').onclick=()=>{C.live=$('vcfgLive').value.trim();C.fb=$('vcfgFb').value.trim();ls.set('vcfg',{live:C.live,fb:C.fb});dlg.classList.add('hide');online=null;pubErr='';drawQR();if(active){publish(true);pull();clearInterval(timer);timer=setInterval(pull,2000);}paint();};
+$('vcfgZero').onclick=()=>{zero();};
 dlg.addEventListener('keydown',e=>e.stopPropagation(),true);
 document.addEventListener('keydown',e=>{if(!dlg.classList.contains('hide'))e.stopPropagation();},true);
+const zoom=$('qrzoom');
+function zoomOpen(){if(!C.live){$('vgear').click();return;}const u=voteUrl();$('zbox').innerHTML=qrSvgOf(u);$('zurl').textContent='· '+u.replace(/^https?:\/\//,'').replace(/\?.*$/,'');zoom.classList.remove('hide');}
+function zoomClose(){zoom.classList.add('hide');}
+$('vzoom').addEventListener('click',e=>{e.stopPropagation();zoomOpen();});
+zoom.addEventListener('click',e=>{e.stopPropagation();zoomClose();});
+document.addEventListener('keydown',e=>{if(zoom.classList.contains('hide'))return;e.stopPropagation();e.preventDefault();if(e.key==='Escape'||e.key==='Enter'||e.key===' ')zoomClose();},true);
 drawQR();paint();check();
 })();
 </script>
