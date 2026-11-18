@@ -351,11 +351,30 @@ const gx=document.getElementById('gcv').getContext('2d');let gr=-1,graf=null,gac
 function gStop(){if(graf)cancelAnimationFrame(graf);graf=null;if(gm){const m=gm;gm=null;try{m.gain.setTargetAtTime(0,gac.currentTime,.03);setTimeout(()=>{try{m.disconnect();}catch(e){}},300);}catch(e){}}const b=$('gbt');b.textContent=GB;b.classList.remove('on');}
 function gShow(){const on=!!(cur&&cur.pid&&cur.type==='game'&&window.GAME);$('gsc').style.display=on?'block':'none';if(!on){if(gr!==-1){gStop();gr=-1;}return;}
  const r=typeof cur.sc==='number'?cur.sc:(+String(cur.pid).replace(/\D/g,'')-1);if(r!==gr){gStop();gr=r;GAME.draw(gx,r,GAME.DUR);}}
-$('gbt').onclick=()=>{if(graf){gStop();GAME.draw(gx,gr,GAME.DUR);return;}
- try{if(navigator.audioSession)navigator.audioSession.type='playback';}catch(e){}
- try{if(!gac)gac=new (window.AudioContext||window.webkitAudioContext)();gac.resume();const comp=gac.createDynamicsCompressor();comp.threshold.value=-18;comp.ratio.value=4;gm=gac.createGain();gm.gain.value=2.6;gm.connect(comp);comp.connect(gac.destination);GAME.audio(gac,gm,gr,gac.currentTime+.05);}catch(e){}
- const b=$('gbt');b.textContent='■ PARAR';b.classList.add('on');const t0=performance.now();
- const loop=()=>{const t=(performance.now()-t0)/1000;GAME.draw(gx,gr,t);if(t<GAME.DUR)graf=requestAnimationFrame(loop);else{graf=null;gm=null;b.textContent=GB;b.classList.remove('on');}};loop();};
+/* --- áudio robusto: desbloqueio iOS, espera o contexto rodar, relógio único --- */
+let gSilent=null;
+function silentWav(){const n=800,b=new ArrayBuffer(44+n*2),d=new DataView(b);const w=(o,s)=>{for(let i=0;i<s.length;i++)d.setUint8(o+i,s.charCodeAt(i));};
+ w(0,'RIFF');d.setUint32(4,36+n*2,true);w(8,'WAVE');w(12,'fmt ');d.setUint32(16,16,true);d.setUint16(20,1,true);d.setUint16(22,1,true);d.setUint32(24,8000,true);d.setUint32(28,16000,true);d.setUint16(32,2,true);d.setUint16(34,16,true);w(36,'data');d.setUint32(40,n*2,true);
+ let s='';new Uint8Array(b).forEach(x=>s+=String.fromCharCode(x));return 'data:audio/wav;base64,'+btoa(s);}
+function gUnlock(){try{if(navigator.audioSession)navigator.audioSession.type='playback';}catch(e){}
+ try{if(!gSilent){gSilent=new Audio(silentWav());gSilent.loop=true;gSilent.setAttribute('playsinline','');gSilent.volume=0.01;}const pr=gSilent.play();if(pr&&pr.catch)pr.catch(()=>{});}catch(e){}
+ const AC=window.AudioContext||window.webkitAudioContext;if(!AC)return null;
+ if(gac&&gac.state==='closed')gac=null;if(!gac)gac=new AC();
+ try{gac.resume();}catch(e){}
+ try{const bf=gac.createBuffer(1,1,22050),src=gac.createBufferSource();src.buffer=bf;src.connect(gac.destination);src.start(0);}catch(e){}
+ return gac;}
+function waitRun(ac,ms){return new Promise(res=>{if(!ac||ac.state==='running')return res(!!ac);const t=setTimeout(()=>res(ac.state==='running'),ms);ac.resume().then(()=>{clearTimeout(t);res(true);}).catch(()=>{});});}
+let gBusy=false;
+$('gbt').onclick=async()=>{if(gBusy)return;if(graf){gStop();GAME.draw(gx,gr,GAME.DUR);return;}
+ gBusy=true;const b=$('gbt');const ac=gUnlock();b.textContent='■ PARAR';b.classList.add('on');
+ const ok=await waitRun(ac,900);let start=null;
+ if(ok){try{const comp=ac.createDynamicsCompressor();comp.threshold.value=-18;comp.ratio.value=4;gm=ac.createGain();gm.gain.value=2.6;gm.connect(comp);comp.connect(ac.destination);start=ac.currentTime+.25;GAME.audio(ac,gm,gr,start);}catch(e){start=null;}}
+ else $('as').textContent='Som bloqueado pelo celular: toque em PARAR e de novo em REVER (e tire do silencioso).';
+ gBusy=false;
+ const p0=performance.now()+(start!==null?250:0);
+ const loop=()=>{if(!graf&&graf!==0)return;let t=start!==null&&ac&&ac.state==='running'?ac.currentTime-start:(performance.now()-p0)/1000;t=Math.max(0,t);GAME.draw(gx,gr,t);if(t<GAME.DUR)graf=requestAnimationFrame(loop);else{graf=null;gm=null;b.textContent=GB;b.classList.remove('on');}};
+ graf=requestAnimationFrame(loop);};
+document.addEventListener('visibilitychange',()=>{if(document.hidden&&graf){gStop();GAME.draw(gx,gr,GAME.DUR);}});
 async function tick(){try{const r=await fetch(u('live/current'),{cache:'no-store'});if(!r.ok){$('aq').textContent='Não consegui ler o banco de votos (erro '+r.status+'). Avise o apresentador.';return;}
  const v=await r.json();if(v&&v.pid&&(!cur||cur.pid!==v.pid)){mine=null;$('as').textContent='';try{const m=await (await fetch(u('votes/'+uid+'/'+v.pid),{cache:'no-store'})).json();if(typeof m==='number'||typeof m==='string')mine=m;}catch(e){}}
  if(!v||!v.pid||v.type!=='cloud')drawn='';cur=v;draw();gShow();}catch(e){$('aq').textContent='Sem conexão. Verifique a internet e recarregue a página.';}}
