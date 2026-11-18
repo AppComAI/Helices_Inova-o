@@ -342,14 +342,66 @@ kbd { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; 
 </section>
 
 <section id="metodo" data-transition="fade">
+<style>
+#metodo .msvg{position:absolute; left:0; top:0; width:1920px; height:1080px; pointer-events:none;}
+#metodo .mnode{position:absolute; width:52px; height:52px; border-radius:50%; background:#2a2f3a; box-shadow:0 0 0 6px #ffffff10; transition:background .4s, box-shadow .4s, transform .25s;}
+#metodo .mnode.lit{background:var(--c); box-shadow:0 0 0 8px color-mix(in srgb, var(--c) 30%, transparent), 0 0 40px var(--c);}
+#metodo .mnode.zap{transform:scale(1.25); box-shadow:0 0 0 10px color-mix(in srgb, var(--c) 40%, transparent), 0 0 70px var(--c), 0 0 22px #fff;}
+#metodo .mword{position:absolute; width:600px; text-align:center; font-family:Literata, Georgia, serif; font-size:92px; font-weight:600; margin:0; color:#4a4f5a; transition:color .5s, text-shadow .5s;}
+#metodo .mword.lit{color:var(--c); text-shadow:0 0 30px color-mix(in srgb, var(--c) 45%, transparent);}
+#metodo .mcap{position:absolute; width:520px; text-align:center; font-size:30px; line-height:1.3; color:#E6E0D2; margin:0;}
+#metodo .mnote{position:absolute; left:0; right:0; bottom:150px; text-align:center; font-size:26px; color:#C9C2B3; font-style:italic; margin:0;}
+</style>
 <p class="eyebrow">Método</p>
-<h2>Ensaio teórico-aplicado, com estudo de caso único</h2>
-<div class="cols2">
-<div class="card blue"><h3>Fontes</h3><p>Literatura das hélices; Lei 12.217/1993 com a redação da Lei 17.928/2022 e a alteração da Lei 19.603/2025; Lei 19.693/2026; documentos públicos da ANA, do CEPAS/UFC e da imprensa.</p></div>
-<div class="card red"><h3>Instrumentos</h3><p>Escala de maturidade de quatro níveis para os novos negócios e seis critérios para testar a tese.</p></div>
-</div>
+<h2>O caminho do seminário</h2>
+<svg class="msvg" viewBox="0 0 1920 1080" aria-hidden="true">
+<defs><linearGradient id="mgrad" gradientUnits="userSpaceOnUse" x1="140" y1="0" x2="1780" y2="0"><stop offset="0" stop-color="#3F6CA8"/><stop offset=".5" stop-color="#4D9A8A"/><stop offset="1" stop-color="#D6AE48"/></linearGradient>
+<filter id="mblur" x="-10%" y="-50%" width="120%" height="200%"><feGaussianBlur stdDeviation="9"/></filter>
+<radialGradient id="mspark"><stop offset="0" stop-color="#fff"/><stop offset=".35" stop-color="#cfefff"/><stop offset="1" stop-color="#9fd2ff" stop-opacity="0"/></radialGradient></defs>
+<path d="M140 640 C 520 520, 760 760, 1000 620 S 1520 520, 1780 600" stroke="#ffffff1c" stroke-width="5" fill="none"/>
+<path class="mlit-glow" d="M140 640 C 520 520, 760 760, 1000 620 S 1520 520, 1780 600" stroke="url(#mgrad)" stroke-width="16" fill="none" filter="url(#mblur)" opacity=".75"/>
+<path class="mlit" d="M140 640 C 520 520, 760 760, 1000 620 S 1520 520, 1780 600" stroke="url(#mgrad)" stroke-width="5" fill="none"/>
+<path class="mpulse-glow" d="M140 640 C 520 520, 760 760, 1000 620 S 1520 520, 1780 600" stroke="#bfe8ff" stroke-width="18" fill="none" filter="url(#mblur)" stroke-linecap="round"/>
+<path class="mpulse" d="M140 640 C 520 520, 760 760, 1000 620 S 1520 520, 1780 600" stroke="#ffffff" stroke-width="4" fill="none" stroke-linecap="round"/>
+<circle class="mspark" r="26" fill="url(#mspark)"/>
+</svg>
+<div class="mnode" data-f="0.0973" style="--c:#3F6CA8; left:274px; top:582px;"></div><p class="mword" data-f="0.0973" style="--c:#3F6CA8; left:0px; top:418px;">Teoria</p><p class="mcap" style="left:40px; top:668px;">as hélices da inovação</p>
+<div class="mnode" data-f="0.4948" style="--c:#4D9A8A; left:934px; top:614px;"></div><p class="mword" data-f="0.4948" style="--c:#4D9A8A; left:660px; top:450px;">Evidência</p><p class="mcap" style="left:700px; top:700px;">o que a COGERH já fez e o que a lei permite</p>
+<div class="mnode" data-f="0.9013" style="--c:#D6AE48; left:1594px; top:531px;"></div><p class="mword" data-f="0.9013" style="--c:#D6AE48; left:1320px; top:367px;">Teste</p><p class="mcap" style="left:1360px; top:617px;">os negócios saíram do papel?</p>
+<p class="mnote">Estudo de caso da COGERH, com documentos públicos.</p>
 <div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>6</p></div>
-
+<aside>Método formal: ensaio teórico-aplicado, com estudo de caso único. Fontes: literatura das hélices; Lei 12.217/1993 com a redação da Lei 17.928/2022 e a alteração da Lei 19.603/2025; Lei 19.693/2026; documentos públicos da ANA, do CEPAS/UFC e da imprensa. Teste: escala de maturidade de quatro níveis para os novos negócios e seis critérios para testar a tese.</aside>
+<script>
+(function(){
+  const sec=document.getElementById('metodo'); if(!sec) return;
+  const lit=sec.querySelector('.mlit'), litG=sec.querySelector('.mlit-glow'), pul=sec.querySelector('.mpulse'), pulG=sec.querySelector('.mpulse-glow'), sp=sec.querySelector('.mspark');
+  const nodes=[...sec.querySelectorAll('.mnode')], words=[...sec.querySelectorAll('.mword')];
+  let L=0, on=false, t0=0; const DRAW=3.0, GAP=0.4, LOOP=2.4, PL=170;
+  const ease=x=>1-Math.pow(1-Math.min(1,Math.max(0,x)),3);
+  function setup(){ L=lit.getTotalLength(); for(const e of [lit,litG]){e.style.strokeDasharray=L; e.style.strokeDashoffset=L;}
+    for(const e of [pul,pulG]){e.style.strokeDasharray=PL+' '+(L+2*PL); e.style.strokeDashoffset=PL;} }
+  function frame(now){
+    requestAnimationFrame(frame);
+    const active=sec.classList.contains('on');
+    if(!active){ if(on){on=false; nodes.concat(words).forEach(n=>n.classList.remove('lit','zap'));} return; }
+    if(!on){ on=true; t0=now; setup(); }
+    if(!L) return;
+    const t=(now-t0)/1000; let head;
+    if(t<DRAW){ const p=ease(t/DRAW); head=p*L; for(const e of [lit,litG]) e.style.strokeDashoffset=L-head;
+      for(const e of [pul,pulG]) e.style.strokeDashoffset=PL;
+      nodes.forEach((n,i)=>{ if(head/L>=+n.dataset.f){n.classList.add('lit'); words[i].classList.add('lit');} });
+    } else { for(const e of [lit,litG]) e.style.strokeDashoffset=0;
+      nodes.forEach((n,i)=>{n.classList.add('lit'); words[i].classList.add('lit');});
+      const u=t-DRAW-GAP; if(u<0){ sp.setAttribute('opacity',0); return; }
+      head=((u%LOOP)/LOOP)*(L+PL);
+      for(const e of [pul,pulG]) e.style.strokeDashoffset=PL-head;
+      nodes.forEach(n=>n.classList.toggle('zap', Math.abs(head-(+n.dataset.f)*L)<70));
+    }
+    const q=lit.getPointAtLength(Math.min(head,L)); sp.setAttribute('cx',q.x); sp.setAttribute('cy',q.y); sp.setAttribute('opacity', head<=L?1:0);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
 </section>
 
 <section id="inovacao" class="alt" data-transition="fade">
@@ -365,6 +417,21 @@ kbd { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; 
 
 </section>
 
+<section id="pre-8" data-transition="fade" style="padding:0; display:block; position:relative; overflow:hidden;">
+<style>
+#pre-8 .cur{display:inline-block; width:.09em; height:.9em; background:#D6AE48; margin-left:.08em; vertical-align:-.08em; box-shadow:0 0 18px #D6AE48; animation:p8blink 1.05s steps(1) infinite;}
+@keyframes p8blink{50%{opacity:0}}
+#pre-8 .chip{display:inline-flex; align-items:center; gap:14px; padding:16px 28px; border-radius:40px; background:#ffffff10; border:1px solid #ffffff2a; font-size:28px; color:#F3EFE3;}
+#pre-8 .chip b{width:34px; height:34px; border-radius:50%; display:grid; place-items:center; font-size:18px; background:#D6AE48; color:#15171C;}
+</style>
+<p class="eyebrow" style="position:absolute; left:128px; top:120px; margin:0;">Parte 1 · Inovação · Sua vez</p>
+<p style="position:absolute; left:0; right:0; top:200px; margin:0; text-align:center; font-family:Literata, Georgia, serif; font-size:46px; color:#C9C2B3;">Schumpeter precisou de cinco combinações. <span style="color:#F3EFE3;">Você tem uma palavra.</span></p>
+<p style="position:absolute; left:0; right:0; top:360px; margin:0; text-align:center; font-family:Literata, Georgia, serif; font-weight:600; font-size:170px; color:#F3EFE3; text-shadow:0 0 50px #3F6CA855;">Inovação é<span class="cur"></span></p>
+<div style="position:absolute; left:0; right:0; top:700px; display:flex; justify-content:center; gap:34px;">
+<span class="chip"><b>1</b>Pense em uma palavra só</span><span class="chip"><b>2</b>Não existe resposta errada</span><span class="chip"><b>3</b>Celular à mão</span></div>
+<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>8</p></div>
+<aside>Pré-8: "Agora que vimos a teoria, queremos saber o que inovação significa para vocês, numa palavra só." Não revelar que as respostas formarão uma nuvem de palavras.</aside>
+</section>
 <section id="quiz" class="poll cloud" data-pid="c7" data-transition="fade">
 <div class="vled" title="Clique para iniciar / pausar (tecla T)"><svg class="vledsvg" viewBox="0 0 260 150"></svg><span class="vledlab">clique para iniciar</span></div>
 <p class="eyebrow">Parte 1 · Inovação · Testando os conceitos · Nuvem de palavras</p>
@@ -375,21 +442,22 @@ kbd { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; 
 </div>
 <div class="vtools"><button class="vreset">Zerar nuvem</button><button class="vmute" title="Som do cronômetro (tecla M)">🔊 Som</button><input class="vadd" maxlength="30" placeholder="+ palavra (Enter)" title="Sem conexão? Digite a palavra dita pela turma e tecle Enter"><span class="vhint">clique numa palavra para ocultá-la</span><span class="vstat"></span></div>
 <div class="vrev fragment"><b>Nuvem encerrada.</b></div>
-<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>8</p></div>
+<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>9</p></div>
 <aside>Abrir a nuvem (cronômetro de 40 s: clique no painel ou tecla T).</aside>
 </section>
-<section id="pre-8" data-transition="fade">
+<section id="pre-9" data-transition="fade">
 <p class="eyebrow">Parte 1 · Inovação · Game show</p>
 <h2>Inovação, invenção ou nenhuma?</h2>
 <p class="lead">Três cenas, três veredictos. Você decide: invenção, inovação ou nenhuma das duas.</p>
-<div class="cols3">
-<div class="card blue"><h3>1. Assista</h3><p>Cena de 20 s.</p></div>
-<div class="card red"><h3>2. Vote</h3><p>40 s pelo celular (QR code).</p></div>
-<div class="card gold"><h3>3. Confira</h3><p>A resposta e as hélices em cena.</p></div>
-</div>
-<p class="small">Critério do júri: inovação é novidade posta em uso (Manual de Oslo, 2018).</p>
-<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>9</p></div>
-<aside>Pré-8: apresentar as regras do jogo antes de abrir a primeira cena.</aside>
+<div style="display:flex; gap:40px; margin-top:6px; font-size:28px; color:#E6E0D2;">
+<span><b style="color:#8FB0DC;">① Assista</b> · cena de 20 s</span><span><b style="color:#C2573F;">② Vote</b> · 40 s pelo celular</span><span><b style="color:#D6AE48;">③ Confira</b> · resposta e hélices</span></div>
+<div style="position:absolute; left:110px; right:110px; top:500px; display:flex; justify-content:space-between;"><figure style="margin:0; width:500px; text-align:center;"><div style="padding:14px; border-radius:22px; background:linear-gradient(160deg,#3b1f4a,#1a1024); box-shadow:0 0 0 3px #C99BC0, 0 0 40px #C99BC066, 0 20px 40px #000b;"><canvas class="p9cv" data-r="0" width="640" height="360" style="width:470px; height:264px; image-rendering:pixelated; border-radius:8px; display:block;"></canvas></div><figcaption style="font-family:Literata, Georgia, serif; font-size:21px; color:#F3EFE3; margin-top:14px;">Cena 1 · O inventor e a patente engavetada. Isso é…</figcaption></figure><figure style="margin:0; width:500px; text-align:center;"><div style="padding:14px; border-radius:22px; background:linear-gradient(160deg,#3b1f4a,#1a1024); box-shadow:0 0 0 3px #C99BC0, 0 0 40px #C99BC066, 0 20px 40px #000b;"><canvas class="p9cv" data-r="1" width="640" height="360" style="width:470px; height:264px; image-rendering:pixelated; border-radius:8px; display:block;"></canvas></div><figcaption style="font-family:Literata, Georgia, serif; font-size:21px; color:#F3EFE3; margin-top:14px;">Cena 2 · A alocação negociada da água do açude. Isso é…</figcaption></figure><figure style="margin:0; width:500px; text-align:center;"><div style="padding:14px; border-radius:22px; background:linear-gradient(160deg,#3b1f4a,#1a1024); box-shadow:0 0 0 3px #C99BC0, 0 0 40px #C99BC066, 0 20px 40px #000b;"><canvas class="p9cv" data-r="2" width="640" height="360" style="width:470px; height:264px; image-rendering:pixelated; border-radius:8px; display:block;"></canvas></div><figcaption style="font-family:Literata, Georgia, serif; font-size:21px; color:#F3EFE3; margin-top:14px;">Cena 3 · O aplicativo que nunca foi lançado. Isso é…</figcaption></figure></div>
+<p class="small" style="position:absolute; left:128px; bottom:110px; margin:0;">Critério do júri: inovação é novidade posta em uso (Manual de Oslo, 2018).</p>
+<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>10</p></div>
+<aside>Pré-9: apresentar as regras do jogo antes de abrir a primeira cena.</aside>
+<script>(function(){const sec=document.getElementById('pre-9');const cvs=[...sec.querySelectorAll('.p9cv')];const t0=performance.now();
+function f(now){requestAnimationFrame(f);if(!sec.classList.contains('on')||!window.GAME)return;const t=((now-t0)/1000)%4.5;
+cvs.forEach((c,i)=>window.GAME.draw(c.getContext('2d'),i,0.3+t));}requestAnimationFrame(f);})();</script>
 </section>
 <section id="jogo" class="poll game" data-pid="g1" data-tmax="40" data-correct="0" data-transition="fade">
 <div class="vled" title="Clique para iniciar / pausar (tecla T)"><svg class="vledsvg" viewBox="0 0 260 150"></svg><span class="vledlab">clique para iniciar</span></div>
@@ -404,7 +472,7 @@ kbd { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; 
 <div class="grevs"><div class="vrev fragment" data-r="0"><p><b>1 · Invenção.</b> Houve novidade técnica e até patente, mas ela nunca chegou ao uso. Para Schumpeter, a invenção só vira inovação quando é levada à prática econômica.</p><div class="ghel"><span class="ghl">Hélices em cena</span><span class="gh on">Universidade</span><span class="gh">Governo</span><span class="gh">Empresas</span><span class="gh">Sociedade</span><span class="gh">Meio ambiente</span></div></div><span class="gstart fragment" data-r="1"></span><div class="vrev fragment" data-r="1"><p><b>2 · Inovação.</b> Um jeito novo de decidir a água, posto em uso e construído com os usuários. É inovação de processo: novo ou melhorado, e posto em uso pela organização (Manual de Oslo, 2018).</p><div class="ghel"><span class="ghl">Hélices em cena</span><span class="gh">Universidade</span><span class="gh on">Governo</span><span class="gh">Empresas</span><span class="gh on">Sociedade</span><span class="gh on">Meio ambiente</span></div></div><span class="gstart fragment" data-r="2"></span><div class="vrev fragment" data-r="2"><p><b>3 · Nenhuma das duas.</b> Um app igual aos que já existem não traz novidade para ser invenção; e, sem ser lançado, não foi disponibilizado a ninguém, então também não é inovação (Manual de Oslo, 2018).</p><div class="ghel"><span class="ghl">Hélices em cena</span><span class="gh">Universidade</span><span class="gh">Governo</span><span class="gh on">Empresas</span><span class="gh">Sociedade</span><span class="gh">Meio ambiente</span></div></div><span class="gstart fragment" data-r="3"></span></div>
 <div class="gfinal"><p class="eyebrow">Placar da turma</p><h2>Inova ou não inova?</h2><div class="grows"></div><p class="gscore"></p><p class="gbridge">Ideia sem uso é invenção; uso sem novidade não é nada. <b>Inovação é novidade posta em uso</b>, e ela gira melhor quando as hélices giram juntas, como na cena 2.</p></div>
 <canvas class="gcv" width="960" height="540"></canvas>
-<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>10</p></div>
+<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>11</p></div>
 <aside>Jogo em 3 rodadas. Cada rodada: cena de 20 s (→ ou clique pula), pergunta com 40 s no celular (o aluno pode rever a cena no próprio celular, com som), buzina e resposta. → revela a resposta; → de novo passa à próxima cena. No fim, placar da turma. Gabarito: 1 invenção, 2 inovação, 3 nenhuma das duas.</aside>
 </section>
 
@@ -419,7 +487,7 @@ kbd { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; 
 <tr><td class="t-purple">Quádrupla</td><td>+ sociedade civil, mídia e cultura</td><td>Carayannis e Campbell (2009)</td><td>Quem legitima e usa a inovação?</td></tr>
 <tr><td class="t-green">Quíntupla</td><td>+ ambiente natural</td><td>Carayannis e Campbell (2010); Carayannis, Barth e Campbell (2012)</td><td>Que limites e oportunidades o ambiente impõe?</td></tr>
 </table>
-<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>11</p></div>
+<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>12</p></div>
 
 </section>
 
@@ -432,13 +500,45 @@ kbd { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; 
 <p><b class="t-blue">A universidade</b> empreende, <b class="t-red">a empresa</b> pesquisa e <b class="t-gold">o governo</b> financia o risco.</p>
 <p>Na interseção surgem organizações híbridas: incubadoras, núcleos de inovação, programas conjuntos.</p>
 </div>
-<div style="width:620px; height:600px;"><svg aria-label="Três círculos sobrepostos: universidade (azul), empresa (vermelho) e governo (amarelo)" width="620" height="600" viewBox="0 0 620 600">
-<circle cx="215" cy="205" r="185" fill="#3F6CA8" fill-opacity="0.82"/>
-<circle cx="405" cy="205" r="185" fill="#C2573F" fill-opacity="0.78"/>
-<circle cx="310" cy="390" r="185" fill="#D6AE48" fill-opacity="0.8"/>
+<div style="width:620px; height:600px;"><svg class="trisvg" aria-label="Três esferas que se aproximam e se sobrepõem: universidade (azul), empresa (vermelho) e governo (amarelo)" width="620" height="600" viewBox="0 0 620 600" style="overflow:visible;">
+<defs>
+<radialGradient id="tgB" cx="38%" cy="32%" r="70%"><stop offset="0" stop-color="#9cc0f0"/><stop offset=".45" stop-color="#3F6CA8"/><stop offset="1" stop-color="#16294a"/></radialGradient>
+<radialGradient id="tgR" cx="38%" cy="32%" r="70%"><stop offset="0" stop-color="#f3a58f"/><stop offset=".45" stop-color="#C2573F"/><stop offset="1" stop-color="#4e1a10"/></radialGradient>
+<radialGradient id="tgG" cx="38%" cy="32%" r="70%"><stop offset="0" stop-color="#fbe3a0"/><stop offset=".45" stop-color="#D6AE48"/><stop offset="1" stop-color="#5a4210"/></radialGradient>
+<radialGradient id="tgH" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<radialGradient id="tgC" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#fffbe8" stop-opacity="1"/><stop offset=".35" stop-color="#ffd76a" stop-opacity=".7"/><stop offset="1" stop-color="#ffd76a" stop-opacity="0"/></radialGradient>
+<filter id="tgS" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="18"/></filter>
+</defs>
+<ellipse class="tsh" cx="310" cy="590" rx="250" ry="26" fill="#000" opacity=".45" filter="url(#tgS)"/>
+<g class="sph" data-x="215" data-y="205" data-dx="-170" data-dy="-80"><circle r="185" fill="url(#tgB)" opacity=".86" style="mix-blend-mode:screen"/><ellipse cx="-62" cy="-78" rx="70" ry="44" fill="url(#tgH)" transform="rotate(-30 -62 -78)"/><text x="-60" y="-40" text-anchor="middle" style="font:700 26px Inter, Arial, sans-serif; fill:#fff; paint-order:stroke; stroke:#0006; stroke-width:4px;">Universidade</text></g>
+<g class="sph" data-x="405" data-y="205" data-dx="170" data-dy="-80"><circle r="185" fill="url(#tgR)" opacity=".84" style="mix-blend-mode:screen"/><ellipse cx="-62" cy="-78" rx="70" ry="44" fill="url(#tgH)" transform="rotate(-30 -62 -78)"/><text x="70" y="-40" text-anchor="middle" style="font:700 26px Inter, Arial, sans-serif; fill:#fff; paint-order:stroke; stroke:#0006; stroke-width:4px;">Empresa</text></g>
+<g class="sph" data-x="310" data-y="390" data-dx="0" data-dy="170"><circle r="185" fill="url(#tgG)" opacity=".84" style="mix-blend-mode:screen"/><ellipse cx="-62" cy="-78" rx="70" ry="44" fill="url(#tgH)" transform="rotate(-30 -62 -78)"/><text x="0" y="110" text-anchor="middle" style="font:700 26px Inter, Arial, sans-serif; fill:#fff; paint-order:stroke; stroke:#0006; stroke-width:4px;">Governo</text></g>
+<circle class="tglow" cx="310" cy="268" r="120" fill="url(#tgC)" opacity="0" style="mix-blend-mode:screen"/>
+
 </svg></div>
+<script>
+(function(){
+  const sec=document.getElementById('triplice'); if(!sec) return;
+  const S=[...sec.querySelectorAll('.sph')], glow=sec.querySelector('.tglow'), tw=sec.querySelector('.tw');
+  const ease=x=>{x=Math.min(1,Math.max(0,x));return 1-Math.pow(1-x,3);};
+  let on=false,t0=0;
+  function frame(now){
+    requestAnimationFrame(frame);
+    if(!sec.classList.contains('on')){on=false;return;}
+    if(!on){on=true;t0=now;}
+    const t=(now-t0)/1000, k=ease(t/2.4);
+    S.forEach((g,i)=>{
+      const x=+g.dataset.x+(+g.dataset.dx)*(1-k), fy=t>2.4?6*Math.sin((t-2.4)*1.3+i*2.1):0, y=+g.dataset.y+(+g.dataset.dy)*(1-k)+fy, sc=.82+.18*k;
+      g.setAttribute('transform','translate('+x+' '+y+') scale('+sc+')'); g.style.opacity=Math.min(1,t/0.6);
+    });
+    let ga=0; if(t>2.2){const u=t-2.2; ga=u<0.5?u/0.5:Math.max(0.35,1-(u-0.5)/1.0); if(u>1.5) ga=0.35+0.15*Math.sin((u-1.5)*2);}
+    glow.setAttribute('opacity',ga.toFixed(3)); if(tw) tw.style.opacity=Math.min(1,Math.max(0,(t-2.5)/0.6)).toFixed(3);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
 </div>
-<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>12</p></div>
+<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>13</p></div>
 <aside>Interação opcional: troca de chapéus. Três voluntários (Governo, Universidade, Empresa) respondem ao problema ‘um canal perde água e ninguém sabe quanto’ e depois trocam de papel.</aside>
 </section>
 
@@ -452,7 +552,7 @@ kbd { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; 
 <div class="card gold"><div class="num">11</div><p>Startups em colaboração em 2025, segundo material da empresa publicado no Haaretz (conteúdo patrocinado).</p></div>
 </div>
 <p class="small">Entre os objetivos do programa, a Mekorot lista criar novas fontes de receita. Lição: a estrutura operada também é ativo de inovação.</p>
-<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>13</p></div>
+<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>14</p></div>
 
 </section>
 
@@ -466,7 +566,7 @@ kbd { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; 
 <div class="card red grow"><h3>Empresa</h3><p>COGERH como operadora e usuária dos resultados.</p></div>
 </div>
 <p><b class="ink">Produtos públicos:</b> Planos de Gestão Proativa de Seca dos hidrossistemas; projeto Alocar (risco, alocação e operação); planos de recursos hídricos das regiões hidrográficas; parceria COGERH–Cientista Chefe de pesquisa, desenvolvimento e inovação.</p>
-<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>14</p></div>
+<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>15</p></div>
 
 </section>
 
@@ -477,7 +577,37 @@ kbd { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; 
 <div class="card purple"><h3>O que acrescenta</h3><p>Carayannis e Campbell (2009) incluem o público baseado em mídia e cultura: sociedade civil e usuários.</p></div>
 <div class="card purple"><h3>Por que importa</h3><p>A inovação precisa de legitimidade. Sem aceitação de quem usa, a tecnologia ou a regra não se sustenta.</p></div>
 </div>
-<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>15</p></div>
+<svg class="qsvg" viewBox="0 0 1920 1080" aria-label="Universidade, empresa e governo já unidos recebem uma quarta esfera, a sociedade" style="position:absolute; left:0; top:0; width:1920px; height:1080px; pointer-events:none; overflow:visible;">
+<defs><radialGradient id="qgB" cx="38%" cy="32%" r="70%"><stop offset="0" stop-color="#9cc0f0"/><stop offset=".45" stop-color="#3F6CA8"/><stop offset="1" stop-color="#16294a"/></radialGradient><radialGradient id="qgR" cx="38%" cy="32%" r="70%"><stop offset="0" stop-color="#f3a58f"/><stop offset=".45" stop-color="#C2573F"/><stop offset="1" stop-color="#4e1a10"/></radialGradient><radialGradient id="qgG" cx="38%" cy="32%" r="70%"><stop offset="0" stop-color="#fbe3a0"/><stop offset=".45" stop-color="#D6AE48"/><stop offset="1" stop-color="#5a4210"/></radialGradient><radialGradient id="qgP" cx="38%" cy="32%" r="70%"><stop offset="0" stop-color="#e6b6dc"/><stop offset=".45" stop-color="#9B5E8F"/><stop offset="1" stop-color="#3a1a35"/></radialGradient><radialGradient id="qgH" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient><radialGradient id="qgC" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#fffbe8"/><stop offset=".35" stop-color="#f0c6ea" stop-opacity=".7"/><stop offset="1" stop-color="#f0c6ea" stop-opacity="0"/></radialGradient><filter id="qgS" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="16"/></filter></defs>
+<ellipse cx="960" cy="925" rx="215" ry="20" fill="#000" opacity=".45" filter="url(#qgS)"/>
+<g class="qs" data-x="880" data-y="652" data-dx="0"><circle r="104" fill="url(#qgB)" opacity=".86" style="mix-blend-mode:screen"/><ellipse cx="-38" cy="-48" rx="44" ry="27" fill="url(#qgH)" transform="rotate(-30 -38 -48)"/><text x="-32" y="-26" text-anchor="middle" style="font:700 20px Inter, Arial, sans-serif; fill:#fff; paint-order:stroke; stroke:#0006; stroke-width:4px;">Universidade</text></g><g class="qs" data-x="1040" data-y="652" data-dx="0"><circle r="104" fill="url(#qgR)" opacity=".84" style="mix-blend-mode:screen"/><ellipse cx="-38" cy="-48" rx="44" ry="27" fill="url(#qgH)" transform="rotate(-30 -38 -48)"/><text x="32" y="-26" text-anchor="middle" style="font:700 20px Inter, Arial, sans-serif; fill:#fff; paint-order:stroke; stroke:#0006; stroke-width:4px;">Empresa</text></g><g class="qs" data-x="880" data-y="800" data-dx="0"><circle r="104" fill="url(#qgG)" opacity=".84" style="mix-blend-mode:screen"/><ellipse cx="-38" cy="-48" rx="44" ry="27" fill="url(#qgH)" transform="rotate(-30 -38 -48)"/><text x="-32" y="44" text-anchor="middle" style="font:700 20px Inter, Arial, sans-serif; fill:#fff; paint-order:stroke; stroke:#0006; stroke-width:4px;">Governo</text></g><g class="qs qnew" data-x="1040" data-y="800" data-dx="640"><circle r="104" fill="url(#qgP)" opacity=".86" style="mix-blend-mode:screen"/><ellipse cx="-38" cy="-48" rx="44" ry="27" fill="url(#qgH)" transform="rotate(-30 -38 -48)"/><text x="32" y="44" text-anchor="middle" style="font:700 20px Inter, Arial, sans-serif; fill:#fff; paint-order:stroke; stroke:#0006; stroke-width:4px;">Sociedade</text></g>
+<circle class="qglow" cx="960" cy="726" r="90" fill="url(#qgC)" opacity="0" style="mix-blend-mode:screen"/>
+</svg>
+<script>
+(function(){
+  const sec=document.getElementById('quadrupla'); if(!sec) return;
+  const S=[...sec.querySelectorAll('.qs')], glow=sec.querySelector('.qglow'), cards=[...sec.querySelectorAll('.cols2 .card')];
+  const ease=x=>{x=Math.min(1,Math.max(0,x));return 1-Math.pow(1-x,3);};
+  let on=false,t0=0;
+  function frame(now){
+    requestAnimationFrame(frame);
+    if(!sec.classList.contains('on')){if(on){on=false;cards.forEach(c=>{c.style.opacity='';c.style.transform='';});}return;}
+    if(!on){on=true;t0=now;}
+    const t=(now-t0)/1000;
+    cards.forEach((c,i)=>{const k=ease((t-i*0.25)/0.7);c.style.opacity=k;c.style.transform='translateY('+(24*(1-k))+'px)';});
+    S.forEach((g,i)=>{
+      const isNew=g.classList.contains('qnew'), k=isNew?ease((t-1.0)/2.0):ease((t-0.3)/0.8);
+      const fy=t>3.2?5*Math.sin((t-3.2)*1.3+i*1.7):0;
+      const x=+g.dataset.x+(+g.dataset.dx)*(1-k), y=+g.dataset.y+fy, sc=isNew?.8+.2*k:.9+.1*k;
+      g.setAttribute('transform','translate('+x+' '+y+') scale('+sc+')'); g.style.opacity=isNew?Math.min(1,(t-1.0)/0.5):k;
+    });
+    let ga=0; if(t>2.8){const u=t-2.8; ga=u<0.5?u/0.5:Math.max(0.35,1-(u-0.5)); if(u>1.5) ga=0.35+0.15*Math.sin((u-1.5)*2);}
+    glow.setAttribute('opacity',Math.max(0,ga).toFixed(3));
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>16</p></div>
 
 </section>
 
@@ -491,7 +621,7 @@ kbd { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; 
 <div class="card purple"><div class="num">~100</div><p>Reservatórios com alocação negociada, segundo a COGERH em 2015.</p></div>
 </div>
 <p class="small">As vazões de Castanhão, Orós e Banabuiú são definidas em seminário com comitês de bacia e usuários.</p>
-<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>16</p></div>
+<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>17</p></div>
 <aside>Fontes da COGERH divergem sobre o ano (1994 ou 1995); por isso ‘anos 1990’.</aside>
 </section>
 
@@ -502,7 +632,37 @@ kbd { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; 
 <div class="card green"><h3>O que acrescenta</h3><p>Carayannis e Campbell (2010) incluem o ambiente natural como subsistema da inovação.</p></div>
 <div class="card green"><h3>Restrição que vira motor</h3><p>Carayannis, Barth e Campbell (2012) tratam o aquecimento global como desafio e, ao mesmo tempo, motor de inovação.</p></div>
 </div>
-<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>17</p></div>
+<svg class="psvg" viewBox="0 0 1920 1080" aria-label="As quatro esferas recebem a quinta, ambiente, e se reorganizam em cinco" style="position:absolute; left:0; top:0; width:1920px; height:1080px; pointer-events:none; overflow:visible;">
+<defs><radialGradient id="qnB" cx="38%" cy="32%" r="70%"><stop offset="0" stop-color="#9cc0f0"/><stop offset=".45" stop-color="#3F6CA8"/><stop offset="1" stop-color="#16294a"/></radialGradient><radialGradient id="qnR" cx="38%" cy="32%" r="70%"><stop offset="0" stop-color="#f3a58f"/><stop offset=".45" stop-color="#C2573F"/><stop offset="1" stop-color="#4e1a10"/></radialGradient><radialGradient id="qnG" cx="38%" cy="32%" r="70%"><stop offset="0" stop-color="#fbe3a0"/><stop offset=".45" stop-color="#D6AE48"/><stop offset="1" stop-color="#5a4210"/></radialGradient><radialGradient id="qnP" cx="38%" cy="32%" r="70%"><stop offset="0" stop-color="#e6b6dc"/><stop offset=".45" stop-color="#9B5E8F"/><stop offset="1" stop-color="#3a1a35"/></radialGradient><radialGradient id="qnV" cx="38%" cy="32%" r="70%"><stop offset="0" stop-color="#b8eec2"/><stop offset=".45" stop-color="#4D9A62"/><stop offset="1" stop-color="#16351e"/></radialGradient><radialGradient id="qnH" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient><radialGradient id="qnC" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#f4fff2"/><stop offset=".35" stop-color="#9fe3ad" stop-opacity=".7"/><stop offset="1" stop-color="#9fe3ad" stop-opacity="0"/></radialGradient><filter id="qnS" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="16"/></filter></defs>
+<ellipse cx="960" cy="934" rx="210" ry="18" fill="#000" opacity=".45" filter="url(#qnS)"/>
+<g class="ps" data-sx="894" data-sy="686" data-px="880" data-py="726"><circle r="90" fill="url(#qnB)" opacity=".85" style="mix-blend-mode:screen"/><ellipse cx="-33" cy="-42" rx="38" ry="23" fill="url(#qnH)" transform="rotate(-30 -33 -42)"/><text x="-36" y="-5" text-anchor="middle" style="font:700 18px Inter, Arial, sans-serif; fill:#fff; paint-order:stroke; stroke:#0006; stroke-width:4px;">Universidade</text></g><g class="ps" data-sx="1026" data-sy="686" data-px="1040" data-py="726"><circle r="90" fill="url(#qnR)" opacity=".85" style="mix-blend-mode:screen"/><ellipse cx="-33" cy="-42" rx="38" ry="23" fill="url(#qnH)" transform="rotate(-30 -33 -42)"/><text x="36" y="-5" text-anchor="middle" style="font:700 18px Inter, Arial, sans-serif; fill:#fff; paint-order:stroke; stroke:#0006; stroke-width:4px;">Empresa</text></g><g class="ps" data-sx="1026" data-sy="818" data-px="1009" data-py="820"><circle r="90" fill="url(#qnP)" opacity=".85" style="mix-blend-mode:screen"/><ellipse cx="-33" cy="-42" rx="38" ry="23" fill="url(#qnH)" transform="rotate(-30 -33 -42)"/><text x="22" y="38" text-anchor="middle" style="font:700 18px Inter, Arial, sans-serif; fill:#fff; paint-order:stroke; stroke:#0006; stroke-width:4px;">Sociedade</text></g><g class="ps" data-sx="894" data-sy="818" data-px="911" data-py="820"><circle r="90" fill="url(#qnG)" opacity=".85" style="mix-blend-mode:screen"/><ellipse cx="-33" cy="-42" rx="38" ry="23" fill="url(#qnH)" transform="rotate(-30 -33 -42)"/><text x="-22" y="38" text-anchor="middle" style="font:700 18px Inter, Arial, sans-serif; fill:#fff; paint-order:stroke; stroke:#0006; stroke-width:4px;">Governo</text></g><g class="ps pnew" data-sx="960" data-sy="1272" data-px="960" data-py="668"><circle r="90" fill="url(#qnV)" opacity=".85" style="mix-blend-mode:screen"/><ellipse cx="-33" cy="-42" rx="38" ry="23" fill="url(#qnH)" transform="rotate(-30 -33 -42)"/><text x="0" y="-31" text-anchor="middle" style="font:700 18px Inter, Arial, sans-serif; fill:#fff; paint-order:stroke; stroke:#0006; stroke-width:4px;">Ambiente</text></g>
+<circle class="pglow" cx="960" cy="752" r="85" fill="url(#qnC)" opacity="0" style="mix-blend-mode:screen"/>
+</svg>
+<script>
+(function(){
+  const sec=document.getElementById('quintupla'); if(!sec) return;
+  const S=[...sec.querySelectorAll('.ps')], glow=sec.querySelector('.pglow'), cards=[...sec.querySelectorAll('.cols2 .card')];
+  const ease=x=>{x=Math.min(1,Math.max(0,x));return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;};
+  let on=false,t0=0;
+  function frame(now){
+    requestAnimationFrame(frame);
+    if(!sec.classList.contains('on')){if(on){on=false;cards.forEach(c=>{c.style.opacity='';c.style.transform='';});}return;}
+    if(!on){on=true;t0=now;}
+    const t=(now-t0)/1000;
+    cards.forEach((c,i)=>{const k=Math.min(1,Math.max(0,(t-i*0.25)/0.7));c.style.opacity=k;c.style.transform='translateY('+(24*(1-k))+'px)';});
+    S.forEach((g,i)=>{
+      const isNew=g.classList.contains('pnew'), k=ease((t-1.0)/2.2), fy=t>3.4?5*Math.sin((t-3.4)*1.3+i*1.4):0;
+      const x=+g.dataset.sx+(+g.dataset.px-g.dataset.sx)*k, y=+g.dataset.sy+(+g.dataset.py-g.dataset.sy)*k+fy;
+      g.setAttribute('transform','translate('+x+' '+y+') scale('+(isNew?.8+.2*k:1)+')');
+      g.style.opacity=isNew?Math.min(1,Math.max(0,(t-1.0)/0.5)):Math.min(1,t/0.6);
+    });
+    let ga=0; if(t>3.0){const u=t-3.0; ga=u<0.5?u/0.5:Math.max(0.35,1-(u-0.5)); if(u>1.5) ga=0.35+0.15*Math.sin((u-1.5)*2);}
+    glow.setAttribute('opacity',Math.max(0,ga).toFixed(3));
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>18</p></div>
 
 </section>
 
@@ -516,10 +676,46 @@ kbd { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; 
 <div class="card green"><div class="num">4</div><p>Pilares de método; um deles é “hélice quíntupla e engajamento social”.</p></div>
 </div>
 <p class="small">Foco: governança multinível e intersetorial no nexo água, energia, alimento, ecossistemas e saúde.</p>
-<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>18</p></div>
+<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>19</p></div>
 
 </section>
 
+<section id="pre-20" data-transition="fade" style="padding:0; display:block; position:relative; overflow:hidden;">
+<p class="eyebrow t-green" style="position:absolute; left:128px; top:120px; margin:0;">Hélice quíntupla · Sua vez</p>
+<h1 style="position:absolute; left:128px; top:190px; margin:0; font-size:76px; line-height:1.1; color:#F3EFE3;">Fevereiro de 2018:<br>o Castanhão chegou a <span style="color:#E0864F;">2%</span>.</h1>
+<p style="position:absolute; left:128px; top:440px; width:820px; margin:0; font-size:32px; line-height:1.4; color:#E6E0D2;">Foi o fim da seca de 2012 a 2017, uma das piores no Ceará desde 1910. Com mais calor e secas mais longas, cenas assim podem voltar.</p>
+<div style="position:absolute; left:128px; top:720px;"><span style="display:inline-flex; align-items:center; gap:18px; padding:18px 30px; border-radius:50px; background:#ffffff10; border:1px solid #9fd6ac66; font-size:30px; font-weight:600; color:#F3EFE3;"><svg viewBox="0 0 24 24" style="width:34px; height:34px;"><rect x="6" y="2" width="12" height="20" rx="2.5" fill="none" stroke="#9fd6ac" stroke-width="2"/><circle cx="12" cy="18.5" r="1" fill="#9fd6ac"/></svg> Celular na mão: o que isso significa para a COGERH?</span></div>
+<svg class="acude" viewBox="0 0 640 560" width="640" height="560" aria-label="Corte de um açude esvaziando de 100% até 2,08% da capacidade" style="position:absolute; left:1120px; top:250px; overflow:visible;">
+<defs><linearGradient id="p20w" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6fb2e6"/><stop offset="1" stop-color="#1e4f86"/></linearGradient>
+<clipPath id="p20c"><path d="M20 120 Q 320 620 620 120 Z"/></clipPath></defs>
+<g clip-path="url(#p20c)"><rect class="agua" x="0" y="160" width="640" height="400" fill="url(#p20w)"/><rect class="brilho" x="0" y="160" width="640" height="4" fill="#cfeaff" opacity=".7"/></g>
+<path d="M20 120 Q 320 620 620 120" fill="none" stroke="#8a7a5a" stroke-width="6"/>
+<path d="M0 120 L20 120 M620 120 L640 120" stroke="#6b5f45" stroke-width="3" opacity=".6"/>
+<line x1="40" y1="160" x2="600" y2="160" stroke="#ffffff55" stroke-dasharray="10 10" stroke-width="2"/>
+<text x="600" y="150" text-anchor="end" fill="#C9C2B3" font-size="22" font-family="Inter, Arial, sans-serif">capacidade cheia · 100%</text>
+<text class="pct" x="320" y="320" text-anchor="middle" fill="#F2B077" font-size="64" font-family="Literata, Georgia, serif" font-weight="600">100%</text>
+</svg>
+<p style="position:absolute; left:128px; bottom:110px; margin:0; font-size:18px; color:#8A8478;">Fontes: O Povo (02/04/2022), volume do Castanhão em 22/02/2018; Diário do Nordeste (2026), seca de 2012–2017 segundo a Funceme.</p>
+<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>20</p></div>
+<aside>Pré-20: em 22/02/2018 o Castanhão registrou 2,08% (O Povo). A seca de 2012–2017 está entre as piores desde 1910 (Funceme, via Diário do Nordeste). Atenção: não afirmar que essa seca foi causada pelo aquecimento global; a frase final é uma projeção. Em seguida, abrir a votação.</aside>
+<script>
+(function(){
+  const sec=document.getElementById('pre-20'); if(!sec) return;
+  const agua=sec.querySelector('.agua'), br=sec.querySelector('.brilho'), pct=sec.querySelector('.pct');
+  const Y0=160, Y1=356, V1=2.08, ease=x=>{x=Math.min(1,Math.max(0,x));return 1-Math.pow(1-x,2.2);};
+  let on=false,t0=0;
+  function frame(now){
+    requestAnimationFrame(frame);
+    if(!sec.classList.contains('on')){on=false;return;}
+    if(!on){on=true;t0=now;}
+    const t=(now-t0)/1000, k=ease((t-0.6)/3.4), y=Y0+(Y1-Y0)*k, v=100+(V1-100)*k, w=t>4?1.5*Math.sin(t*2.2):0;
+    agua.setAttribute('y',(y+w).toFixed(1)); br.setAttribute('y',(y+w).toFixed(1));
+    pct.textContent=(k>=1?'2,08':v.toFixed(v<10?2:0).replace('.',','))+'%';
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
+</section>
 <section id="din-ameaca" class="poll" data-pid="q5" data-correct="2" data-transition="fade">
 <p class="eyebrow t-green">Hélice quíntupla · Interação com a turma</p>
 <div class="vled" title="Clique para iniciar / pausar (tecla T)"><svg class="vledsvg" viewBox="0 0 260 150"></svg><span class="vledlab">clique para iniciar</span></div>
@@ -530,7 +726,7 @@ kbd { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; 
 </div>
 <div class="vtools"><button class="vreset">Zerar votação</button><button class="vmute" title="Som do cronômetro (tecla M)">🔊 Som</button><span class="vstat"></span></div>
 <div class="vrev fragment"><b>Resposta: C.</b> Para Carayannis, Barth e Campbell (2012), o aquecimento global é desafio e, ao mesmo tempo, motor de inovação. <b>No Ceará:</b> a escassez levou o Estado a buscar água no mar. A Dessal do Ceará, com obras iniciadas em 2026, será a maior usina de dessalinização do país: 1.000 litros por segundo, cerca de 720 mil pessoas, 12% da demanda da Grande Fortaleza.</div>
-<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>19</p></div>
+<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>21</p></div>
 <aside>Ler a pergunta e deixar votar (QR ou mãos levantadas). Contagem manual: clique na opção (Shift+clique tira um). Avançar (→ ou espaço) revela a resposta C e o exemplo da dessalinização. Botão "Zerar" no canto do QR, com Shift+clique no QR.</aside>
 </section>
 
@@ -550,7 +746,7 @@ kbd { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; 
 <div class="tl-item"><x-shape kind="ellipse" class="dot" style="background:#3F6CA8"></x-shape><p class="tl-year">2026</p><p class="small">Lei 19.693: créditos hídricos</p></div>
 </div>
 <p class="small">Cor de cada marco = hélice que ele movimenta: governo, empresa, sociedade, ambiente ou todas.</p>
-<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>20</p></div>
+<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>22</p></div>
 
 <aside>A COGERH foi criada para gerir, não para construir açudes: as obras eram da SOHIDRA. Desde 2025 (Lei 19.603), pode executar obras novas, em competência compartilhada com a SOHIDRA.</aside>
 </section>
@@ -566,19 +762,51 @@ kbd { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; 
 <tr><td class="t-purple">Sociedade</td><td>Comitês de bacia, comissões gestoras, alocação negociada</td></tr>
 <tr><td class="t-green">Ambiente</td><td>Monitoramento quali-quantitativo, Sala de Situação, planos de seca</td></tr>
 </table>
-<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>21</p></div>
+<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>23</p></div>
 
 </section>
 
-<section id="receita" data-transition="fade">
-<p class="eyebrow t-gold">Parte 3 · A COGERH</p>
-<h2>O limite de uma receita principal</h2>
-<div class="cols2">
-<div class="card gold"><h3>O que a lei prevê</h3><p>Receitas de cobrança pelo uso da água, serviços especializados, convênios e doações, juros e multas, operações de crédito e aportes de capital.</p></div>
-<div class="card red"><h3>Hipótese do grupo</h3><p>A tarifa da água bruta concentra a receita. Na seca, vende-se menos água justamente quando bombear e transferir fica mais caro.</p></div>
+<section id="receita" data-transition="fade" style="padding:0; display:block; position:relative; overflow:hidden;">
+<p class="eyebrow t-gold" style="position:absolute; left:128px; top:120px; margin:0;">Parte 3 · A COGERH</p>
+<h2 style="position:absolute; left:128px; top:170px; width:900px; margin:0; font-size:64px; line-height:1.12; color:#F3EFE3;">Uma receita só é um risco.<br><span style="color:#D6AE48;">A lei já abriu outras portas.</span></h2>
+<div style="position:absolute; left:128px; top:420px; width:860px; display:flex; flex-direction:column; gap:26px; font-size:27px; line-height:1.42; color:#E6E0D2;">
+<p style="margin:0;"><b style="color:#E0864F;">Hoje:</b> a tarifa da água bruta concentra a receita. <i>Hipótese do grupo:</i> na seca, vende-se menos água justamente quando bombear e transferir fica mais caro.</p>
+<p style="margin:0;"><b style="color:#D6AE48;">Receita de sempre:</b> a tarifa da água bruta.<br><b style="color:#9fd6ac;">Receitas possíveis:</b> serviços técnicos, energia limpa, fontes alternativas (como reúso e dessalinização), equipamentos de medição, parcerias e SPE.<br><b style="color:#E0864F;">O que falta:</b> projeto, modelo de negócio e decisão.</p>
+<p style="margin:12px 0 0; font-size:28px; font-weight:600; color:#9fd6ac;">A seguir: as portas da Lei 17.928/2022 →</p>
 </div>
-<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>22</p></div>
-
+<svg class="rsvg" viewBox="0 0 660 620" width="660" height="620" aria-label="A COGERH apoiada numa só coluna, a tarifa, balança com a seca; novas colunas, as portas da lei, surgem e estabilizam" style="position:absolute; left:1130px; top:250px; overflow:visible;">
+<line x1="20" y1="470" x2="640" y2="470" stroke="#ffffff30" stroke-width="3"/>
+<g class="gcol" data-i="0" transform="translate(70 470)"><rect x="-38" y="-280" width="76" height="280" rx="6" fill="#8FB0DC22" stroke="#8FB0DC" stroke-width="3" stroke-dasharray="10 7"/><text x="0" y="36" text-anchor="middle" fill="#8FB0DC" style="font:700 17px Inter, Arial, sans-serif;">Serviços</text></g><g class="gcol" data-i="1" transform="translate(200 470)"><rect x="-38" y="-280" width="76" height="280" rx="6" fill="#9fd6ac22" stroke="#9fd6ac" stroke-width="3" stroke-dasharray="10 7"/><text x="0" y="36" text-anchor="middle" fill="#9fd6ac" style="font:700 17px Inter, Arial, sans-serif;">Energia</text><text x="0" y="57" text-anchor="middle" fill="#9fd6ac" style="font:700 17px Inter, Arial, sans-serif;">limpa</text></g><g class="gcol" data-i="2" transform="translate(460 470)"><rect x="-38" y="-280" width="76" height="280" rx="6" fill="#7FD3E022" stroke="#7FD3E0" stroke-width="3" stroke-dasharray="10 7"/><text x="0" y="36" text-anchor="middle" fill="#7FD3E0" style="font:700 17px Inter, Arial, sans-serif;">Fontes</text><text x="0" y="57" text-anchor="middle" fill="#7FD3E0" style="font:700 17px Inter, Arial, sans-serif;">alternativas</text></g><g class="gcol" data-i="3" transform="translate(590 470)"><rect x="-38" y="-280" width="76" height="280" rx="6" fill="#C99BC022" stroke="#C99BC0" stroke-width="3" stroke-dasharray="10 7"/><text x="0" y="36" text-anchor="middle" fill="#C99BC0" style="font:700 17px Inter, Arial, sans-serif;">Parcerias</text><text x="0" y="57" text-anchor="middle" fill="#C99BC0" style="font:700 17px Inter, Arial, sans-serif;">e SPE</text></g>
+<g class="rmain" transform="translate(330 470)"><rect x="-46" y="-290" width="92" height="290" rx="6" fill="#D6AE48"/><rect x="-46" y="-290" width="22" height="290" rx="6" fill="#ffffff22"/>
+<text x="0" y="36" text-anchor="middle" fill="#D6AE48" style="font:700 17px Inter, Arial, sans-serif;">Tarifa da</text><text x="0" y="57" text-anchor="middle" fill="#D6AE48" style="font:700 17px Inter, Arial, sans-serif;">água bruta</text></g>
+<g class="rplat" transform="translate(330 170)"><rect x="-300" y="-36" width="600" height="36" rx="8" fill="#2b3140" stroke="#8FB0DC88" stroke-width="2"/><text x="0" y="-11" text-anchor="middle" fill="#F3EFE3" style="font:700 22px Inter, Arial, sans-serif; letter-spacing:4px;">COGERH</text></g>
+<g class="rsun" opacity="0" transform="translate(600 10)"><circle r="34" fill="#F2B077"/><circle r="52" fill="#F2B07733"/><text x="-30" y="72" text-anchor="middle" fill="#F2B077" style="font:600 17px Inter, Arial, sans-serif;">seca: menos venda,</text><text x="-30" y="92" text-anchor="middle" fill="#F2B077" style="font:600 17px Inter, Arial, sans-serif;">mais custo</text></g>
+<text class="rlab" x="330" y="600" text-anchor="middle" opacity="0" fill="#9fd6ac" style="font:600 20px Inter, Arial, sans-serif;">portas abertas pela lei · ainda a construir</text>
+</svg>
+<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>24</p></div>
+<aside>Ponte para a Parte 4. A concentração na tarifa é hipótese do grupo: não temos dados financeiros internos para medi-la. As colunas tracejadas são possibilidades legais, não negócios em operação. "O que falta: projeto, modelo de negócio e decisão" é posição do grupo, não texto da lei. Reúso e dessalinização não são nomeados na lei; entram como fontes alternativas. Fechar com: "A seguir, as portas que a Lei 17.928/2022 abriu."</aside>
+<script>
+(function(){
+  const sec=document.getElementById('receita'); if(!sec) return;
+  const plat=sec.querySelector('.rplat'), main=sec.querySelector('.rmain'), sun=sec.querySelector('.rsun'), lab=sec.querySelector('.rlab'), G=[...sec.querySelectorAll('.gcol')];
+  const cl=x=>Math.min(1,Math.max(0,x)), ease=x=>1-Math.pow(1-cl(x),3);
+  let on=false,t0=0;
+  function frame(now){
+    requestAnimationFrame(frame);
+    if(!sec.classList.contains('on')){on=false;return;}
+    if(!on){on=true;t0=now;}
+    const t=(now-t0)/1000;
+    sun.setAttribute('opacity',(cl((t-0.6)/0.5)*(t<4.6?1:Math.max(.35,1-(t-4.6)/1))).toFixed(2));
+    const shake=t>1.0&&t<4.4?Math.sin(t*9)*3.2*cl((t-1.0)/0.6)*(1-ease((t-2.8)/1.6)):0;
+    plat.setAttribute('transform','translate(330 170) rotate('+shake.toFixed(2)+')');
+    main.setAttribute('transform','translate('+(330+shake*0.6).toFixed(1)+' 470)');
+    G.forEach((g,i)=>{const k=ease((t-2.6-i*0.25)/1.0), dx=[-260,-130,130,260][i], p=t>4.8?0.75+0.25*Math.sin((t-4.8)*2+i):1;
+      g.setAttribute('transform','translate('+(330+dx)+' 470) scale(1 '+Math.max(0.001,k).toFixed(3)+')'); g.style.opacity=(k*p).toFixed(2);});
+    lab.setAttribute('opacity',cl((t-4.0)/0.8).toFixed(2));
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
 </section>
 
 <section id="lei-intro" data-transition="fade">
@@ -592,7 +820,7 @@ kbd { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; 
 <div class="card blue"><h3>Cooperação</h3><p>Parcerias, coligação, SPE e patrocínio.</p></div>
 </div>
 <p class="small">A implementação deve permanecer vinculada às competências institucionais, à viabilidade dos projetos e às regras de governança da Companhia.</p>
-<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>23</p></div>
+<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>25</p></div>
 </section>
 <section id="lei-portas" class="alt" data-transition="fade">
 <img class="vicon" data-video="videos/V10_asportas.mp4" data-title="V10 · As portas (1/2)" alt="vídeo" title="Assistir: V10 · As portas (1/2)" src="data:image/webp;base64,UklGRupMAABXRUJQVlA4WAoAAAAQAAAA2wAA0QAAQUxQSBUfAAAB/yckSPD/eGtEpO4TDiNJapx174oj/4A5kEKI6P8E4McqksSvRQC2vSQHVfblIx7ZLgOzMUnuapEA979RHGPYjklW1X02Ot2zqoq8n0WSSHc1q0suALPJGJJU0yvJ5mmYWqZ35JLmnwDwJH/SkJTYR5ckJNRIJKlqajcWdJGkKmlD3hegNqyVOckLEJLEPgnphckL4H0PnjHJSkgy+sGPRGokJNkknZ/umjrAfTdkNSrpANi40yJsVsJNfY1PSFb3fZ8ln7wJW9ufTR8BSEKS0wCx3QFeSJxCG///hyTJ1uf7+/8jUVVd1cbYntmdc8bHtnlt27Zt33u8vGtbY3sW08OeNqq7lIj4/38PShFRWfM4IiaAbdukCuCGq665s7r1tgLX8PBz+a0HFh8uQSE5b9dNObkX13zX91530UGxyZXDr3/mi98CU/a3Y2Zj54a7vuPK/QDujmkNd8cEDL76hY+8giz72y2jylf8yI9eCpDAxGbdnQDnP/z/P5sJaZtTCCFYe4JX3PML9wHJZZG6PRPggX/1+ZGF7UsKkTVDS8zge/745VDJomjWs4z7//MHCLY9WQSY+d6/9vf+1u2oDYrwXX+jgyd1aGUi8IUfhrjtyAIQL/49v/VMcvdzP481Z+Lad5VQFUZrM1b92g0E21YUlD185/d8934gZ+Xi2CHUlHnvl38weoq0O3n4ye8maftQBG7/qZ8ZATmbASncgzXkXPp9+8lG6y2x77t2sl0qwNzv+dwOoDIFVruXNzRk4rabqExsQYXE7bchbQcB9v6Zb7h7kgrWreLHoqkJr7j4EBJbVM6VB0iTz4z+X3zNPVUhsMEUXv9RjAZF92aS2MKiuA6bcIrwCw+7V8mdjWY7+dOPGY0Wl4Cxpc2LA+SJZnDdu9zL5L4xZ/DTXww02u2S2fIVFjTBIp2/eNpz8jU3ksIf+bVYNaIpxNaXKFwTSsG58ef3ko0ab6ZRJ2ecCRlznjwmCXHt9VTG5sXt064GZMMVxIR0hjFoskgmbMAd+5Go0W87lESDceUwzsQ0jlZhksiC3IqzB68mGzUq7/kBjAYDL6AJ4j54HpsYIgazcQ43/wOcWnP4RXMaNG5eCM4E9XhqnyZHgXno5yv+Gq566L8zWQMKO5+SM2F/mTAhFAvzPLf/4h8gUatyfAbRYOA/urNl3fMaktB6iT81KUIRvWfdHZfdRS7qQTt/K1sDgR+tKrZmzgpsOGdz8JxS+AFsIlgRrOdzO3ZMU3sO76VJsfu/syU9E2B04rVvLGUP4dBNe/YX4FkGvK9nTEJ1FaYDc3Mjaner3qXQQKj+LlXcAlWEo4/e/+BLw8Sa3d417/j+d17TZeHI8U/+dzQJVKjXZXBoZxfVluOnCqP+kG75MznQdk+B5U+//5EjAKZVngF2XX3jmVdPnwMxAdUrQl9jLncaFO8lNGD5n5GsbW6M3vdfnoCAu7O2kEislmUmYaHOlHK6OTTh4czTeH2Wbv+VHGi3o/SZf/UwJs9sWgbuOBNxuj8dqrB/L01m+wRWNeD/kKpl2fjCv3sYIzPZ1T80FRy7Fm8C7sdybZZu+WUPtNpZ+NT9GJlJH/ffSjIuxq0BjyuvkqnP/xHJ2sUbj2HKTP5OL/Y9d3qIJjj1VAPGPzhjTotdvPYyltgGNVUURdYevBF4KYnaI39PiTYbLy3gbIcKnR3FsLvDEU06z7nVJ30stso5WZqzLVqva7NhkGn8GeoXB88Gb5ETkLM9huleLAbBmzKONxD4/TitlbMHY5tUDztQXhANO2nQgNm7VbWIu3uJ7bLQtZc8PzQaFhqP8brEzhdibo1x2b6s7UJFJ4XOQI05bx2rL3DvmPbmy65DbJthx2B40YgWLq9Qt+BHi9Qa73wXW9xaZdbfNVyieSd7TYLA1bQ28d1dtLXaHXudGKoWiE6sQwBKu65BbfF735mCJOFbpXdzbFMoQixwNQahFgRYtbM9iT+BAZLjjcnrENf+nx2oPTEVswNaeWAf2pgACRymjZa6D99RFtIagNcmw3BzOZAdx9cCGS22YqpXVqg5+a659bQRIyHu2ZVCO5I+phKJEPJavinJFCyDdcx6hXvMJWUeVWZao90hT1nGW6Ep1tcqMAFGIOK00p2f8sKCoeDgDo5vQJKJomNFVDQL0Yxg7lU5LMexmAlqHbaDRCudy9aTwAABCLiKliY9vA9DgAA846wpHCkWRRGLEDrdqWDWVfKQxrFLrkr7W3cvS4FuL6pF8k5oCdyNA8IBtJ5JxW2oHfC+pU4ZzJEEyGwNgYQKWUAh0OmqH1S6BTHyXpl8qB++8Ovfeuvs+bFj2dvTS6gd4latAsNYV6vozbXEw/mvdafGhSV8jTUN3M1MHXUoi653Z9JCKkIqFEsMN9xy1vjom2+cOz6Y60WvqpaIIncCagNcM+dCAtM6Ck6QF0Y7ncdf65iCuxmSgwgO2aKkkKWik7zbW/Zu1/PYlZK7xNo+Pn926cz5i+YGg8VSuR3KYQpvheV992JIEusbwVBRqDUPDuQCMzB3CcMcKchEV1SdSNbBMFMm6nTP88fnOmdOfvdlzwVlb4GZ5RRppccbkZDQWoruFpF1rB0elh8PHc8BhCwjWYzZPeAdEeWa2rVvZuCZJsuOnx8dOvpEN6LUHKE7yGoH/GxMCqwrCwaBgNxbwtFX5wrHsoMAKUgoSCEFs1BccTmLGcBVHyEsDQaLw06wVOWmzGNcJrQjcN/tBNaVxWBImHlqzZGFqCwRYuUhBCkYIsbCq0Lxyncss9qFaFSh060sGm6VNyNVbrloByn8Lo8VYEAwMyQRLYdxO+C4dzoKjlkO2TGBVEjyYjj3zl2AC0TjZuMLQ9xHKrM3w3igipY6J3/6qSBlWQhmLiETBF7F22D+yuVI5m6Kyp4lBxXq5MVD99yYcSRa6RB7HnrFrKRGsL4vlrklpPDv/oa5QA5IplB0XGF0jlZq/Pr1lSCYQLKQHQrczuz6XdcAbrRWBCmVVRqUUiMYg0HVlqwj3427ZEimEC2iaLGTUAtc58ZXj6sQgiSRXAauWI5/+A7Ikmi1+fzKaJyTRXl9SispJm8L2f7auOsSMsOCFVEeYpw7WcVWnJmdQy4poiBVCq5y8eo/vINMpPVe9BdXRkvjTlQDnss0prXOqQMjw6QoTNYpinEoog0zrsZgvBOXmwklC8hzbyn+oTshR7ai9ZdOn50f9KJUG2mcLiy3h2wfHBoSwjrBjDBbFR0/M3+ANtrsMKvTlXIOyhZzXvrOX4ZkgS3p5LGWl0orGpCWlxYH3hrS4HeNZzxDiBYsBrduCKM3jt3ubZjf5SHmFF3RDeuy9L2/QFZk68a5cvw39s936zNbOLm0XLXH/8trd0y5hxhMVkg+ninc7SitvLAjIgVC1wBfLv70taSCLSx8vvp2For63IrOXDdOtwbXseeG071uNybFoput6Faz1el2hEIpmcZE72im39tfuNjq50ePLHoIuS5yEed6xY724By+MNPp921k6k6nKA/d6q3SvAXVtJXuKlOn6HR3zB4CsfUXLp5LISbVpFAUhYp9bRJvdKf3SEWnzziYgnV05A3akIqZMmExVMyMdk+RxZZ3Tu++PFZmdSHF/rR2tQhBd3ZnkYpOd+wWFAK9wYu0MVouXApOrHb3mZC+b2bOKrwux7s74jTeHpzkl+JDo0eMQVFx6q1sbeikZCGjWPb/NJNSt182N0WDuej0SrJaBArX/num6UInRBXWzYeP4M3NsVwFLNqw/2fRpPAD39MbdpTryq5iqpeW8Tbh/KP/dXRXJhTW6QQUl15sQ9+9kkmx97vITExdfderYZpcE2Ss6L+FWiXu/ju/9nLPUhGLjkGce3ls3pCYKsa9oUzD3zWXwwSZ+amLj3Tqk3rq916raP1l13erYpbkmVD0OEvj6iyPQm/Prs5JJqtz+nc9OR7UhYhFfu0s3jaKGw6GopsUyDn0j7oaEt2R35C6Ow4vmU8UUvi/f9aGtWGKxbe+2T45V9x2qMo5eAzeWR7hzUDXy3eOpqYuMHHT+Jc/EepTjP7yc8nahpz9V91/tqO+yDuqIzQfqxf61TF88oQv/Kg3QGT5tWN420DONa88xN4yM1O8elbekKa0vJwqMXkzP/SlUJu72/I3H2cryvfee+jwkwOFrsXjND7V75Yj+QRK4QO/bLVB1ODMx0/j7QPn4KUsnlsI7O6Xaoqp/j7EJM7VfbLaHI3G33xYW0I4B/dytti5d2ZE8yEwmVP434TacLoK+25GW2C1I1ayLBbNTeys4xdh9eVeiPO3XepbBFzgOW9fpPBHFWuDnjH2H+n4Vtn+sz6H6lNUOVq681b3t2mupWux2sCzWfk9c/ltGsn/JLEB4dit3xPy27QqvxtrACcW7Llg/vbM/dh+GrUQivwveZtGzt/WjMvd7dvxt2n6rmZwYBh28fbQyS4BDpJaADetp3pwz2W56xq07XkmsPGM1JS4ew1FEaLqAK8Y7+6wvXuWwfjM4eOvnThfHervvPK6y2fAUTMwewgwYBpQHe4ZZ//u7SxjcPJzjz194tiAdXffe9c7vnsX7taEuOhGELN/+dOPfeDvHEI1AFIMnRLfntwx3vrUQ099o4RudlwOCSju/LGfegfJ1IAXHcz2Peirn78I1QJeabrCt6Ns8PLH3vekOpFU4eSMg5A7HPrDf/qijNWGWx/jf/qoSuXQf0OhLlS9uoi2nWwMnvvUZ4+VrnKUc4J1VktkrvoHv08p1Mftlq/9fbkDsZN/4tJk9eCeO/MvIt9WHCu/8K9/7f7zNia5ic06KMDPPYt7XXCJ+OmpBCDf+2OoHgHd8plXsbyNZPOv/Ot3H49TIfTJ2WXBwLTemmYcOEyoL8K346uAHxX1GhID08sD8G0iS+f/1ydPTXctJwwzk0wA0oYgMv8KXpvSnruxNYw7Lk6qRS4MUb36KiH5tgDPfvxw6BQ+zuDBzMyrvGrzpvEbWXU5F1+F1lC+5PsJteBgsmo6vPTQksgTz5Ve/crh0YyqYA5SzriL1bY5PJDJNcF9nsMaOL8rpnqQAIJ3z3zgg+DZJxvVp79YFlSdzqgyJ3aEhKKxWpvCnZ3mqulWsW7gvitRbSbMLC7v/qWHXWSfZKOHH58fjxOKFoJAAClTv+AS6kncg9Yhzf4+tyaChRy+/P1X/+EnEDn7xDr39OtvLA4FoROLQqQMXjUBbpdQ63wwNpjt9f8sr2XtnJ3ss4v//w//0U+tzEBGmkiLRx7Tjq+MRa5cyMsEigZaQ3UYB19DmxKv33cdWg/Xfz9juT4Hx3Nn7/xn/vIf+vFbru4BDmjSpBOPfseBv7MwC0kRHAtgotHAj1+cbDP469N935Ade5e8PjxlQJraHb7+6Td6t950+R6xtqPJkedfivMf6Q6TF7kMmGKk+chPF2xWlLtwNpr1mWOW68MdlBK5iBq98My38t7LL9871+8YEhP07DdfffFcd9kVKpcozFsgHfhht4255k98nzYGfID6hQMKnvIYZ9rmT7969txyr6+5g7sLzGVoIpx74fC3FkKRskzWt0Dy5oj+k1dmbYwT3+yxyWzPPxpyXesaqzM571IcVOW5lZgHyQmQegaj0ZZLJ1559AjjpVzkTq8oINNC5Zk/z2bPruTN4Hr+HN7MmmUqoouUKVLZsVLWN/X74OWTz+JbDMrTS8OzL5+7cPTssByXZm3A8i/elsJGnC8xhzYBPIgac9Z1kQU5S91iVwQ4feIsE3M4+sbXrk1LF5IQIPAGlHf9PbQRWGSWTTvVEZqUAK3lqQJHucrR2clqDad7Q209d0ACFl9+7JNPDIrsjrJnUF1u8+/FN2L+IHW6nXwZr8kE4FVeC/BMcPDluYtYs8pTyyN8y63tOAY8/NgDj5/thDLTBM4HV8IGXMcOk2oADRKqRdFWUaUNVBCKMBgfuhzXKmL31FkmqWdMDB488/oFw5M3kPXsi+T1Eg+dDcu1ZBTZpK/hlXtOCeHJAU8Jj5Hjs3fuxo3VCkV1YqKszh64Yu7No5VlawBL792IeMy1hNeAWK2NrJscSID7KnJGnTw4+J3gxlpxatexrAkD7tjl4fHFrizUBw8Ow3ph9Hlyou7ZO0m2kZwdVJiztkjjLJTSQu9HbibLWNsJUyfn8UkDymY7Bm/lblRtmW98S3mtzFPPKlO32HdVz6X11pYDWgWeXVal8S3fCzmyvltvz8phJrKS7Zp+aaHbqc3DhRd8HefzMh6pCzLfeSWVreFuCPfSyRSrPDkUceXyH9+BE9igzKenj6NJhMjGjYv92oCvKrsDnssvOLzuVpc5t/9kH1l2wFitLOUcVqlIo8XbfmYacmDDeXEwfHn+Oy/ySQRyu+SO7nm8Jmn2GQfcU/HxEIAsr2n17l/83k9DzO5ruBwpGQo+PDV17Q9eAU5gE+OyyqcHt6CJBLgO7O25qRaMaz5498xUAV/4IwieeZMGrOKOr/6PL54DC45jMqCUDZc48B33HIQsY9PZDZ1NhU8qZQ4eKqkJwf65qQPd8w8lASfONIHMxTc+/4nH5yEpOClXKQ52vfOWG64BsgJ1+5mdaEIhuGoPpnowOWuK1c/RrGUMP/yVh59aPrps1ol7Z6+5Z2cEMgo0OBgbkzwPRx3VAxLI3dd4oiEguwmu7vkYPLKSAc+KNFxFwycXZe5aXZt81q0pwJPtChfPsqZXMjOaX1kxNLlIXUIbXnxRuTnAcVYLC7S1l/HJxT2hZ82FhUfxVmzJ0ZKY5Ed2ptyY+Dw2qQZnjh0Dn1TiyPmuN5XsxXn5hOLss0cL16RyLZ4eL+eGKE58zfOkqt4YH3usQpMJ1+n7LwwakpYeEBPaqfrxzbeOOe6TCPjSGTXkKXzjdPDJhOgdeurJk8fmkbyeNFTaQq6Fp8qVZnB/6xkmFWSeOHHPZSfeOAeqIz3zxuVvDBx8a+B64URqCJ35ctLk0tnHLrs+rhw/tTDONXDqcf/qA2+OM1tXC+Nm1NXK5eaTCnZf+dLsvs50GmSwqM1w5HB5/uVq59zerSI+1rcmXL2p7vROJvVgPPNtnz54R4ihE6h3+eTC+KnXBldct0Uyv76vEawTfOYyQxMpn3IOXXrJDKsl1cFOO3NsYeHp/psDfCvYY3tnGvFc5elBISawa/lwj52373FE7d6fWxhUI3/0mW8l8Na5nb16JjaBmXXGOyKaPPJj5/p0rg2iUet6lccdP3X01Fh4y4Af3tttREUx3S92TSKWjo37qEPjXsZxz7vhqYfOo7Zlfdv+oCYQxHHHmLSuxQfL3KVx11TOY/Nru9X8qWceWGyb2+7rdzaTCWmUu5owzvjBl1DP1RTsOjPukvd/a+n0aPzci2O8VbD7jt2hEVRYL81HaZIIve+ROA7dTOM+lS5YKl/x4VKVRx84VdHuHPYVnWaI1hmdTfJJ4vbVz9u4cq8ak9sdO1NVjkcVRdWj211uGVccUkO4p2osTRK++u7plLXiQ7whjBsuXqEcV8MgZ5RWnp1vlbN7uqNGHA3yzr3JpMlx5W+WeexVykOa95nd53MepXHXnHK4fKoctqu7u0+zXo68k86PjIk51T0aVlY8jdKgDXznzIUVV+FplBgvLw7P72wRvuOmYA2lykIqF5fyZHAYL/arsoxejldaIK7esZjK7E45ZjioRrlftMn2TdOwY2l5ME5Zk0AMutX5nGL0zOIC3lzu3zrIlcK4GpRaWhiOWbnsqqy2wHSvKdzLcVXGWG09d858c8kGVCK7DzOtvG/f2PO4qkhpeVillGdui7Q3puZitz87e3B3b3rLYR/7G0u7pU5IFSQ6bRA3XDKEYUWVEoKszgfvt9yaPAxNoYA6O3uxF7ZWVv71/3JyNmEJd5zsbYCZi0Ihr6pxkuPZk83/7QXztsREGy3umgnd6Fsow9m/9hudXioruWevElMzqDmlzvd0zXw8yp6yA3nce+A/qzVqRSy6B2bGhtlWcQKvnrh/Vqjyyr2qMr53H20UB0qnyg7uGXA8/KtvWG6J59QCYPbGQXfnjs7W8Gy88dEX06znIldp7EpO5OAcaseerOQA7pAdOkvvwVsyrmilF3qxO+Xzy94+z4Hz73vviTQceBqPq6RyLOWQ99BKse+KC0VhgezIE4Jk7zoWchuc4VI7YLg0SnmsMrcse2Dx/R87oTTM4Dk7RiVSHtwYWoH3DhwNhYuMs3YuXvkQ3gZYqlpihvWGw2qwsuTtyW5i5TMfeiR203BcCQFUKVOV43M/aqkdTJ2Kcs85u3vA3T3xO4vmrXhupSUodjpF7Ma+d6dCG9xdBo/c/7Gnh1PRcxDBAiC5gBQuoa1XRDNwd5CDK2c9+YRyK5bxlkAIvf6OXhgWcxRCDbjjMuDk5z/6uYUwVZoZGJIhQoBxVrnratSS/b1QBFYLzwhyqL6Mt0CcRq1BRadfxLBrTxWCp1SENRxtyEEAy6+/9NAXXqIbSckQiCATJqKcUN05cGtJsaPnuOO4YwInc38VvLFsJ1/E27N6HDoxVOV4dGHYj4V63cAGXQC+cuLo4Tee/MbiiGCjlByEmyHJFORKjlf3kWmpdztR5Oy4AAHO18+L5pg/3gbZRnKhXBJSHi53Qw86O3b3i0KQSCvlyvn504vHXzx8Th6qQZXyOPkaYHhAQbJkbtX0d6C2TO1yGShjgLNKZ5/HG0scWbLGxMH70HoKMotxtLR8dm662yVjzM3u6DEeVimde/PC0nBxYXihLC8sll6NM+BrAEEYCFNc+dHKrS29/jB59gzO+la93ILKn09G83FKth4uYrmytLicujPTHY2GPmKq6EcIuTpzNvXShdF4YWW0VOZRyjjrC+FIlnOX8pdItKaXhXBn40+2IOsreAs2nfNgXCUvY6cfQ1BMy548hliObOgpl1CuDFfwKrnndWSsawHX8NbLsdYU6pknZ2PiBGrKNf90K4x33oY2ACj2du63WMTQMcuqBqFbDbLcMjkrp5WU3XMGXGsgCZDLVS2PXnofmZaKQXEgpnFmsyvNZT4RRAvFFZdvBrDCOmYWDUVKzHMlNJZn3MuspJyFs5bA5GJNz//umLUGVmK3qsi+MaeicecvEtuw4Z0z64FhwUxS9NJ6ZeWQM9lx8OzIgXUAgTkG3nnrt+S0t9MpcplS5Rtqo4flm1E7pDXEJfvReuuaCcecDI4cwHE2KPA1BDJy5l0XWnWqyinT/syjEhNTOA0LBObErz9umdYqjX0UC9+MsMbQbxPaJtXXRgEIS1+gxc7ykV6uPOVNOJ2msr3+KaxtW3utUC4kvD0w7ng5HGTfBFyEN+P6tVOR7VaxvPuCOW0uw+nF7GzWuYdm3U7/X7TdeGZwXrRZ5MGOrrHprGtQE0r7/gzGNitjZUTbR3OXzUZtRkzd2Iz57z/o205mKuIt8ype1HffjHHn3kYsXfpLWWyvSly3g9YPPE932LS4JSYaFL+3z/aiwK579qO2ubPUDZvLuo8mLd9+ZxLbqAW484fMRevGK6mTfTOWL/5RrIFc/BBi8ko1KUS49D/fSqL9aTCozNms+KldSfUlfqA/gQJgIdgmJDPg0r/zlru0BQbnMtXmcv8PI2rPuvmKJCatPPSrIWDaiGdg9vt/6kZIgS3YnYmhYNM2+Nfu1G559i7EpJX++O+6YuHJIw9+6zU23Lnt7nfcBSSLbMXp2TQY5c24ffixkGpz51rEpDX+/j9idT75+pGnL5RV5UXs3nrT7NUzkLMVbEnN5guj0jdj1X9F1C3nUk0eccW5OTd3D2KzlSwYW9PjwTDMbNo+9pJybbCnk5i4xr2jQqz2vDFJbF1NTVNm34yGH5JTt0g91+QRe9+8NNuqCapqcGI4TmzSfGmlNofxgIkc+NP/jUk7XFk6XyY2KZbvs0y9bpTSZML4W39o5z7XBKkWjg7T2DcTytsOUnMS3xqJiW1n3tzJBFXoLSqySVc6TM3urBzDfXJ5jBdrciwOlqrkbIqXR3gtbnz9WYzJvvymJoUvWBHQZpwZjDrdbfSl58EnXHnkaDkBHAY57ZyaCWzSWTS8hpwDT35yhckvP94H32rkN188ebQsxCbFNwdi8zlHXnvXg8Q8+YDBCba8jc+d87MLiU26vfAb5M14lvHWb3y4wp1t0GGYLoBvGXfOHn/92Px0ZvP+V76mtCHPBHjuXe8+Tkxsk2LhoTOYbxVj6ZtnTiycy16DvufXwjj5Wp5SgPMPvOdDQ0Ji+xR83/uHXuUt4DmkL33iZc4tReo0bnrJ3avKkQkWvvZnrwWi2FYF3d/7pLu3Lhvn3vs752ylFPWKfX/mA2fdAY49/PDngRDEtmtw6X8e4rlVWRp86QPfuHBynKhdwHX/6rO+cv/zT50DC8a2LINfeJ7guS2eCf7Zd38tV4PlRIOKYl2FzPYt8cX/9xLBs7fAc4Dn/v0H4tg1yjRsIQDuzvZunH//e75JsJyb8UygeuL/fexUx8aO8zbZI+f+2z/+wpBASl6PuxPgzHvf9/gIy7yt9hSZf8/f+JfPYiF4yr6J7Jhg4YHPf+R1CNl5260g2PHj//hzR93F5ss3nv/Ul14FU3benlsEuObn/8mHn1/cgGv+uTefeumpM6CQnO0XAFZQOCCuLQAA0JkAnQEq3ADSAD4xFohCoiEhFbiWsCADBLUiPCgAGTvd60/G/7d/cf2y/sH7h/KVUv6//cv0b/bf2i+TPYb0v5aPmf7n/1v7/+Y3zA/4X/B9k36Q/7XuDfqN/zf7z/oPbP9ZX7reo/9tP2a93b/k/9L/Ze8n+8/7f8gPkJ/rP+u//Hti/8n2Pf8R/0PYQ/mv+Y9Nz92Pg+/q3++/cX4Ev5r/jv/v+53wAegB/2fUA7Jf+hfiH7q/FL8l+W39k9NfyL6z/P/ln/fvc8/vPI32N4rPw/+3/xX7scvPzc/zvUL/If55/r/tx+MWRzpD+xnsO+3n1X/ef4v90/PK/1/S77H/8j3Af6L/T/9X+cnrQf7XyJfKv2L+AP+Rf1j/Uf3P93P8r9Ln9p/5f9P+RvuG/Pv8p/2P85+8v0D/yb+l/6v+5f6H/xf4/////L75PYx+0PsY/qi5YqcxnKhCTNN/9N+oT8FVhrW9pW6rKOGsTB8Dy1f//vPjerroOYC+a8P85c1oULq2MOa5Vf6kjFuAuZogTQEHsmRkIWxQx8sHvzdC/J1x0/pkXoxgNdWZyTJ1MT80/yn36g8s6E2wwQnxJqDUTE3cXjPqkTCDXARqdcpCP3mo5YbcS9exCHSfuB0JEKnS/yAk5H3W0Na2e6PEX+ZWPa41lFrCcgPcDZWauz96I/4jm5/6HyreOYLEJ03PpVnReugOvKLaeemBQZS87hZIzzg+6vq+duAAOVfZk1A4MThdLcBPhDm/rv2RCN3vAodf/guNKF1C5vLJeXZpUf1zGDBBEa8sUBKT2aKNlpF0XkfV9kf9R+9Lmt7NF/HYJ4fjfbB9IP36meri51yndjYCtHH3Mtt9gVGHqxqhQT2G33pr872O/rrBKIw1GW4zbgjVUM8ejVTJCabfWolZitMD2oOB1jXDV18s9Z2nupDB81WdW1NwVFP8G4k8eyeVMtZj4h3ZdVeyUMT3q8Bm6w152TIxf5+SODW/1EKQM9n99foZtwvIuPb+X72jaqGyYF1F2daqwwjQe/H8Qe6fSR42ETdOZ8FiJHFkJzPeyx7/B9GCwsFVbT9cjvowzc4Bbl7bJuO0q+KYA68dsRHFtUqrh+9/knO0kLhlRFBxCJc2fXDdpjYp7mya7QhrP2A31HVQXVNEdAQtaMOfM16vMMCO6FGi1k9bWKNKVzeZfmoqlrDjyRMkkIM/gRnBlmxk+cMQ5w3OItHL0jH0FpxnKgVz8BlcOt6Z1Qbi3d29VTG1Hx4/yVHboiSmrO2mLVt/SLTvS537NUU8g1RpmhTzM94khmYlyjs2ByWP7Oz7M9zFYtbp/7iDr8d0KblqcqkdCZbSBSgeQmJRj/xaU0OTFUB9duQaeQHi+5AiQ/7KKorB5IQ7WKFiWBwN6fMT8GrvDOXuy0qkp8AAag67RdDBl5j1UPV8vbPbvLRdQ1TuFqhllnv3Fl67s824xnJV7GJuxN9Ym/F17uifH8Mh9r/mwc8K9i2A4d24NRBxMougM1toxtkuZ8v9vT0VlDoXQCCPMNORYSsEHHYVAqPX6vMCugwe4AeerQ85smSx5Zl7raZEqADiQ59LBJqyfCmz8JrzYf/tAW/xecA7HnmX+Zsyj00+YZLf3e5t40VlSkSvLhwghdMAMBEAAP75R4NP/BP9yFBA7DD8zIHiU3S+2D/NdbYU67XUf9nJ8ikjOTN18UaIA1KA2GifoHvA0eWvtxytF7o0ZWyPpgkIIjrHfH3ZlWFv24yXutiCd/rntFt+mOiltZG0C2EF0O/cqAn5po0wzbFptD+fUAXqkosXxVUWlHqJCb403A/KaDDi3Wghzc5k9pmDfGYpn4JgPX4004B1yYjZPnhyiIfOb+XrJpyQl6CKLXDaWIHby6Aqav8Dg45wxQ1v9dDhf0op2ZkZzpJvBNRHdmq3LGs92s9h1oILy3tiaEIPALU0HmmITEXWPdf7+Iq0gCDFY8fy3XyE6F9hb+FF5b5oPUg+Iar5W2bSwpeT/zZn7lhYLW/Boxx2OtU6fsu2ATgX+wgIZYPjo9nCVyUD3oyCnQ1WOnWN6Iyzfj2VIwQgSBRw5Op9bSkqkX/bQUPHjBioHlpShzjFDdTGiSTZv39+jxzKHSIzy29n4OAv/1b04wD2PS6uzU0WzA5FCznwP1KUXRRpgYDvUAaRejtLjZ2ziCZFMsnOlj4gPgOtVQnwBunuBa3n/ZfVackrTB/S+g46TOGak0pI27fyGwP9rKP5PKvVBDrsksGDpdJ4PFlTTJYYGO3V6YFolNdrkEApYzlwuPBuC6RbIR/7qsJf838dF8WBmELa48sYHM2oYcBpG+rRafqg+79ld1V4Hi+NeMm9OHhIPRilJGIP/4YggwDSf8C22MzTObLOslHu7rSuy4A0jFpSacJvFyrbFx1TMTIJ+sHAZllKz/jC1w6XY16/R2n/gU5PVEsLYJNACN2cDM/YGEzAtocKeiT5wFrLiTPWCzFJpX9OYhi4ziElMvIuchgIAz/Svg2BGNgHKJ02shEf8wsd+7+do4wOqADo2EBvqa7tE/1+0cx1iukm+YNXIw4R4UXbciT/B64QT1WDnw7fkNiZdm//Rco3pPaigEmhFB76eZt8g83vqvMa5UhA7kS6Fw2wcMwyDshTQGHFfidXbxxuJlNCG71y6gpZsNSg8Akv661EOcf96QVuo2OsdLXP8vr+NW+u54Os0J7UgPSLHzapM2wV/a7sk/uTMkep7VpWAj5gOnvp9Xel7sEya74Lh3ONDu0ZGtB1Szz91q2NzG/uklZTAaN2pnNq5ZcOESSswIaJj3YyiFVxq4c76mMLnnzAS0spLA2Vyp+xL5jG+fqh6eTXobpZWx0R9Wl94DpX0xDJZ0ZgQG2nin5RjUaxt0g65SOe+10dcqDT4wdTV1AoeUcKVvMA0x51mkJsvOHeEfidXYwXOded4occ40O3Jv0K/unMtFI6c1k2W/ofJO4IqXwACSht4cc2qr44hFzzWYEsroGsHD3TgynZclD0QVfbidCQYvPKPdZDiHt2QTJ/+SjMdCiAu/ZV03HHc8CNIwcRRK2AnhJ5ioNGGtKuEKOi1CVrKg6ArUJ/H5VcUutJdD7FnomMOPuiYTmRCCdniCvGGor4ua3R+GCXWSxk4IgGw07HwQlojfDy4Gjh4tpf7MaE8jACUfC40Y/WNqnecZJcTr/JHEiKA43D2amEucwFNY4JE9XOShB9PHsi73UPedMa/KB4QT+a2FUCyZER49oI7x3lO1KuKSIoCTDd9Ah+NntRy3aWTCQDSA8At/cr2du6OP9afyJXR0HigIL5+tTvMgZP+IvoLiuHt0qHpj77NOOQVSAdWP+a8fy0mic7v1oWH3/pNM02h3cKi5rBlYMPVjL4L/2wqoDFKRN5/y5cirB3K42LLhoaFnlHfFYfkmS2ZWad78qr9F1ttC/Lqp2Elh65RyuFdj2PwoTOWOSueux7XL5FVOsYrkZC5I6lWf+/4KgTH8JW83PcbJkrEV6Yxdz9rCxhg0pdDqBGi/zIIjlio9fV/6oF8RsEPg0GxkujcEbWYXC/t8mzo6VKSNxf+ODhaoZ9MYKCdi48UIZ4iFF2TF+6Mw/y7Zs9PuSHZQ1C1uQYiJ9ynOtP2nyNYFDgH+t0JgoZjul3IanJyDU4FVLT7DNuyGtOmUfavfVl5a3UQSPCEXhqc3wdIsE1HRAvzFpwxe4Z4Sv/wjr3jRU7Y5AGK7miSvjeqgRmAjuy3PPTPOZYawf8g7bteJ4nn4ChEiKA08Pa8JtwLC0rPfnhDQ+3N3YxrFimKIqemSZ6pw7yHHuZ9342bVf1AMb4FRQj1eWrpb33A5/v+NTjKZc9PTT1Icoi6aEMDnd2S0n20HJFlqHgb2CozKqpEXIw7uiHDtw2ZS+xob1GR8TH3Yz3julcNBSY/8R4eFewW3/MvATgHoaSy5Alivc9kN7CX0PaBOMQG1vaOJUGb8qL64JQFRv4pta9xqJI+ZOvQD0uY+wINKUCmFf8j8OBlsu1cCAcp0ghygEGJUWISqKU/aWoXU+A51dC2CZEAaWW+v8kkC3tV5w53Iimuvlwn+QbGWFsJOjvkgtXUhOAY2owlIxj3iIxMlQYHx79Mm99ANGl5zTxvpjOenEWYPB206inLtTcBMS7CH8fECOpN1x+vjaOAoa+NBh6qLKpmRFIYnmN521/eHuS9bb/mhFwCv0nxHEG6Lr52JMbmsTR2eO0MauTfNR4b0DFRqSYeI8/hfn2xqlrTUE33ql/A39mQYXlELg/jNeKdy9kcAlBetw6cp1NjxOjE1n4VPh+bl5/UhAMEKgLLMAnRFPcnE8yDyURLWRjAzIEqAF5qvqr4hQcJFv4Z5XZ+Fx4+UZNwXb6Rrgxs32XYzWPtom2di6MJaoFTt/YjwdaUjuW6h0TfEF+HYgzpvS37tnJy72P1sp5uGLiVGNITTgqesiA+P82aozaPiRcfZJHS7BIYQcMNx9c5vd0ZJBkDmho7qlehaw6+YWog5KjHCuqnhOdC2D6DMgfgSKhtPZZnQTDAyBH3us9uZ8uEP+ZAwLWXnB8w/ZAsQjP+Xh4+ad8e/Lk+2xL1ifNWw3SpBnn9VrgBK7RWNykMdYyy0Zodlyk1YcQc1V7qFB/kGmmmK1DfvCRJVQHSz4InJ5Z9GVOfbTreIyNZokUnwcpKb6V6PF453UWHwO4aMQGjbzJle7jTu358lQqOw0LZtCsW7fhAa7JMva4Z20EfE5CjX8w9AjnHM6ZYUfKRv4qnKWip9JUlfY/osvQBpTknZXrf16xA1V1hQsGemRA0xxFZAJroNqT04HiB+xk8NLJfqTlyPMg1Lj5++AtMgW5n2Gp88rP6HW/XfGwEevPrXLHIsAMdL9HKoE+Vtgyj2Hv50mpg4q4a9DldpyZe0898LSmsHDypvGMsCml2UL9uYcss72y6+bTt4kyKfMp6/0jpWCQ83zLLX53hqhWjseHxlnFALsNZh7YTzCr1DpcuCCE01T8asxnCxga2A8gElrRziVzoco7L9woNO4D5I3kobRwxxlCVnqHyE5drTBC7nt1tpCx+a5qZvKt+Lezt999VQfpr3zcc2hr4WHjCia0hP54tibHY6FuTX4gNu3AFaPEex3NEqpDF/zX0wdMNjmAkd+Tdf7ypyYubBxHyhCdlYU2E1sX71wlsN4Q2Hjq8yXAK2VGq5bP4pkVImHMP52UXx11u0EAbDRJgsP9unlBmdTA6Ao37MvTLHrYD8O35wVo2OL9APqywE+boPIRjh4XlTV+yKkQcLTbslV53JEc90qKJJibQ21b7ezItR57yKHHgMeRO4EFcXQpjalACKomPdbV9eoaitV9Zlryl1ohAdbGhj/LMnsYDqCTVNhDhqwXo1Rm6KdRDCfkBj/J+9mwrCZ7GohM+H1tq0fkuHzRHjj+k2ixvJ9NuIh5QnIQ5he5jg4EcMcSq5R1Po0B3SSrastUaJQOdLm+hX5EYtxIcD2MrXBfzEtZTqPiiSoWOP79c3uk0dRukSpU8pprYk6gfRwSUe+Zrr7xBG4iucYNKk4CVtZisIvTFqzO5lvrQWfS+MukVSvU/HbVv25tDDt2siNYE/UY9c/dNNub8+Xq76g5ytRyxNb3QpopGwMwLPy4H/AuWcSs620Zjvw/at574C1MzhwENp7XTIlx85GkC7x7UQGOnGt3O89F0XmzhUfI4Eilgg6W5w9VkgD67i2LP4qx/r6h0KHkRuAimS4pCGUuQsGBuoKJ7thQCr/H7UrHVGHl4iHeljHfDTj6I0hoFW4mV2Rvz+3F9qcetMpSoRdjKv80kC3NM7MUZR1eULbeDCpoUK48bZnKjEafRD5fHtG05j7mVxWQBCp7BJANvoHrQZR0I8+0J0tU7Ti+rCsKGxY4b07RFiuc+f1v7Yf7Lk5YFzWyqy/bkemV08LTrOIKM1vvyled+cl5Z4ja5K78F1SORJkMIoCuSceQQ+dtHHzo2U22zFXja+eCWnsuYffdXaKirp2Tntj6GeQdOPuEEJddVSMiCje54NtcfhWurbadcEF462d4Jhjat7WZKfuY1SnIvb85JJr7BvPKMRy2GXN3+jlzktUNy4gDALnk9pedyA+r6ssAfroSfBCcPguu8/0AeXiEMOB73/hqOMDQHmMv/wt42xT9YLGPU+jdhWZyWkzmbmvKh9/+2ZFFE+NVfoUdeKEYE4RU5AN6ycA1JTihJzLeqEE7WvnqNTMx18XS91vMsZAjrecDcaABLCIgwC9b9IrlxIxwDwH2SPBBe5sHY9WjrlXN9HE+GHUEG/BQlE3i49s2gLfa36PX64U5IR7tnXHlOH5m9Q3euj60keMkjyWJl8UtPBO+iRQmwEDsiwBDdrXM1FKVKBM8Bw0nx0VahknJ5NqmPOLxSF6ywb0Ono/bV/zQteE8oUKkYP6P6VTN/q11NYQh7O82HMzqO/9c4nI+S6jp5iSK0+XQXf9FPkKsISf1f5A/h/+ep8O/62H/1Z7oq1dEtHKUJzRKFHWzV+cdUdQNlSS/V6dCuYbZxMIZRAmHJOQa/lpkMaqwJrIleD8/cHWyIYp8eJvUgHlD1iTAyoTh9PZgPXFBqyfH2BQDiAg60nMcUj7cxXwHu2/zSzzE0ZC41KEoswOh9xXR1Hs6drUJFPsbYSOmfrQpAkt+HJHAisVu785UQ3PDCTQdOpMyUc+d3bXG9dpEPFLCstWGsGN30vOZVbPzd0LAcQ/A+dQrW2YrDr4pDmiWZuWRF0cv1C95kHKDDeC7bNfRAQd4pyD4TrnCfxAqoeu89gZ78ViPtM4gDTTYlROWBqAOO9mr8wCWtUakrbafrEkn7Y4DE8kjIhxJrtKagZt4oGHc0gw/Re2hlZ4YAW2xLNmy8jREn83PrZMkFVV6Rrh+7VpHFIGmc0JV6JR6FYIVbP4cx9Z6q5MWFJq8tgHy1KYmUojJOMlYbYvPGPpp1wyZF2YsyOmJZiBzMDMoQHSel6Mzvl3DmZgjAyUvrUXTe3utbAFIitemQXF4KlR9s2phyg91mNtg2VVbbIf6Nc0MrjxYJYVe9anZNsUvtuUAldcfyOeQkI2Pc2Iqo1To22PzbLAVDUkp0u/NNUz3SKgdy4tmYlGouAgTSxxN1B9uT6UxHloIlNACHyH2EZdXylvd002VhTAeaMWVpNFOUO0SNxgXABoce5rsc15iFWd7otnE+HSHezFqrPlO2NQOONwnr2pujkboyLja2Qx2J5jZUcH5OmPY/x8mX3DqLG4rq8IkHkxpu1XgaZHZ91qa0+4YVOaG9ubRuouvB58TT9qK51HGgbBsoWSGDwH32R57clRmolyqqw//YJM/YErZ0DXTFwy7ep9w8aDO2FBHraKpp0stz+gEkG2Ooa+5OOxcdy45XpnTV3ZmmFdoCJTsqP+v9IONWI2gEBeGxo2TLjmr/gLVf1v4X1/pbwc9RSTBb1rhxfl4anVyvhKdu3d4DGSUkhEvWOIj6cItzFoIrQZ05a0iS2/dv4IF08DI09zaXqC/iPr3XnpMNZ8PCSQmZ7k7ZhIBRCvJCzk7Wao0clCYsMzdbFdlI/WJ1RorDEj4E8a/3eFmjXMJ9H8EsjncKpR18XdH/qryrySt7jaXOKGGT9SazmJ1diOtopXqbLq90z94cV26/fSrKIm8vARWnrNz71hWKVmYK4bTuYB4C8JjjN8enjQvNPvrp3jlSaYXSoIWjuNxvDfe3czzOfktGp8+qVnm7tIELTOO6WLw+uP6GhLmg8TAfgNWfpR4fHTs+ZXAShQ2JuX2WseralEVYNM9us260nRw9FT7EJeOqCyaIKVq7jbxyxEzeKvzlrFZLLHLvGoibbDrUVuUCufB96AQ+7uCb+qVt3tkJG/SoRYo0Wwn2Uu1vZ4g9fqG07JoDCIl/kGwtNh4jmZn27Z+fLODcWGdGLDKGbzjLCYn4OvFXusTT+GSp1+69O0kY8M6GcCsWTK7Sn7exFmF9asSXyY1jFL/7qA/mhT0zSSCWN/guOsLtJdILezT48OYgy/6mdr4XvE5s3Sq6yYnf/suGAsVFrjcUIEuGg3sma9xywzYaLr0hD/gJuHVRfkGefopwtAIWpz+yuFZ4W14NucO4b2AW90ZoqxcNs3jr1cNLfTZwYrV6HaOkmcsmEN3pEHDfgVX8Mkgoh82rvXOneRFH2sXTYB1EkpPwJG4s+y9cZ2WGX/+BwnlxjMze3h6Xr/w2l4hVWZytNjymCt6R4oTjj2CYNb2hct+/hLdtdRY0q0UDcS4TEtalkqJ9MIn0AybrcqqZ4/8ezgszykLme3lSaNP4f+V0TTqiLTz6KL6IyJsXiDV5+o5w52SbaYjWjcON15ywXzWQjL23aGjWd3FyeQxwe9rxezy8j142rHxMbFSZbuHZgd4+pHZv3VEpNPCJpCYaqdLj2tezNIels7FYU/fH8M/yEsOL+aSWLxIT3fXAUZBq7JKeZ7cIiHYj9vTCDMXplvZYW/cWYa7MfurK4afDy57eLfpySJEuMcGiUD4s228PLMESso1knMfBLMpJqpQyINMgtGlXzegUq7UNRNaq4Z8gZee/qfUIpHAa5Rm7zhyNpgcbygO+vTsnWsR76h8krcMwbadgm/IHmA55hOXozpsNAnnvSgrfHpEi7xRzd7mQh8eami8ivxLw4gyOpRFMV64Sd84FjhMQEUA8QaRpw10emi3HQxzicIEqmbqBvSfxwigiyE/uY24KIZdwf3Z4mZUmMGe0mNMhvDawJeQk8hCrhkIEDRKwOkUD2AWX5Ozvv9vMFvyyC0CTlBnoQCs9dE43vIAOWQhPnQjrMfEB5Bn03qWjRDfxF96I9CRsE+fwzqfqMg72Ue1jX96hELyrW8Pe0U1OBaDcF9jI0KU47mx+nVNuIR8gFnBL+e4ZbiZbjwG5hlVp1mD09jto6iQJ4CKuD6MBiXnB7wm3MuVpPoowaBKD2l3J4ATaS29jSiM7pblDOXBCEW7xfrPbYitq/bklBI9YRyVKfK5zD+00ZUyGWZB8bGf65ZBkKossswNVBB6iEcj/F376kqGuzcVz8xVAkvYysDcRXA3o/IopMRUIelfWVh0CNL/qQPuP2a9r+tl2cdRjDawk2B5G+uvvDkGb8u2xjKwlz1eGHgWeLFQI8qyf6DGIGFVIPmI62mzy2EzlAE0K6AvhcnmzR70rBswMmyPRSoeOA3KT6GbqOjYBHWKaxUEcWwZkfwaGH9je56/rU1z9ogHD5hztZTbAzB3oyqDq452KnrErXtYrwhR4CXJWvhZRjOj0ocztmU2nngnBCgw0kXO1gdt04Z67VSZr/v+UZw31ZgJrC+RNR5LheGJ954kuS+VfLVWhahxyIfo5qpHGCL/J4kFKTdeO7zW4cjC6p1wbt9Fox9G9DB1xfQekGR1zg/N0nmelangtJG1z3Giwc5qlV/xOU94izZt+jQhloD4HFIZnydSspenlg3xVUmdqNHJ2zUmdkg9zIVV8o/84qtDW7FFZT65UUNtI4GNRhyV2jJaLl8Ziv598jEjvOtbzfR8RfwES/JKtXZMUqCV7cb17H6KHwXZCAOJDK7+i9162/l+ZCVKk2MAQgZgM2yvPN52s6rXSfryKt4HGDxGl1DASUB0lFR3wrZwH8emR2pRz//dqoQdcph5gmFX186xDRQLYtldJ3JHr9LP4ySI8nwpGrACtnmU++xvuxcFeskFrxtKtEbD121l4NQ3T5mrdxY8nzEryNpsnRk9AORx9rugTrKRPx0VnDPKseG0VLaWYwNuPhjwRV+4jcfGJt4kk3HamclDjmYFUWEosR5eShDVwF7moLdnKQENJNsFaMzuN+COkJMC2hsbzEeiuAkO9LDcHYeGTrA8Qu2W7JN932fcpXVuF8YnEFllV7EYhrLyPcW6hjOrhyRSshqwWlZp5t9AU4cSULQUAPhe3OmQSeepkFIkKSGKg3qTlCVAbymC43OxXEWlwpDVk0QknyH4vN0vszdDyBQKLsgvWsI7pGVlEndzOE83fAJSGOGkohWX+vcKxqI7nswrIYjEneO0+ogmMKRmCEN6CO3pK7Kd3w8z+nlnMTpMq/LnoQGg/nfXp9wQMtNY/+FmWXxO8IDVqwNUNSqn50/eRJGJMdJ2w+V2/hIZYvahoA4738U/YW6dltLe52h1KitS4vSRgtw5Q/vLGDxn3Xva7sE3QEcDXY6MHcvVwJL9KN8PjcAiXdPy/695XDY9GfJkaTf3Zm/RqlazRTG8x+sFb3sYjdHVtqE8rjlhrYTH5qrdxPGAyPochvm7Ygep3UPaX4y9anretGdov44EU1uREA45chQT0xwj7EQV42zVD90D2dMAgHJEVxJk1WLNx7nlydLUklTm3iyCENlRavqx6fO8QcUQeAAghOFqLcb+kfn68bL4zaRDkg6hYJWIeyAzZgYaoN/VUUnIR8B7jcmAqr0L9ZtaAsUDawhln+vZo408sTRUFVFFS/ZL6E/moZz9WNh6RcpmI+QXlygdJl0XV/7QIsZVhVOxdOv/hgvdc1EZFLp6ZBPqFMi4lX1wRbWiBN0gzf5ENpKXmGl73XRP+JyTZ2hHdUkfU09Hl2SznaWTGX7bHJ2baUMlWuccXpD6uHbZYX+vEu3DELFI8/vEE193ugyeE4uC2SF41nkn2LMtP2hviqHVnS4oGCbVrDi+VTUSvZcqNZzMGGA2ZyOpcJw64xeJ7pzQ83qYXVQ5AnHIfMu7FwBv7uuYJdDfDQaz0AbWyv93G0inZgWvZDhMB9FBPtNZrUZkUesj8avZ4rY3u8lNwrv+aLel6rjkic2WYUUyzf/7Xz/c2e9S99h3AfYJmsMLj/r/a4Uy2YIGgh5n8Q/YFo07y6XnKbMfF7fCauCNI1BSlhRt2o/GaRAxuzPFq1UvF2tGsZ0pC2IJ4gtqyGF+c+f2G5sXouL4yMA2NbZu9vHbxgnVhiF5kS6CdC/yGa27T2DzHlzMjSUk6H0j6X+16ojszo5NxxcWPTgfC3chQL6Jtp+J+rhSzUKSaI3ZaBe8GacX378DQeeVsUPxMRn7+rjpzpHOEYRsDPOljZTEuLwmzEG1e0nTqTJdn/72Fxps96e+nUkZklK61UojZK4nC34cCphFd+k820KDPLIaujD/XWLvch8E/sdMsnFfCXbJyUi8YWk7WMTEEhN9rvBZNKvrxdzqZb6LnTVqDIOMtggvviu4mw32VgUDjt56B+7VsappfaPtEV/FloPhJ7AHAveDxujs5R689CGYXPbJw/9HRG+yNCynHjTZQ6MW5M30byyMz5sBqNMNHpp+6I8VYayavKiX6ZObyInZqcJG5TVc9XCuGdOdZDQ0Rrh3z8DofN2yZrBdBtfcgkuusr1+XnuAsu7OttFZt/ONy3hA1J0FxjqFMUMRU3+vbv9YDZuqqDtPuFk8/FeGBSX3ffS8MS0GU8QRbcC+GyEThrWGulaM70RLJk/BHHKS/vh4M2tIdrotUptikLhFq8LXCVOmy4sx8qzaaqffZvzJZjUACFmvXKcaJuBxL1bLEPo/zkrgY6MsTllzxNb+FRG6dKuA/5ms3HQ5AIq6f+gdwVbRu0RUhK4w2KPtfZceeWlbiLCyFeVInsOMgk9Qaruc4YziPV5u4JFZ6FD1rqXrWX11sO3FauTD+/FnF/PSVMWScijmybJ7ujGxRxuGR3TyhqfZyyv9PofLT39LHVvEEPADqIbzTGy13d2OjqSBAAzpRgnNlCurXqKLfhPDLGu6Ba0AuwkOOxKADXeUn37mzre5cNUh+JplHYcBTWK7yX14bYW0tEM/mrWu8jV5cREZBZrl9qgz28yjDKirIeqJGukeIQc6WhCiX8e/NmWFZ4BOAyiUCs7CDZq4wUyTgDAhYZ8qCutykFBqvWTvWnSUCnxtVeOzOPQHQQ5k7X4mynZltoxX4AZfGT960CEsrJPBurH1POZf7jsouQWL5jOQqrWE268NIZ7rBARMVaI/3SrtTH2B9IlDQa+Kxmpv9uKKb9VWU5ll3mzel3QYkdpmgU504TKTKPuKteZ0iFVnrSnFJH4ymagnikSRZNB57MTkqiNMqxyAsVd2o+aJBAVLgMOZQJfpCCXInhCAZTC2+IJPy5Eviq0Nz1EsTxjOs8UAq9mp//5ZVUof/ZBP44pZ9IaWV1FwIgUNlr26Z+8OLNJUb6kDxkFgdEN4s99ch2UyuEJhKZcXOPjItu+f5OjXUjA6S56QrTqSJ3CYoEUkX9kkwNLqmeiV3gqrGQAWirvFXAoN/NgrHKONH76Mz9habfNT5p+jXTJ2hwaqP8X852p/mwCfLqe4x0CzmqQWOsOXzk2RMgb+gXYedcrbig1bgIhvxkAqM0JtIV9gXQcHchYerueCzM7+1KGMwL2p5ZVcTokLhTZ6H88EJPX1x3VEtA669W+HAZ1/ZA2P+qu3e+y+UoK77lLLe8i12BouQJMJIk5Qlr2QQlN3PHPGmHxVmYwAQV6SbykixVi87t1QZvtNsRCL+pVlKEyQhH0yEF6Ef1dk8ueEcWlm1Hfzsdh9Eo5srMMUNabDbLUpo0M6EFeLliDI7RmEkKUOexpGNaffJXDMZxZPCuK4QiYuD4D6RQWxEeCtImQikT1ieIkTCgDzeqU/CRJUfiTTFbRjPoXSfGWcPxHIGqOKOERidMI4XhX1vKJO+S0aB8MK/moyFv4ooxYsrJ2KFOVphtPKQSZc++o6+ZSWj3brWncNLLMSBbK+ph5hqBEEBmNeN83qPkkn3w2dmW+HMfsw9lIM/6cN37fiE34+aj71PgnMqXcAT7hnkEqyUIH3UnCHen3HfBUrwrCA1V9favY7Z9iWrbDQrQfNqV6W0vMRtdiXNrtSOPQMVw/bneV5+xf+exgrADJ6LlPrk51RczgwSDXoVSGy9bVMJfozdCvfKURz9sTLXzjXZIWvKYlKnKESpxc7COw+PjM0dwueSN75Yz4uFVicmAG4FFrlzpKU4krukE9xIcdZUMmVAIjKYa4e3R4NmCnOkXaz1A/zXfTacGT9AqKKrb5sEbk0Wgxpn9u20lhQngHTJ2h+9wrmivSwLim3zywlWbbDasv74NafrI5OkVEH9XZbb4V2MHxGsFlvX36A8EbxjweNNw7GL91cZr7pBJY8BPHrEbDDpg6ETeAHval88N+GqcTDq5XHQsZCywhQzV4dc9aqtbIMRklwhzeKEY5U+Hypk9Ftv8vDPcTb+mxwAyJOHunUQVqNpX1ezLclLm8DAsF2mp9zXHshYchZ/cyIcrouJ96etQtGBO1Y3n1TM3udhF9atnfATjWdBhU/SvEzJDwCnHzEvvw72z8X46NUg34Ukys4cZb5wmEceDVlmG5qnxXJh47uw1as9qdNDrgCwg+tYnIcH4H3zyMPcmPMHNP0fzrZlU6zQTQQZ/ePQjITykob6bhTtAygbNqO9uSYayb5LtV437b/I0WQQBrUDCGzH9z1vPImDR/wgEALM10CpLwkscecXJPz4eAvxTSGQ/4emqtaLGjTM8RpmuWFAhH8V+bfao1HftLE6ldYTxIHzevNmXLrOnPjWlhCZsRrjT436/eKGYBFdth4Y6jpk7Ki190CCeAIBV/l6BgAAFzmCPB5ds2Ktrb1OxX/P+3EJ8dcd6+vR/yMKE3t9coIRlFUWr+5ZP1UOh2W1lFB6hrfhif/6ujr/ZE2m4aX59KIWyuokvevIDeACdRjd9xwZ9UT+w/SqUNWU5oc78s/TpfTnlMIgLZtr1Qo9V3HZxvecd+ouO7DnkpXAYslngAJVRlBlJAiLftA5U41uZg5i8O/6p2KW9XV6sGaSMUC35ICxgw8cNImjUgLflHjkVGKWJ/dhxY0U7flUiMEddFIBmu8T8Tfn6ouPFMTkU1/w0DRqMz9TX0+BV+ioXnaIuVe2zh5s5g49W1hINeexkjCkUNn0thk7zWr31mRDB5u/dedkEDV6P9L4Q4jCfpfGwvUSOHJF7MI8SkG1t0G46z+tQkv2zP5UEe/WJCjfohJDPrnVN3li/AAUCt/EWpEUC4PtjdTwfWIB9M5s8xy4C6a+SSVBMFeJ7kgw8BdZM3Xh/UXxkJkoTBTSzuZ70/HwUPMjxnGLCdxh4V/MdQlFpLnn1jjWyuEOmPKL/s+3qmr51KvoDpMCVIVrvxejLIR/580MwnTICmV/K2IRfyMhr1s68j0DiKaV//JDATmpJHgaIcn5ep12obLf4E/5kYqTGJ5TNWpbkIQ0gw32I8ciZMe6yz83lk3XKOB67dIU1+y+cnav6I14R4AENlN4n782aLQbIrBN3UVhjwVuix8s46M+WVVjtqlk/Ic8JkwadgAM98sYBlfjYQZ+oWRawhqgFXRHY5RPCiIs7Mu7MZ7veZBNoUzydd0Y8DN+L5JM7J3YgPNu7bce0cdI6s9FLeWbRsoZ+XnFkJdezGTuZs6OtG82U7FsjRZ9PZTTf3Ul+GmRMoNmrRlMwpV4Mu5ymA598HOiNPYgJSOvRGRQ/qMbf/n5nLgymQZrXTN1kfJ4grjQZKHLwkFeBjkl62poevFeyzuxAspRjYAAAJupFl2F6x3sYvcVY1AHn1ExpIQkeVIoSBl/C3bAyQEooUlDbkFzHLO5UfcKdZsYV9SS8y2ZLvUORTxT4E27wADzOg/VlZ9mdsBclgj+HTwP41gsn1W64+jBZrg6TQ+iWwJUV7CIr7o5sLtz9uALZVHeN764QrrWSfYnqUT89W+0K0SKgtvZpEpTqzwF5C9N3h8Ew2AxwKzhTOnnoQ1gU6jOuuvt0ehWc2/oyDvxEHPJjVz2Y26Q9bmr9V8KEv2IbEeuBsWua8UjXf5hBse2l6qguU/0+/niB3ZayozyatF1/23nbRxbo3hkmXUlKjwGSaXoTrhS66rNS+gIXrDm3iKBclO0A/1oGM+c89Bc1hbWurffoZ8g8DM74Sk5dnhLZSGwggqWu1c3OvdwhJCT7il9ia852bGKlMfi4ivvZVAteNfKRAfJgvsIt6ApTEtF5wxs0VPX9Rak5hBE7JpRIBgZbl/L/BA9GcA0fawMG+JVwdcMCha7Q+EJnELTMZp122TnTnISTlMHLZki0Oja8D0gtF5Ee5Ll3oDXgceThOpjd5k9becRtYcJbVQwdzFndTzQORbM9bli/uZEVxWEIOwWmgT8ICnhfi1KNtZ1gvvt1FbkGkx/KU3W4cqMVefXvyORP5HZUhnqARIz+hgMUHiRfaifVc0SUQyB+fqIieyLKRQPY14ZYG/2bJLYIJ1ANQnlosexFGIlVvK96f5r1mS3vnbrKY1TO757+rxAvI0UdylM3Q+iNcrzWFfptK3Nl23/fKBQDb/xQT+EwKznzxjzGh6YK1zo+XIZUE+Z9QSAAAY6ofwGQlZG0GdLbDVzTuLfOlMbUkuTSdwzQ68hp8MUL9yKOx+FK2ZX2vH8Ye/cyIk564UFE5OBubdFfAaHQ7TZ5m3MziSitFrGgkYxXUWxXnjk4W7JXAd3S83hr73+kXgE4rT1eYMUDvzpersCD+S9nkO0BfJjGvRpBgvupsdAGy1WJbNb9bmd1OaeBiDXEDjCBylPziQAAAAAAAAAAAA">
@@ -606,7 +834,7 @@ kbd { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; 
 <tr><td><b class="ink">Equipamentos de medição</b></td><td>Art. 2º, XIX</td><td>Instalar e fornecer equipamentos para medição do uso dos recursos hídricos.</td><td>Sistemas de medição e acompanhamento de consumo. Exige análise de viabilidade técnica e financeira; a lei não define preços nem modelo comercial.</td></tr>
 <tr><td><b class="ink">Energia limpa e renovável</b></td><td>Art. 2º, XXII</td><td>Participar de empreendimentos de geração de energias limpas e renováveis.</td><td>Ex.: usina solar ligada ao consumo das estações de bombeamento. A finalidade expressa é reduzir custos operacionais, não comercializar energia livremente.</td></tr>
 </table>
-<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>24</p></div>
+<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>26</p></div>
 </section>
 <section id="lei-portas2" class="alt" data-transition="fade">
 <img class="vicon" data-video="videos/V11_asportas2.mp4" data-title="V11 · As portas (2/2)" alt="vídeo" title="Assistir: V11 · As portas (2/2)" src="data:image/webp;base64,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">
@@ -621,7 +849,7 @@ kbd { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; 
 <tr><td><b class="ink">Desapropriações necessárias</b></td><td>Art. 4º</td><td>Desapropriar, por via administrativa ou judicial, bens necessários às suas competências.</td><td>Viabilizar áreas para infraestrutura, com recursos próprios ou captados. Não é atividade comercial.</td></tr>
 <tr><td><b class="ink">Patrocínio e inovação tecnológica</b></td><td>Art. 23</td><td>Convênio ou contrato de patrocínio para atividades culturais, sociais, esportivas, educacionais e de inovação tecnológica.</td><td>Apoio ligado à marca, com vínculo comprovado e normas de licitações e contratos. Não equivale a autorização genérica para investir em startups.</td></tr>
 </table>
-<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>25</p></div>
+<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>27</p></div>
 </section>
 
 <section id="lei-19603" data-transition="fade">
@@ -633,7 +861,7 @@ kbd { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; 
 <tr><td><b class="ink">Prioridade da água</b></td><td>Art. 1º, que acrescenta o § 2º ao art. 2º da Lei 12.217/1993</td><td>Todas as competências devem atender à prioridade do consumo humano e da dessedentação animal.</td></tr>
 <tr><td><b class="ink">Termo de Colaboração</b></td><td>Art. 2º, que inclui o § 6º no art. 59 da LDO 2026 (Lei 19.382/2025)</td><td>Estatais prestadoras de serviço público podem firmar Termo de Colaboração com órgãos e entidades, inclusive para obras e serviços de engenharia, com transferência mútua de recursos.</td></tr>
 </table>
-<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>26</p></div>
+<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>28</p></div>
 </section>
 
 <section id="lei-limites" data-transition="fade">
@@ -647,7 +875,7 @@ kbd { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; 
 <div class="card ink"><h3>Lei 13.303/2016</h3><p>A estatal atua no objeto de sua lei; participar de empresa privada depende de autorização legislativa. Ler a cláusula de SPE como autorização genérica é interpretação.</p></div>
 <div class="card ink"><h3>Créditos hídricos</h3><p>A Lei 19.693/2026 cria o Sistema e o Mercado de Créditos Hídricos e lista a COGERH entre os agentes; o papel exato ainda está a confirmar.</p></div>
 </div>
-<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>27</p></div>
+<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>29</p></div>
 </section>
 
 <section id="pode" data-transition="fade">
@@ -661,7 +889,7 @@ kbd { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; 
 <tr><td>Engarrafar e vender água mineral</td><td>Não pode</td><td>Fora do objeto</td></tr>
 <tr><td>Operar planta de dessalinização em parceria</td><td>Pode, por interpretação</td><td>Inciso XVIII e art. 6º</td></tr>
 </table>
-<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>28</p></div>
+<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>30</p></div>
 <aside>Interação: placas verde, vermelha e amarela antes de revelar a coluna Resposta. Leitura do grupo, não parecer jurídico.</aside>
 </section>
 
@@ -673,7 +901,7 @@ kbd { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; 
 <div class="card red"><h3>Automação</h3><p>Supervisório em sistemas da COGERH com registro público desde 2013 (Maracanaú e Pacajus).</p></div>
 <div class="card gold"><h3>Dados e IA</h3><p>Uso de plataformas de monitoramento de equipamentos, com sensores, para manutenção preditiva.</p></div>
 </div>
-<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>29</p></div>
+<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>31</p></div>
 <aside>IA e IoT: tecnologia que a COGERH usa por meio de fornecedores; não apresentar como solução própria.</aside>
 </section>
 
@@ -686,7 +914,7 @@ kbd { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; 
 <div class="card blue step"><div class="num">3</div><h3>Piloto</h3><p>Projeto, contrato ou parceria ativa.</p></div>
 <div class="card green step"><div class="num">4</div><h3>Em operação</h3><p>Rotina da empresa, com resultado medido.</p></div>
 </div>
-<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>30</p></div>
+<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>32</p></div>
 
 </section>
 
@@ -705,7 +933,7 @@ kbd { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; 
 <tr><td>Desafios abertos e startups</td><td>Art. 6º</td><td>Tríplice</td><td>1</td></tr>
 <tr><td>Obras e novos ativos</td><td>Lei 19.603/2025</td><td>Governo</td><td>2</td></tr>
 </table>
-<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>31</p></div>
+<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>33</p></div>
 <aside>Energia: 32 unidades consumidoras, mais de 90% do consumo, R$ 2,5 mi de economia nos quatro primeiros meses. É redução de custo, não receita nova.</aside>
 </section>
 
@@ -718,7 +946,7 @@ kbd { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; 
 <div class="card red"><h3>Contrapontos</h3><p>Desvio de missão, capacidade de pessoal, controles da Lei 13.303 e custo de estruturar cada negócio.</p></div>
 </div>
 <p class="small">O mercado livre de energia reduz custo; não gera receita nova. Nenhuma das frentes de receita passou do nível 3.</p>
-<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>32</p></div>
+<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>34</p></div>
 
 </section>
 
@@ -735,7 +963,7 @@ kbd { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; 
 <tr><td>Converte capacidade em novo negócio</td><td>Serviços especializados, monitoramento como serviço, PI e SPE ainda no papel</td><td class="t-red">Ainda não</td></tr>
 </table>
 <p class="small">Avaliação do grupo com base em fontes públicas.</p>
-<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>33</p></div>
+<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>35</p></div>
 
 </section>
 
@@ -743,7 +971,7 @@ kbd { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; 
 <p class="eyebrow">Parte 6 · Veredito</p>
 <div class="quote"><p>Inovadora na gestão, conservadora no negócio. As portas estão abertas; falta atravessá-las.</p></div>
 <div class="interacao"><p class="eyebrow">Interação com a turma · Votação 2</p><p>Mesma pergunta: <b class="ink">“A COGERH inova, ou apenas gerencia bem?”</b></p><p>Comparação com a Votação 1, lado a lado.</p></div>
-<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>34</p></div>
+<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>36</p></div>
 <aside>Se a opção ‘as duas coisas’ crescer, o argumento central se sustentou: coordenar bem atores diferentes já é inovação institucional.</aside>
 </section>
 
@@ -756,7 +984,7 @@ kbd { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; 
 <div class="card ink"><h3>Maturidade</h3><p>A escala reflete a avaliação do grupo, não da empresa.</p></div>
 <div class="card ink"><h3>Casos externos</h3><p>Israel e África do Sul têm contextos institucionais diferentes do Ceará.</p></div>
 </div>
-<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>35</p></div>
+<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>37</p></div>
 
 </section>
 
@@ -771,7 +999,7 @@ kbd { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; 
 <p class="small">ETZKOWITZ, H.; LEYDESDORFF, L. The dynamics of innovation. Research Policy, v. 29, n. 2, p. 109-123, 2000.</p>
 <p class="small">OECD; EUROSTAT. Oslo Manual 2018. 4. ed. Paris: OECD Publishing, 2018. · SCHUMPETER, J. A. The Theory of Economic Development. Cambridge: Harvard University Press, 1934.</p>
 </div>
-<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>36</p></div>
+<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>38</p></div>
 
 </section>
 
@@ -787,7 +1015,7 @@ kbd { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; 
 <p class="small"><b class="ink">Casos:</b> ANA (alocação negociada, QualiÁgua, Progestão); CEPAS/UFC (Cientista Chefe); Mekorot/WaTech; InnWater (SIWI, Eurecat, REKK); Canal Solar e Cenário Energia (mercado livre); Elipse (automação).</p>
 </div>
 </div>
-<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>37</p></div>
+<div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>39</p></div>
 
 </section>
 
@@ -797,11 +1025,43 @@ kbd { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; 
 <h1 style="font-size:96px;">Obrigado</h1>
 <p class="lead">A COGERH é uma empresa inovadora? Perguntas e debate.</p>
 </div>
-<div style="width:620px; height:600px;"><svg aria-label="Três círculos sobrepostos: universidade (azul), empresa (vermelho) e governo (amarelo)" width="620" height="600" viewBox="0 0 620 600">
-<circle cx="215" cy="205" r="185" fill="#3F6CA8" fill-opacity="0.82"/>
-<circle cx="405" cy="205" r="185" fill="#C2573F" fill-opacity="0.78"/>
-<circle cx="310" cy="390" r="185" fill="#D6AE48" fill-opacity="0.8"/>
+<div style="width:620px; height:600px;"><svg class="trisvg" aria-label="Três esferas que se aproximam e se sobrepõem: universidade (azul), empresa (vermelho) e governo (amarelo)" width="620" height="600" viewBox="0 0 620 600" style="overflow:visible;">
+<defs>
+<radialGradient id="tgB" cx="38%" cy="32%" r="70%"><stop offset="0" stop-color="#9cc0f0"/><stop offset=".45" stop-color="#3F6CA8"/><stop offset="1" stop-color="#16294a"/></radialGradient>
+<radialGradient id="tgR" cx="38%" cy="32%" r="70%"><stop offset="0" stop-color="#f3a58f"/><stop offset=".45" stop-color="#C2573F"/><stop offset="1" stop-color="#4e1a10"/></radialGradient>
+<radialGradient id="tgG" cx="38%" cy="32%" r="70%"><stop offset="0" stop-color="#fbe3a0"/><stop offset=".45" stop-color="#D6AE48"/><stop offset="1" stop-color="#5a4210"/></radialGradient>
+<radialGradient id="tgH" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<radialGradient id="tgC" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="#fffbe8" stop-opacity="1"/><stop offset=".35" stop-color="#ffd76a" stop-opacity=".7"/><stop offset="1" stop-color="#ffd76a" stop-opacity="0"/></radialGradient>
+<filter id="tgS" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="18"/></filter>
+</defs>
+<ellipse class="tsh" cx="310" cy="590" rx="250" ry="26" fill="#000" opacity=".45" filter="url(#tgS)"/>
+<g class="sph" data-x="215" data-y="205" data-dx="-170" data-dy="-80"><circle r="185" fill="url(#tgB)" opacity=".86" style="mix-blend-mode:screen"/><ellipse cx="-62" cy="-78" rx="70" ry="44" fill="url(#tgH)" transform="rotate(-30 -62 -78)"/><text x="-60" y="-40" text-anchor="middle" style="font:700 26px Inter, Arial, sans-serif; fill:#fff; paint-order:stroke; stroke:#0006; stroke-width:4px;">Universidade</text></g>
+<g class="sph" data-x="405" data-y="205" data-dx="170" data-dy="-80"><circle r="185" fill="url(#tgR)" opacity=".84" style="mix-blend-mode:screen"/><ellipse cx="-62" cy="-78" rx="70" ry="44" fill="url(#tgH)" transform="rotate(-30 -62 -78)"/><text x="70" y="-40" text-anchor="middle" style="font:700 26px Inter, Arial, sans-serif; fill:#fff; paint-order:stroke; stroke:#0006; stroke-width:4px;">Empresa</text></g>
+<g class="sph" data-x="310" data-y="390" data-dx="0" data-dy="170"><circle r="185" fill="url(#tgG)" opacity=".84" style="mix-blend-mode:screen"/><ellipse cx="-62" cy="-78" rx="70" ry="44" fill="url(#tgH)" transform="rotate(-30 -62 -78)"/><text x="0" y="110" text-anchor="middle" style="font:700 26px Inter, Arial, sans-serif; fill:#fff; paint-order:stroke; stroke:#0006; stroke-width:4px;">Governo</text></g>
+<circle class="tglow" cx="310" cy="268" r="120" fill="url(#tgC)" opacity="0" style="mix-blend-mode:screen"/>
+
 </svg></div>
+<script>
+(function(){
+  const sec=document.getElementById('triplice'); if(!sec) return;
+  const S=[...sec.querySelectorAll('.sph')], glow=sec.querySelector('.tglow'), tw=sec.querySelector('.tw');
+  const ease=x=>{x=Math.min(1,Math.max(0,x));return 1-Math.pow(1-x,3);};
+  let on=false,t0=0;
+  function frame(now){
+    requestAnimationFrame(frame);
+    if(!sec.classList.contains('on')){on=false;return;}
+    if(!on){on=true;t0=now;}
+    const t=(now-t0)/1000, k=ease(t/2.4);
+    S.forEach((g,i)=>{
+      const x=+g.dataset.x+(+g.dataset.dx)*(1-k), fy=t>2.4?6*Math.sin((t-2.4)*1.3+i*2.1):0, y=+g.dataset.y+(+g.dataset.dy)*(1-k)+fy, sc=.82+.18*k;
+      g.setAttribute('transform','translate('+x+' '+y+') scale('+sc+')'); g.style.opacity=Math.min(1,t/0.6);
+    });
+    let ga=0; if(t>2.2){const u=t-2.2; ga=u<0.5?u/0.5:Math.max(0.35,1-(u-0.5)/1.0); if(u>1.5) ga=0.35+0.15*Math.sin((u-1.5)*2);}
+    glow.setAttribute('opacity',ga.toFixed(3)); if(tw) tw.style.opacity=Math.min(1,Math.max(0,(t-2.5)/0.6)).toFixed(3);
+  }
+  requestAnimationFrame(frame);
+})();
+</script>
 </div>
 
 
