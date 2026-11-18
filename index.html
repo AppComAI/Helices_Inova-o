@@ -283,7 +283,7 @@ kbd { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; 
 <div class="vgrid"><div class="vopt" data-k="0"><span class="vl">A</span><span class="vt2">Inova</span><span class="vn">0</span><span class="vpm"><button class="vm" title="Tirar 1 voto">−</button><button class="vp" title="Somar 1 voto">+</button></span><span class="vb"></span></div><div class="vopt" data-k="1"><span class="vl">B</span><span class="vt2">Apenas gerencia bem</span><span class="vn">0</span><span class="vpm"><button class="vm" title="Tirar 1 voto">−</button><button class="vp" title="Somar 1 voto">+</button></span><span class="vb"></span></div><div class="vopt" data-k="2"><span class="vl">C</span><span class="vt2">As duas coisas</span><span class="vn">0</span><span class="vpm"><button class="vm" title="Tirar 1 voto">−</button><button class="vp" title="Somar 1 voto">+</button></span><span class="vb"></span></div><div class="vopt" data-k="3"><span class="vl">D</span><span class="vt2">Nenhuma das duas</span><span class="vn">0</span><span class="vpm"><button class="vm" title="Tirar 1 voto">−</button><button class="vp" title="Somar 1 voto">+</button></span><span class="vb"></span></div></div>
 <div class="vqr"><button class="vgear" title="Configurar votação ao vivo">⚙</button><div class="vqrbox"></div><p class="vcap">Aponte a câmera e vote</p><p class="vurl"></p><button class="vzoom">QR CODE ZOOM</button><p class="vtot">0 votos</p></div>
 </div>
-<div class="vtools"><button class="vreset">Zerar votação</button><span class="vstat"></span></div>
+<div class="vtools"><button class="vreset">Zerar votação</button><button class="vmute" title="Som do cronômetro (tecla M)">🔊 Som</button><span class="vstat"></span></div>
 <div class="vrev fragment"><b>Resultado guardado.</b> Ele volta na conclusão, ao lado da Votação 2, com a mesma pergunta.</div>
 <div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>3</p></div>
 <aside>Abrir a votação (cronômetro de 40 s: clique no painel ou tecla T). Não comentar o resultado: ele volta na conclusão.</aside>
@@ -456,7 +456,7 @@ kbd { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; 
 <div class="vgrid"><div class="vopt" data-k="0"><span class="vl">A</span><span class="vt2">Uma perda inevitável, que só cabe aceitar</span><span class="vn">0</span><span class="vpm"><button class="vm" title="Tirar 1 voto">−</button><button class="vp" title="Somar 1 voto">+</button></span><span class="vb"></span></div><div class="vopt" data-k="1"><span class="vl">B</span><span class="vt2">Um problema que se resolve construindo mais açudes</span><span class="vn">0</span><span class="vpm"><button class="vm" title="Tirar 1 voto">−</button><button class="vp" title="Somar 1 voto">+</button></span><span class="vb"></span></div><div class="vopt" data-k="2"><span class="vl">C</span><span class="vt2">Uma restrição que obriga a criar conhecimento novo e pode virar inovação</span><span class="vn">0</span><span class="vpm"><button class="vm" title="Tirar 1 voto">−</button><button class="vp" title="Somar 1 voto">+</button></span><span class="vb"></span></div><div class="vopt" data-k="3"><span class="vl">D</span><span class="vt2">Um tema ambiental, fora da gestão da empresa</span><span class="vn">0</span><span class="vpm"><button class="vm" title="Tirar 1 voto">−</button><button class="vp" title="Somar 1 voto">+</button></span><span class="vb"></span></div></div>
 <div class="vqr"><button class="vgear" title="Configurar votação ao vivo">⚙</button><div class="vqrbox"></div><p class="vcap">Aponte a câmera e vote</p><p class="vurl"></p><button class="vzoom">QR CODE ZOOM</button><p class="vtot">0 votos</p></div>
 </div>
-<div class="vtools"><button class="vreset">Zerar votação</button><span class="vstat"></span></div>
+<div class="vtools"><button class="vreset">Zerar votação</button><button class="vmute" title="Som do cronômetro (tecla M)">🔊 Som</button><span class="vstat"></span></div>
 <div class="vrev fragment"><b>Resposta: C.</b> Para Carayannis, Barth e Campbell (2012), o aquecimento global é desafio e, ao mesmo tempo, motor de inovação. <b>No Ceará:</b> a escassez levou o Estado a buscar água no mar. A Dessal do Ceará, com obras iniciadas em 2026, será a maior usina de dessalinização do país: 1.000 litros por segundo, cerca de 720 mil pessoas, 12% da demanda da Grande Fortaleza.</div>
 <div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>16</p></div>
 <aside>Ler a pergunta e deixar votar (QR ou mãos levantadas). Contagem manual: clique na opção (Shift+clique tira um). Avançar (→ ou espaço) revela a resposta C e o exemplo da dessalinização. Botão "Zerar" no canto do QR, com Shift+clique no QR.</aside>
@@ -947,6 +947,7 @@ section.poll .vtools button:hover { background:rgba(255,255,255,.16); }
 section.poll .vtools button.warn { background:#A3432F; border-color:#E8957F; color:#fff; }
 section.poll .vtools button.on { background:#7B4A70; border-color:#C99BC0; }
 section.poll .vtools button.tend { background:#A3432F; border-color:#E8957F; }
+section.poll .vtools button.vmute.off { opacity:.6; }
 section.poll .vstat { margin-left:auto; font:600 18px Inter,Arial,sans-serif; color:#93C49F; }
 section.poll .vstat.off { color:#E8957F; }
 section.poll:has(.vrev.visible) .vn, section.poll:has(.vrev.visible) .vb { visibility:visible !important; }
@@ -3432,8 +3433,16 @@ function drawLed(p){const v=Math.max(0,p.tleft),d1=Math.floor(v/10),d2=v%10;
   p.q$('.vledsvg').innerHTML='<defs><filter id="ledglow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>'+digitSvg(d1,22)+digitSvg(d2,128)+`<circle cx="236" cy="134" r="7" fill="${p.trun?'#ff2b1c':'#2a0c0a'}" ${p.trun?'filter="url(#ledglow)"':''}/>`;
   const led=p.q$('.vled');led.classList.toggle('run',!!p.trun);led.classList.toggle('blink',!!p.trun&&p.tleft<=10);
   p.q$('.vledlab').textContent=p.revealed()?(p.correct===null?'resultado revelado':'resposta revelada'):p.trun?'votação em andamento':(p.tleft===TMAX?'clique para iniciar':'pausado · clique para seguir');}
+/* sons do cronômetro: T3 bipe de game show + F3 buzina de fim (Web Audio, sem arquivos) */
+let AC=null,SND=ls.get('snd')!==0;
+function ac(){try{if(!AC)AC=new (window.AudioContext||window.webkitAudioContext)();if(AC.state==='suspended')AC.resume();}catch(e){}return AC;}
+function envG(g,t,a,d,pk){g.gain.setValueAtTime(0.0001,t);g.gain.exponentialRampToValueAtTime(pk,t+a);g.gain.exponentialRampToValueAtTime(0.0001,t+a+d);}
+function sTick(hi){if(!SND)return;const c=ac();if(!c)return;const t=c.currentTime+0.01,o=c.createOscillator(),g=c.createGain();o.type='triangle';o.frequency.value=hi?1320:880;o.connect(g);g.connect(c.destination);envG(g,t,0.005,0.12,hi?0.4:0.28);o.start(t);o.stop(t+0.16);}
+function sEnd(){if(!SND)return;const c=ac();if(!c)return;const t=c.currentTime+0.01;[0,0.02].forEach(dt=>{const o=c.createOscillator(),g=c.createGain(),f=c.createBiquadFilter();o.type='sawtooth';o.frequency.value=dt?178:174;f.type='lowpass';f.frequency.value=1600;o.connect(f);f.connect(g);g.connect(c.destination);g.gain.setValueAtTime(0.0001,t);g.gain.exponentialRampToValueAtTime(0.35,t+0.03);g.gain.setValueAtTime(0.35,t+1.1);g.gain.exponentialRampToValueAtTime(0.0001,t+1.35);o.start(t);o.stop(t+1.4);});}
+function sPaint(){document.querySelectorAll('.vmute').forEach(b=>{b.textContent=SND?'🔊 Som':'🔇 Mudo';b.classList.toggle('off',!SND);});}
+function sToggle(){SND=!SND;ls.set('snd',SND?1:0);if(SND)ac();sPaint();}
 function tStop(p){if(p.trun){clearInterval(p.trun);p.trun=null;}drawLed(p);}
-function tStart(p){if(p.trun||p.revealed())return;if(p.tleft<=0)p.tleft=TMAX;p.trun=setInterval(()=>{p.tleft--;if(p.tleft<=0){p.tleft=0;tStop(p);if(!p.revealed()&&p.rv)p.rv.classList.add('visible');}drawLed(p);},1000);drawLed(p);}
+function tStart(p){if(p.trun||p.revealed())return;if(p.tleft<=0)p.tleft=TMAX;ac();p.trun=setInterval(()=>{p.tleft--;if(p.tleft<=0){p.tleft=0;tStop(p);sEnd();if(!p.revealed()&&p.rv)p.rv.classList.add('visible');}else sTick(p.tleft<=10);drawLed(p);},1000);drawLed(p);}
 function tReset(p){tStop(p);p.tleft=TMAX;drawLed(p);}
 async function publish(p){if(!C.fb)return;try{const r=await fetch(fbu('live/current'),{method:'PUT',body:JSON.stringify(p?{pid:p.pid,q:p.q,opts:p.opts,closed:p.closed,t:Date.now()}:{pid:null,t:Date.now()})});pubErr=r.ok?'':'⚠ Banco recusou ('+r.status+') · confira regras e endereço';if(r.ok)online=true;}catch(e){online=false;pubErr='';}P.forEach(paint);}
 async function pull(){const p=activeP;if(!C.fb||!p)return;try{const r=await fetch(fbu('votes'),{cache:'no-store'});if(!r.ok)throw 0;const v=(await r.json())||{};const c={};Object.values(v).forEach(u=>{const k=u&&u[p.pid];if(typeof k==='number')c[k]=(c[k]||0)+1});p.live=c;
@@ -3460,14 +3469,16 @@ P.forEach(p=>{
   p.q$('.vqr').addEventListener('click',e=>e.stopPropagation());
   p.q$('.vgear').addEventListener('click',e=>{e.stopPropagation();$('vcfgLive').value=C.live;$('vcfgFb').value=C.fb;$('vcfg').classList.remove('hide');});
   p.q$('.vzoom').addEventListener('click',e=>{e.stopPropagation();zoomOpen();});
+  p.q$('.vmute').addEventListener('click',e=>{e.stopPropagation();sToggle();});
   p.q$('.vled').addEventListener('click',e=>{e.stopPropagation();p.trun?tStop(p):tStart(p);});
   try{localStorage.removeItem('sem_hide_'+p.pid);}catch(e){}
   drawQR(p);paint(p);drawLed(p);});
+sPaint();
 /* teclado: A–D somam (Shift tira), T inicia/pausa, só no slide de votação ativo */
 document.addEventListener('keydown',e=>{const p=activeP;if(!p||e.ctrlKey||e.metaKey||e.altKey||e.key.length!==1)return;
   if(!$('vcfg').classList.contains('hide')||!$('qrzoom').classList.contains('hide'))return;
   const lk=e.key.toLowerCase(),i='abcd'.indexOf(lk);
-  if(i>=0){e.preventDefault();e.stopPropagation();p.bump(i,e.shiftKey?-1:1);}else if(lk==='t'){e.preventDefault();e.stopPropagation();p.trun?tStop(p):tStart(p);}},true);
+  if(i>=0){e.preventDefault();e.stopPropagation();p.bump(i,e.shiftKey?-1:1);}else if(lk==='t'){e.preventDefault();e.stopPropagation();p.trun?tStop(p):tStart(p);}else if(lk==='m'){e.preventDefault();e.stopPropagation();sToggle();}},true);
 /* configuração (uma vez vale para todas as votações) */
 const dlg=$('vcfg');
 dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.classList.add('hide');e.stopPropagation();});
