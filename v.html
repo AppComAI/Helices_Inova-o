@@ -12,6 +12,10 @@ h1{font:800 26px system-ui,Arial,sans-serif;color:#C99BC0;margin:0 0 4px;letter-
 #ao button.sel{border-color:#E2C06A;background:#E2C06A2e}
 #as{color:#93C49F;min-height:1.4em}
 #ao button:disabled{opacity:.5}
+#ao input{display:block;box-sizing:border-box;width:100%;margin:0 0 10px;padding:14px;border-radius:12px;border:2px solid #ffffff44;background:#ffffff12;color:#fff;font:600 19px system-ui,Arial,sans-serif}
+#ao input:disabled{opacity:.5}
+#ao .send{background:#7B4A70;border-color:#C99BC0;text-align:center;font-weight:800}
+#ao .hint{font-size:14px;color:#9a948a;margin:0 0 12px}
 </style></head><body>
 <div id="aud"><h1>VOTAÇÃO</h1><p class="sub">Seminário · Hélices da inovação · PPAC/UFC</p><div id="aq">Conectando…</div><div id="ao"></div><p id="as"></p></div>
 <script>
@@ -20,15 +24,26 @@ let FB=FB_DEFAULT;try{const q=new URLSearchParams(location.search).get('fb');if(
 const u=p=>FB.replace(/\/+$/,'')+'/'+p+'.json';
 let uid=null;try{uid=localStorage.getItem('sem_uid');}catch(e){}
 if(!uid){uid='u'+Math.random().toString(36).slice(2,10)+Date.now().toString(36);try{localStorage.setItem('sem_uid',uid);}catch(e){}}
-let cur=null,mine=null;const $=id=>document.getElementById(id);
+let cur=null,mine=null,drawn='';const $=id=>document.getElementById(id);
 function draw(){if(!cur||!cur.pid){$('aq').textContent='Conectado. A pergunta aparece quando o apresentador abrir o slide da votação.';$('ao').innerHTML='';return;}
+ if(cur.type==='cloud'){drawCloud();return;}
  $('aq').textContent=cur.q;$('ao').innerHTML=cur.opts.map((o,i)=>`<button data-k="${i}" ${cur.closed?'disabled':''} class="${mine===i?'sel':''}"><b>${'ABCD'[i]}</b>${o}</button>`).join('');
  if(cur.closed){$('as').textContent='Votação encerrada. Veja o resultado na tela.';return;}
  $('ao').querySelectorAll('button').forEach(b=>b.onclick=async()=>{mine=+b.dataset.k;draw();
   try{const r=await fetch(u('votes/'+uid),{method:'PATCH',body:JSON.stringify({[cur.pid]:mine})});if(!r.ok)throw 0;$('as').textContent='Voto registrado. Você pode mudar até o resultado ser revelado.';}
   catch(e){$('as').textContent='Não foi possível registrar. Tente de novo.';}});}
+
+function drawCloud(){$('aq').textContent=cur.q;const key=cur.pid+'|'+!!cur.closed;
+ if(drawn!==key){drawn=key;const d=cur.closed?'disabled':'';
+  $('ao').innerHTML=`<p class="hint">Até 3 palavras ou expressões curtas</p><input id="w1" maxlength="30" ${d} placeholder="1ª palavra"><input id="w2" maxlength="30" ${d} placeholder="2ª (opcional)"><input id="w3" maxlength="30" ${d} placeholder="3ª (opcional)"><button class="send" ${d}>Enviar</button>`;
+  if(typeof mine==='string'){mine.split(',').forEach((x,i)=>{const el=$('w'+(i+1));if(el)el.value=x;});}
+  const b=$('ao').querySelector('.send');b.onclick=async()=>{const t=[1,2,3].map(i=>$('w'+i).value.replace(/[,;]/g,' ').replace(/\s+/g,' ').trim()).filter(Boolean);
+   if(!t.length){$('as').textContent='Escreva pelo menos uma palavra.';return;}
+   try{const r=await fetch(u('votes/'+uid),{method:'PATCH',body:JSON.stringify({[cur.pid]:t.join(',')})});if(!r.ok)throw 0;mine=t.join(',');$('as').textContent='Enviado. Você pode corrigir e reenviar até a nuvem fechar.';}
+   catch(e){$('as').textContent='Não foi possível enviar. Tente de novo.';}};}
+ if(cur.closed)$('as').textContent='Nuvem encerrada. Veja o resultado na tela.';}
 async function tick(){try{const r=await fetch(u('live/current'),{cache:'no-store'});if(!r.ok){$('aq').textContent='Não consegui ler o banco de votos (erro '+r.status+'). Avise o apresentador.';return;}
- const v=await r.json();if(v&&v.pid&&(!cur||cur.pid!==v.pid)){mine=null;$('as').textContent='';try{const m=await (await fetch(u('votes/'+uid+'/'+v.pid),{cache:'no-store'})).json();if(typeof m==='number')mine=m;}catch(e){}}
- cur=v;draw();}catch(e){$('aq').textContent='Sem conexão. Verifique a internet e recarregue a página.';}}
+ const v=await r.json();if(v&&v.pid&&(!cur||cur.pid!==v.pid)){mine=null;$('as').textContent='';try{const m=await (await fetch(u('votes/'+uid+'/'+v.pid),{cache:'no-store'})).json();if(typeof m==='number'||typeof m==='string')mine=m;}catch(e){}}
+ if(!v||!v.pid||v.type!=='cloud')drawn='';cur=v;draw();}catch(e){$('aq').textContent='Sem conexão. Verifique a internet e recarregue a página.';}}
 tick();setInterval(tick,2000);
 </script></body></html>

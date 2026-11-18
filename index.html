@@ -330,12 +330,19 @@ kbd { display:inline-block; min-width:26px; text-align:center; padding:2px 8px; 
 
 </section>
 
-<section id="quiz" data-transition="fade">
-<p class="eyebrow">Parte 1 · Inovação</p>
-<h2>Testando os conceitos</h2>
-<div class="interacao"><p class="eyebrow">Interação com a turma · Nuvem e quiz</p><p>Nuvem de palavras: <b class="ink">“Inovação, para mim, é…”</b></p><p>1. Para Schumpeter, inovação é um invento patenteado ou uma nova combinação levada ao uso econômico?</p><p>2. Invenção e inovação são a mesma coisa?</p><p>3. Mudar a forma de decidir uma alocação de água pode ser inovação, segundo o Manual de Oslo?</p><p>Enquete: <b class="ink">“Quem deve inovar na água do Ceará?”</b> governo · universidade · empresas · sociedade · todos juntos</p></div>
+<section id="quiz" class="poll cloud" data-pid="c7" data-transition="fade">
+<div class="vled" title="Clique para iniciar / pausar (tecla T)"><svg class="vledsvg" viewBox="0 0 260 150"></svg><span class="vledlab">clique para iniciar</span></div>
+<p class="eyebrow">Parte 1 · Inovação · Testando os conceitos · Nuvem de palavras</p>
+<h2 class="vq">“Inovação, para mim, é…”</h2>
+<div class="vwrap">
+<div class="vcloud"><p class="vcempty">As palavras da turma aparecem aqui</p></div>
+<div class="vqr"><button class="vgear" title="Configurar votação ao vivo">⚙</button><div class="vqrbox"></div><p class="vcap">Aponte a câmera e responda</p><p class="vurl"></p><button class="vzoom">QR CODE ZOOM</button><p class="vtot">0 respostas</p></div>
+</div>
+<div class="vtools"><button class="vreset">Zerar nuvem</button><button class="vmute" title="Som do cronômetro (tecla M)">🔊 Som</button><input class="vadd" maxlength="30" placeholder="+ palavra (Enter)" title="Sem conexão? Digite a palavra dita pela turma e tecle Enter"><span class="vhint">clique numa palavra para ocultá-la</span><span class="vstat"></span></div>
+<div class="vquiz"><p><b>Quiz</b> 1. Para Schumpeter, inovação é um invento patenteado ou uma nova combinação levada ao uso econômico? &nbsp;2. Invenção e inovação são a mesma coisa? &nbsp;3. Mudar a forma de decidir uma alocação de água pode ser inovação, segundo o Manual de Oslo?</p><p><b>Enquete</b> “Quem deve inovar na água do Ceará?” governo · universidade · empresas · sociedade · todos juntos</p></div>
+<div class="vrev fragment"><b>Nuvem encerrada.</b></div>
 <div class="footer"><p>PPAC-PROF/UFC · Gestão da Inovação e Sustentabilidade · 2026.2</p><p>7</p></div>
-<aside>Respostas: 1 nova combinação; 2 não; 3 sim, inovação de processo de negócio. Quem marcar ‘todos juntos’ descreveu uma hélice.</aside>
+<aside>Abrir a nuvem (cronômetro de 40 s: clique no painel ou tecla T). Respostas do quiz: 1 nova combinação; 2 não; 3 sim, inovação de processo de negócio. Quem marcar ‘todos juntos’ descreveu uma hélice.</aside>
 </section>
 
 <section id="helices" class="alt" data-transition="fade">
@@ -970,6 +977,24 @@ section.poll h2.vq-big { font-size:64px !important; margin-bottom:10px; }
 section.poll .vopt.win { border-color:#E2C06A; background:rgba(226,192,106,.16); }
 section.poll .vqrbox { width:270px; height:270px; display:grid; place-items:center; }
 section.poll .vqrbox svg { width:100%; height:100%; }
+section.poll.cloud { gap:20px !important; }
+section.poll.cloud h2.vq { font-size:60px !important; margin:0; }
+section.poll.cloud .vwrap { height:400px; margin-top:22px; }
+section.poll.cloud .vcloud { flex:1; position:relative; overflow:hidden; border:2px solid rgba(255,255,255,.16); border-radius:16px; background:rgba(22,26,36,.75); }
+section.poll.cloud .vcempty { position:absolute; inset:0; display:grid; place-items:center; margin:0; font:500 28px Inter,Arial,sans-serif; color:#8a8577; }
+section.poll.cloud .vw { position:absolute; white-space:nowrap; font-family:Inter,Arial,sans-serif; font-weight:700; line-height:1; cursor:pointer; transition:left .6s, top .6s, font-size .6s, opacity .4s; }
+section.poll.cloud .vw:hover { text-decoration:line-through; opacity:.6; }
+section.poll.cloud .vadd { width:250px; border:1px solid rgba(255,255,255,.25); background:rgba(255,255,255,.07); color:#E9E4D8; border-radius:10px; padding:8px 12px; font:500 18px Inter,Arial,sans-serif; }
+section.poll.cloud .vhint { font:500 15px Inter,Arial,sans-serif; color:#8a8577; }
+section.poll.cloud .vquiz { background:rgba(22,26,36,.75); border:1px solid rgba(255,255,255,.16); border-radius:14px; padding:14px 24px; }
+section.poll.cloud .vquiz p { margin:0; font:500 22px/1.4 Inter,Arial,sans-serif; color:#E9E4D8; }
+section.poll.cloud .vquiz p + p { margin-top:6px; }
+section.poll.cloud .vquiz b { color:#C99BC0; margin-right:8px; }
+section.poll.cloud .vrev { position:absolute; left:0; top:0; width:1px; height:1px; padding:0; overflow:hidden; opacity:0 !important; }
+section.poll.cloud .vqr { padding-top:34px; gap:6px; }
+section.poll.cloud .vqrbox { width:220px; height:220px; }
+section.poll.cloud:has(.vrev.visible) .vw { cursor:default; }
+
 </style>
 <div id="vplayer" class="hide"><button class="vx" id="vclose">Fechar ✕ (Esc)</button><div class="vt" id="vtitle"></div><video id="vel" controls playsinline></video><div class="verr hide" id="verr"></div></div>
 <div id="qrzoom" class="hide"><div class="zbox" id="zbox"></div><p>Aponte a câmera e vote <small id="zurl"></small></p></div>
@@ -3414,21 +3439,48 @@ function digitSvg(n,x){const on=SEG[n],P={a:[[18,6],[82,6],[72,16],[28,16]],b:[[
 const TMAX=40;
 const P=POLLS.map(sec=>{const p={sec,pid:sec.dataset.pid,correct:sec.dataset.correct!==undefined?+sec.dataset.correct:null,
   q:(sec.querySelector('h2.vq')||{}).textContent||'',opts:[...sec.querySelectorAll('.vopt .vt2')].map(e=>e.textContent),
-  manual:ls.get('manual_'+sec.dataset.pid)||{},live:{},closed:false,tleft:TMAX,trun:null,rv:sec.querySelector('.vrev'),q$:c=>sec.querySelector(c)};
+  manual:ls.get('manual_'+sec.dataset.pid)||{},live:{},cloud:sec.classList.contains('cloud'),mw:ls.get('mw_'+sec.dataset.pid)||[],hid:ls.get('hid_'+sec.dataset.pid)||[],texts:[],closed:false,tleft:TMAX,trun:null,rv:sec.querySelector('.vrev'),q$:c=>sec.querySelector(c)};
   p.revealed=()=>!!(p.rv&&p.rv.classList.contains('visible'));return p;});
 const tot=(p,k)=>(p.manual[k]||0)+(p.live[k]||0);
 function status(p){const el=p.q$('.vstat');if(!el)return;el.classList.remove('off');
   if(!C.fb){el.textContent='Modo manual · use + e −';return;}
   if(pubErr){el.textContent=pubErr;el.classList.add('off');return;}
   if(online===false){el.textContent='○ Sem conexão · conte com + e −';el.classList.add('off');return;}
-  el.textContent=p.closed?'● Votação encerrada':'● Ao vivo pelo celular';}
-function paint(p){const n=[0,1,2,3].map(k=>tot(p,k)),sum=n.reduce((a,b)=>a+b,0),mx=Math.max(1,...n),rv=p.revealed();
+  el.textContent=p.closed?(p.cloud?'● Nuvem encerrada':'● Votação encerrada'):'● Ao vivo pelo celular';}
+function paint(p){if(p.cloud){drawCloud(p);status(p);return;}const n=[0,1,2,3].map(k=>tot(p,k)),sum=n.reduce((a,b)=>a+b,0),mx=Math.max(1,...n),rv=p.revealed();
   p.sec.querySelectorAll('.vopt').forEach(b=>{const k=+b.dataset.k;b.querySelector('.vn').textContent=rv&&sum?(n[k]+' · '+Math.round(n[k]/sum*100)+'%'):n[k];b.querySelector('.vb').style.width=(n[k]/mx*100)+'%';
     b.classList.toggle('win',rv&&p.correct===null&&sum>0&&n[k]===Math.max(...n));});
   p.q$('.vtot').textContent=sum+(sum===1?' voto':' votos');status(p);}
+/* ---------- nuvem de palavras ---------- */
+const nrm=w=>w.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').replace(/[^a-z0-9 ]+/g,' ').replace(/\s+/g,' ').trim();
+const terms=t=>String(t).split(/[,;\n]+/).map(x=>x.replace(/\s+/g,' ').trim()).filter(Boolean).slice(0,3).map(x=>x.slice(0,30));
+const CCOL=['#E2C06A','#C99BC0','#93C49F','#8FB8DE','#F3EFE3','#E8957F'];
+function drawCloud(p){const box=p.q$('.vcloud');const M={};let resp=p.texts.length+p.mw.length;
+  [...p.texts,...p.mw].forEach(t=>terms(t).forEach(x=>{const k=nrm(x);if(!k||p.hid.includes(k))return;(M[k]=M[k]||{k,w:x.toLowerCase(),n:0}).n++;}));
+  const L=Object.values(M).sort((a,b)=>b.n-a.n||a.k.localeCompare(b.k)).slice(0,45);
+  p.q$('.vtot').textContent=resp+(resp===1?' resposta':' respostas');
+  const sig=JSON.stringify(L.map(o=>[o.k,o.n]));if(sig===p.csig)return;p.csig=sig;
+  const em=box.querySelector('.vcempty');if(em)em.style.display=L.length?'none':'';
+  const W=box.clientWidth||1150,H=box.clientHeight||416,mx=L.length?L[0].n:1,mn=L.length?L[L.length-1].n:1;
+  const old={};box.querySelectorAll('.vw').forEach(e=>old[e.dataset.k]=e);
+  const placed=[],hit=(r)=>placed.some(q=>r.x<q.x+q.w+10&&r.x+r.w+10>q.x&&r.y<q.y+q.h+4&&r.y+r.h+4>q.y);
+  let fs0=L.length>25?82:L.length>12?96:112;
+  L.forEach((o,i)=>{let el=old[o.k];delete old[o.k];
+    if(!el){el=document.createElement('span');el.className='vw';el.dataset.k=o.k;el.style.opacity='0';el.style.left=(W/2)+'px';el.style.top=(H/2)+'px';box.appendChild(el);
+      el.addEventListener('click',e=>{e.stopPropagation();if(p.revealed())return;p.hid.push(el.dataset.k);ls.set('hid_'+p.pid,p.hid);p.csig='';drawCloud(p);});}
+    el.textContent=o.w+(o.n>1?'':'');el.title=o.n+(o.n>1?' vezes':' vez');
+    let fs=mx===mn?(L.length<6?72:48):Math.round(26+(fs0-26)*Math.sqrt((o.n-mn)/(mx-mn)));el.style.color=CCOL[i%CCOL.length];
+    let ok=false,r;
+    for(let tries=0;tries<6&&!ok;tries++){el.style.transition='none';el.style.fontSize=fs+'px';const w=el.scrollWidth,h=el.scrollHeight;el.style.transition='';
+      for(let a=0;a<1400;a++){const ang=a*0.32,rad=2.4*ang;const x=W/2+rad*Math.cos(ang)*1.7-w/2,y=H/2+rad*Math.sin(ang)-h/2;
+        r={x,y,w,h};if(x<8||y<6||x+w>W-8||y+h>H-6)continue;if(!hit(r)){ok=true;break;}}
+      if(!ok)fs=Math.max(16,Math.round(fs*0.8));}
+    if(!ok){el.style.opacity='0';return;}
+    placed.push(r);el.style.fontSize=fs+'px';requestAnimationFrame(()=>{el.style.left=r.x+'px';el.style.top=r.y+'px';el.style.opacity='1';});});
+  Object.values(old).forEach(e=>e.remove());}
 function drawQR(p){const box=p.q$('.vqrbox');
   if(!C.live){box.innerHTML='<div class="vempty">Sem votação pelo celular. Configure no ⚙ ou conte com + e −</div>';p.q$('.vcap').textContent='';p.q$('.vurl').textContent='';return;}
-  try{const u=voteUrl();box.innerHTML=qrSvgOf(u);p.q$('.vcap').textContent='Aponte a câmera e vote';p.q$('.vurl').textContent=u.replace(/^https?:\/\//,'').replace(/\?.*$/,'');}catch(e){box.innerHTML='<div class="vempty">Link inválido</div>';}}
+  try{const u=voteUrl();box.innerHTML=qrSvgOf(u);p.q$('.vcap').textContent=p.cloud?'Aponte a câmera e responda':'Aponte a câmera e vote';p.q$('.vurl').textContent=u.replace(/^https?:\/\//,'').replace(/\?.*$/,'');}catch(e){box.innerHTML='<div class="vempty">Link inválido</div>';}}
 function drawLed(p){const v=Math.max(0,p.tleft),d1=Math.floor(v/10),d2=v%10;
   p.q$('.vledsvg').innerHTML='<defs><filter id="ledglow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="2.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>'+digitSvg(d1,22)+digitSvg(d2,128)+`<circle cx="236" cy="134" r="7" fill="${p.trun?'#ff2b1c':'#2a0c0a'}" ${p.trun?'filter="url(#ledglow)"':''}/>`;
   const led=p.q$('.vled');led.classList.toggle('run',!!p.trun);led.classList.toggle('blink',!!p.trun&&p.tleft<=10);
@@ -3444,8 +3496,8 @@ function sToggle(){SND=!SND;ls.set('snd',SND?1:0);if(SND)ac();sPaint();}
 function tStop(p){if(p.trun){clearInterval(p.trun);p.trun=null;}drawLed(p);}
 function tStart(p){if(p.trun||p.revealed())return;if(p.tleft<=0)p.tleft=TMAX;ac();p.trun=setInterval(()=>{p.tleft--;if(p.tleft<=0){p.tleft=0;tStop(p);sEnd();if(!p.revealed()&&p.rv)p.rv.classList.add('visible');}else sTick(p.tleft<=10);drawLed(p);},1000);drawLed(p);}
 function tReset(p){tStop(p);p.tleft=TMAX;drawLed(p);}
-async function publish(p){if(!C.fb)return;try{const r=await fetch(fbu('live/current'),{method:'PUT',body:JSON.stringify(p?{pid:p.pid,q:p.q,opts:p.opts,closed:p.closed,t:Date.now()}:{pid:null,t:Date.now()})});pubErr=r.ok?'':'⚠ Banco recusou ('+r.status+') · confira regras e endereço';if(r.ok)online=true;}catch(e){online=false;pubErr='';}P.forEach(paint);}
-async function pull(){const p=activeP;if(!C.fb||!p)return;try{const r=await fetch(fbu('votes'),{cache:'no-store'});if(!r.ok)throw 0;const v=(await r.json())||{};const c={};Object.values(v).forEach(u=>{const k=u&&u[p.pid];if(typeof k==='number')c[k]=(c[k]||0)+1});p.live=c;
+async function publish(p){if(!C.fb)return;try{const r=await fetch(fbu('live/current'),{method:'PUT',body:JSON.stringify(p?{pid:p.pid,type:p.cloud?'cloud':'poll',q:p.q,opts:p.opts,closed:p.closed,t:Date.now()}:{pid:null,t:Date.now()})});pubErr=r.ok?'':'⚠ Banco recusou ('+r.status+') · confira regras e endereço';if(r.ok)online=true;}catch(e){online=false;pubErr='';}P.forEach(paint);}
+async function pull(){const p=activeP;if(!C.fb||!p)return;try{const r=await fetch(fbu('votes'),{cache:'no-store'});if(!r.ok)throw 0;const v=(await r.json())||{};const c={};p.texts=[];Object.values(v).forEach(u=>{const k=u&&u[p.pid];if(typeof k==='number')c[k]=(c[k]||0)+1;else if(typeof k==='string'&&k.trim())p.texts.push(k);});p.live=c;
   if(online===false){online=true;publish(p);} online=true;}catch(e){online=false;}paint(p);}
 /* qual votação está na tela (decidido depois de cada troca de slide, sem corrida) */
 let sync=null;
@@ -3456,26 +3508,27 @@ function syncActive(){clearTimeout(sync);sync=setTimeout(()=>{const now=P.find(p
 P.forEach(p=>{
   new MutationObserver(syncActive).observe(p.sec,{attributes:true,attributeFilter:['class']});
   if(p.rv)new MutationObserver(()=>{const c=p.revealed();if(c)tStop(p);else if(p.tleft===0)p.tleft=TMAX;if(c!==p.closed){p.closed=c;if(activeP===p)publish(p);}paint(p);drawLed(p);}).observe(p.rv,{attributes:true,attributeFilter:['class']});
-  const bump=(k,d)=>{if(p.revealed())return;p.manual[k]=Math.max(0,(p.manual[k]||0)+d);ls.set('manual_'+p.pid,p.manual);paint(p);};
+  const bump=(k,d)=>{if(p.cloud||p.revealed())return;p.manual[k]=Math.max(0,(p.manual[k]||0)+d);ls.set('manual_'+p.pid,p.manual);paint(p);};
   p.bump=bump;
   p.sec.querySelectorAll('.vopt').forEach(o=>{const k=+o.dataset.k;o.addEventListener('click',e=>e.stopPropagation());
     o.querySelector('.vp').addEventListener('click',e=>{e.stopPropagation();bump(k,1);});o.querySelector('.vm').addEventListener('click',e=>{e.stopPropagation();bump(k,-1);});});
   const zb=p.q$('.vreset');let zt=null;
-  zb.addEventListener('click',async e=>{e.stopPropagation();if(!zb.classList.contains('warn')){zb.classList.add('warn');zb.textContent='Confirmar? clique de novo';zt=setTimeout(()=>{zb.classList.remove('warn');zb.textContent='Zerar votação';},3000);return;}
-    clearTimeout(zt);zb.classList.remove('warn');zb.textContent='Zerar votação';tReset(p);p.manual={};ls.set('manual_'+p.pid,{});p.live={};p.closed=false;
+  zb.addEventListener('click',async e=>{e.stopPropagation();if(!zb.classList.contains('warn')){zb.classList.add('warn');zb.textContent='Confirmar? clique de novo';zt=setTimeout(()=>{zb.classList.remove('warn');zb.textContent=p.cloud?'Zerar nuvem':'Zerar votação';},3000);return;}
+    clearTimeout(zt);zb.classList.remove('warn');zb.textContent=p.cloud?'Zerar nuvem':'Zerar votação';tReset(p);p.manual={};ls.set('manual_'+p.pid,{});p.live={};p.closed=false;p.mw=[];p.hid=[];p.texts=[];ls.set('mw_'+p.pid,[]);ls.set('hid_'+p.pid,[]);p.csig='';
     if(C.fb){try{const v=(await (await fetch(fbu('votes'),{cache:'no-store'})).json())||{};await Promise.all(Object.keys(v).filter(u=>v[u]&&p.pid in v[u]).map(u=>fetch(fbu('votes/'+u+'/'+p.pid),{method:'DELETE'})));}catch(e){}if(activeP===p)publish(p);}
     paint(p);});
   p.q$('.vtools').addEventListener('click',e=>e.stopPropagation());
   p.q$('.vqr').addEventListener('click',e=>e.stopPropagation());
   p.q$('.vgear').addEventListener('click',e=>{e.stopPropagation();$('vcfgLive').value=C.live;$('vcfgFb').value=C.fb;$('vcfg').classList.remove('hide');});
   p.q$('.vzoom').addEventListener('click',e=>{e.stopPropagation();zoomOpen();});
+  const ad=p.q$('.vadd');if(ad){ad.addEventListener('click',e=>e.stopPropagation());ad.addEventListener('keydown',e=>{e.stopPropagation();if(e.key==='Enter'&&ad.value.trim()&&!p.revealed()){p.mw.push(ad.value.trim());ls.set('mw_'+p.pid,p.mw);ad.value='';paint(p);ad.blur();}if(e.key==='Escape')ad.blur();});}
   p.q$('.vmute').addEventListener('click',e=>{e.stopPropagation();sToggle();});
   p.q$('.vled').addEventListener('click',e=>{e.stopPropagation();p.trun?tStop(p):tStart(p);});
   try{localStorage.removeItem('sem_hide_'+p.pid);}catch(e){}
   drawQR(p);paint(p);drawLed(p);});
 sPaint();
 /* teclado: A–D somam (Shift tira), T inicia/pausa, só no slide de votação ativo */
-document.addEventListener('keydown',e=>{const p=activeP;if(!p||e.ctrlKey||e.metaKey||e.altKey||e.key.length!==1)return;
+document.addEventListener('keydown',e=>{const p=activeP;if(!p||e.ctrlKey||e.metaKey||e.altKey||e.key.length!==1)return;if(e.target&&e.target.tagName==='INPUT')return;
   if(!$('vcfg').classList.contains('hide')||!$('qrzoom').classList.contains('hide'))return;
   const lk=e.key.toLowerCase(),i='abcd'.indexOf(lk);
   if(i>=0){e.preventDefault();e.stopPropagation();p.bump(i,e.shiftKey?-1:1);}else if(lk==='t'){e.preventDefault();e.stopPropagation();p.trun?tStop(p):tStart(p);}else if(lk==='m'){e.preventDefault();e.stopPropagation();sToggle();}},true);
