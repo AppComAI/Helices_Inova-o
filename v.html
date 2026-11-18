@@ -27,7 +27,7 @@ if(!uid){uid='u'+Math.random().toString(36).slice(2,10)+Date.now().toString(36);
 let cur=null,mine=null,drawn='';const $=id=>document.getElementById(id);
 function draw(){if(!cur||!cur.pid){$('aq').textContent='Conectado. A pergunta aparece quando o apresentador abrir o slide da votação.';$('ao').innerHTML='';return;}
  if(cur.type==='cloud'){drawCloud();return;}
- $('aq').textContent=cur.q;$('ao').innerHTML=cur.opts.map((o,i)=>`<button data-k="${i}" ${cur.closed?'disabled':''} class="${mine===i?'sel':''}"><b>${'ABCD'[i]}</b>${o}</button>`).join('');
+ $('aq').textContent=cur.q;$('ao').innerHTML=cur.opts.map((o,i)=>`<button data-k="${i}" ${cur.closed?'disabled':''} class="${mine===i?'sel':''}"><b>${cur.type==='game'?i+1:'ABCD'[i]}</b>${o}</button>`).join('');
  if(cur.closed){$('as').textContent='Votação encerrada. Veja o resultado na tela.';return;}
  $('ao').querySelectorAll('button').forEach(b=>b.onclick=async()=>{mine=+b.dataset.k;draw();
   try{const r=await fetch(u('votes/'+uid),{method:'PATCH',body:JSON.stringify({[cur.pid]:mine})});if(!r.ok)throw 0;$('as').textContent='Voto registrado. Você pode mudar até o resultado ser revelado.';}
